@@ -1,3 +1,0 @@
-[console_scripts]
-luck = luck.cli:main
-
