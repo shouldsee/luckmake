@@ -1,0 +1,357 @@
+["CommandStart", -1, 1588830116.6262195, "VERSION", "0.0.1"]
+[
+  "CommandText",
+  "set -euxo pipefail; echo hi",
+  "VERSION",
+  "0.0.1"
+]
+["CommandEnd", true, 1588830116.6279721, ["0.00s", 0.001752614974975586], "VERSION", "0.0.1"]
+[
+  "CommandResult",
+  "stdout",
+  [
+    "hi"
+  ],
+  "stderr",
+  [
+    "+ echo hi"
+  ],
+  "VERSION",
+  "0.0.1"
+]
+["CommandStart", -1, 1588831516.653802, "VERSION", "0.0.1"]
+[
+  "CommandText",
+  "set -euxo pipefail; echo hi",
+  "VERSION",
+  "0.0.1"
+]
+["CommandEnd", true, 1588831516.656755, ["0.00s", 0.002953052520751953], "VERSION", "0.0.1"]
+[
+  "CommandResult",
+  "stdout",
+  [
+    "hi"
+  ],
+  "stderr",
+  [
+    "+ echo hi"
+  ],
+  "VERSION",
+  "0.0.1"
+]
+["CommandStart", -1, 1588832254.9859884, "VERSION", "0.0.1"]
+[
+  "CommandText",
+  "set -euxo pipefail; echo hi",
+  "VERSION",
+  "0.0.1"
+]
+["CommandEnd", true, 1588832254.99367, ["0.01s", 0.007681608200073242], "VERSION", "0.0.1"]
+[
+  "CommandResult",
+  "stdout",
+  [
+    "hi"
+  ],
+  "stderr",
+  [
+    "+ echo hi"
+  ],
+  "VERSION",
+  "0.0.1"
+]
+["CommandStart", -1, 1588832271.5667174, "VERSION", "0.0.1"]
+[
+  "CommandText",
+  "set -euxo pipefail; echo hi",
+  "VERSION",
+  "0.0.1"
+]
+["CommandEnd", true, 1588832271.568563, ["0.00s", 0.0018455982208251953], "VERSION", "0.0.1"]
+[
+  "CommandResult",
+  "stdout",
+  [
+    "hi"
+  ],
+  "stderr",
+  [
+    "+ echo hi"
+  ],
+  "VERSION",
+  "0.0.1"
+]
+["CommandStart", -1, 1588832278.7529483, "VERSION", "0.0.1"]
+[
+  "CommandText",
+  "set -euxo pipefail; echo hi",
+  "VERSION",
+  "0.0.1"
+]
+["CommandEnd", true, 1588832278.7547688, ["0.00s", 0.0018205642700195312], "VERSION", "0.0.1"]
+[
+  "CommandResult",
+  "stdout",
+  [
+    "hi"
+  ],
+  "stderr",
+  [
+    "+ echo hi"
+  ],
+  "VERSION",
+  "0.0.1"
+]
+["CommandStart", -1, 1588832313.4773688, "VERSION", "0.0.1"]
+[
+  "CommandText",
+  "set -euxo pipefail; echo hi",
+  "VERSION",
+  "0.0.1"
+]
+["CommandEnd", true, 1588832313.4795208, ["0.00s", 0.002151966094970703], "VERSION", "0.0.1"]
+[
+  "CommandResult",
+  "stdout",
+  [
+    "hi"
+  ],
+  "stderr",
+  [
+    "+ echo hi"
+  ],
+  "VERSION",
+  "0.0.1"
+]
+["CommandStart", -1, 1588832828.2619143, "VERSION", "0.0.1"]
+[
+  "CommandText",
+  "set -euxo pipefail; echo hi",
+  "VERSION",
+  "0.0.1"
+]
+["CommandEnd", true, 1588832828.2637541, ["0.00s", 0.0018398761749267578], "VERSION", "0.0.1"]
+[
+  "CommandResult",
+  "stdout",
+  [
+    "hi"
+  ],
+  "stderr",
+  [
+    "+ echo hi"
+  ],
+  "VERSION",
+  "0.0.1"
+]
+["CommandStart", -1, 1588832838.010713, "VERSION", "0.0.1"]
+[
+  "CommandText",
+  "set -euxo pipefail; echo hi",
+  "VERSION",
+  "0.0.1"
+]
+["CommandEnd", true, 1588832838.01257, ["0.00s", 0.0018568038940429688], "VERSION", "0.0.1"]
+[
+  "CommandResult",
+  "stdout",
+  [
+    "hi"
+  ],
+  "stderr",
+  [
+    "+ echo hi"
+  ],
+  "VERSION",
+  "0.0.1"
+]
+["CommandStart", -1, 1588833237.3430421, "VERSION", "0.0.1"]
+[
+  "CommandText",
+  "set -euxo pipefail; echo hi",
+  "VERSION",
+  "0.0.1"
+]
+["CommandEnd", true, 1588833237.3449602, ["0.00s", 0.0019180774688720703], "VERSION", "0.0.1"]
+[
+  "CommandResult",
+  "stdout",
+  [
+    "hi"
+  ],
+  "stderr",
+  [
+    "+ echo hi"
+  ],
+  "VERSION",
+  "0.0.1"
+]
+["CommandStart", -1, 1588833269.0719995, "VERSION", "0.0.1"]
+[
+  "CommandText",
+  "set -euxo pipefail; echo hi",
+  "VERSION",
+  "0.0.1"
+]
+["CommandEnd", true, 1588833269.07395, ["0.00s", 0.0019505023956298828], "VERSION", "0.0.1"]
+[
+  "CommandResult",
+  "stdout",
+  [
+    "hi"
+  ],
+  "stderr",
+  [
+    "+ echo hi"
+  ],
+  "VERSION",
+  "0.0.1"
+]
+["CommandStart", -1, 1588833270.8786821, "VERSION", "0.0.1"]
+[
+  "CommandText",
+  "set -euxo pipefail; echo hi",
+  "VERSION",
+  "0.0.1"
+]
+["CommandEnd", true, 1588833270.8805935, ["0.00s", 0.0019114017486572266], "VERSION", "0.0.1"]
+[
+  "CommandResult",
+  "stdout",
+  [
+    "hi"
+  ],
+  "stderr",
+  [
+    "+ echo hi"
+  ],
+  "VERSION",
+  "0.0.1"
+]
+["CommandStart", -1, 1588833272.0651293, "VERSION", "0.0.1"]
+[
+  "CommandText",
+  "set -euxo pipefail; echo hi",
+  "VERSION",
+  "0.0.1"
+]
+["CommandEnd", true, 1588833272.067557, ["0.00s", 0.002427816390991211], "VERSION", "0.0.1"]
+[
+  "CommandResult",
+  "stdout",
+  [
+    "hi"
+  ],
+  "stderr",
+  [
+    "+ echo hi"
+  ],
+  "VERSION",
+  "0.0.1"
+]
+["CommandStart", -1, 1588833273.3644469, "VERSION", "0.0.1"]
+[
+  "CommandText",
+  "set -euxo pipefail; echo hi",
+  "VERSION",
+  "0.0.1"
+]
+["CommandEnd", true, 1588833273.3662689, ["0.00s", 0.0018219947814941406], "VERSION", "0.0.1"]
+[
+  "CommandResult",
+  "stdout",
+  [
+    "hi"
+  ],
+  "stderr",
+  [
+    "+ echo hi"
+  ],
+  "VERSION",
+  "0.0.1"
+]
+["CommandStart", -1, 1588833286.4627192, "VERSION", "0.0.1"]
+[
+  "CommandText",
+  "set -euxo pipefail; echo hi",
+  "VERSION",
+  "0.0.1"
+]
+["CommandEnd", true, 1588833286.464549, ["0.00s", 0.0018298625946044922], "VERSION", "0.0.1"]
+[
+  "CommandResult",
+  "stdout",
+  [
+    "hi"
+  ],
+  "stderr",
+  [
+    "+ echo hi"
+  ],
+  "VERSION",
+  "0.0.1"
+]
+["CommandStart", -1, 1588833308.6686563, "VERSION", "0.0.1"]
+[
+  "CommandText",
+  "set -euxo pipefail; echo hi",
+  "VERSION",
+  "0.0.1"
+]
+["CommandEnd", true, 1588833308.670576, ["0.00s", 0.0019197463989257812], "VERSION", "0.0.1"]
+[
+  "CommandResult",
+  "stdout",
+  [
+    "hi"
+  ],
+  "stderr",
+  [
+    "+ echo hi"
+  ],
+  "VERSION",
+  "0.0.1"
+]
+["CommandStart", -1, 1588833339.7327995, "VERSION", "0.0.1"]
+[
+  "CommandText",
+  "set -euxo pipefail; echo hi",
+  "VERSION",
+  "0.0.1"
+]
+["CommandEnd", true, 1588833339.7348626, ["0.00s", 0.0020630359649658203], "VERSION", "0.0.1"]
+[
+  "CommandResult",
+  "stdout",
+  [
+    "hi"
+  ],
+  "stderr",
+  [
+    "+ echo hi"
+  ],
+  "VERSION",
+  "0.0.1"
+]
+["CommandStart", -1, 1588833375.7342029, "VERSION", "0.0.1"]
+[
+  "CommandText",
+  "set -euxo pipefail; echo hi",
+  "VERSION",
+  "0.0.1"
+]
+["CommandEnd", true, 1588833375.736115, ["0.00s", 0.0019121170043945312], "VERSION", "0.0.1"]
+[
+  "CommandResult",
+  "stdout",
+  [
+    "hi"
+  ],
+  "stderr",
+  [
+    "+ echo hi"
+  ],
+  "VERSION",
+  "0.0.1"
+]
