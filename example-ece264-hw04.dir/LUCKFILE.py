@@ -1,22 +1,16 @@
-
-
 from luck.types import ExternalFileTask, LinkedTask, TStampedLocalTarget, LoggedShellCommand, rstrip
 
 
 WARNING = "-Wall -Wshadow --pedantic -Wno-unused-variable"
 ERROR = "-Wvla -Werror"
 TESTFALGS = "-DTEST_COUNTCHAR -DTEST_PRINTCOUNTS"
-GCC = "gcc -std=c99 -g {WARNING} {ERROR} {TESTFALGS}".format(**locals())
 
+GCC = "gcc -std=c99 -g {WARNING} {ERROR} {TESTFALGS}".format(**locals())
 
 SRCS = "main.c filechar.c".split()
 OBJS = [rstrip(x,'.c')+'.o' for x in SRCS]
 
 
-class script(LinkedTask):
-	def output(self): return TStampedLocalTarget('MAKE.py')
-	def run(self):
-		super().run()
 
 
 class hw04(LinkedTask):
@@ -66,3 +60,8 @@ class clean(LinkedTask):
 		LoggedShellCommand('rm -f hw04 *.o output* *.ident_yaml'.split())
 		super().run()
 
+
+# class script(LinkedTask):
+# 	def output(self): return TStampedLocalTarget('MAKE.py')
+# 	def run(self):
+# 		super().run()
