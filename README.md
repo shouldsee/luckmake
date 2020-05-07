@@ -1,4 +1,4 @@
-<img src="https://travis-ci.com/shouldsee/luck.svg?branch=master"><img>
+<a  href="https://travis-ci.com/shouldsee/luck"><img src="https://travis-ci.com/shouldsee/luck.svg?branch=master"><img></a>
 
 # LUCK: LUigi-based Compiling Kit 
 
@@ -13,25 +13,49 @@ check and resolve the dependency.
 This is so far a personal project that helped me understood how luigi works, but if anyone
 find this useful, feel free to write documentation / extension modules and make issues/PR.
 
-## Improvements:
+### Alternatives and Refs
 
-- **urur** shall I use f-string?
-- **urgent** get rid of `super().run()` for subclasses of LinkedTask
-- use "self.input().path" or "self.input()" ?
-- Add docs/
-- Performance is not tested at all.
-- Python is not the best language for writing a build system because of its poor portability.
-I am using python because it is more expressive than a static yaml/json file. It would be 
-great if we can write a parser in c/cpp/go to emulate a reduced version of python.
-- profiling gprof
-- dry run dependency graph
+- https://medium.com/@mattia512maldini/looking-for-a-makefile-alternative-6e7f795b5cad
+- https://alternativeto.net/software/gnu-make/
+- {name}: {stars}k, {comments}
+- go / python
+- go-task: 1.7k go (liked)
+- scons: 0.8k, python (tried, gave-up)
+- luigi: 13k, python (included, no DSL)
+- snakemake: 0.5k, python (similar, but use DSL)
+- galaxy: 0.7k python (use-xml)
+- waf: 0.078k, python
+- sake: 0.3k, python
+- redo: 1.4k, python (use-bash)
+- java / groovy 
+- gradle: 10.5k, groovy maybe? see bazel
+- maven: 2.1k, na,  xml-based
+- buck: 7.3k, java android-spec
+- c / cpp
+- cmake: na, cpp?
+- gnumake: na, no
+- premake: 1.6K, clang
+- makeme: 0.02k, clang
+- ninja build: 5.5k, c or cpp
+- other
+- ant: na, xml
+- rake: na, ruby, maybe
+- sbt: na, java/scala, maybe
+
+
 
 ## install 
+
+### Requires:
+
+- Python >= 3.5 
+- a modern version of pip
+
+### install source via pip 
 
 ```bash
 pip install luck@https://github.com/shouldsee/luck/tarball/master
 ```
-
 
 ## Example
 
@@ -105,6 +129,20 @@ class test1(LinkedTask):
 		LoggedShellCommand(['./'+self.input()[0].path, 'inputs/2016 > output2016','&&','diff','expected/expected16','output2016'])		
 		super().run()
 ```
+
+## Improvements:
+
+- [urg,perf] multi-worker build.. preferably a portable implementation
+- [urg,urg] shall I use f-string?
+- [sug,urg] get rid of `super().run()` for subclasses of LinkedTask
+- [sug] adding utility function for gdb upon exception
+- [sug] use "self.input().path" or "self.input()" ?
+- [doc] Add docs/
+- [port] Python is not the best language for writing a build system because of its poor portability.
+I am using python because it is more expressive than a static yaml/json file. It would be 
+great if we can write a parser in c/cpp/go to emulate a reduced version of python.
+- [sug] profiling gprof
+- [sug,ada] dry run dependency graph
 
 ### in-depth comparison
 
