@@ -1,3 +1,5 @@
+<img src="https://travis-ci.com/shouldsee/luck.svg?branch=master"><img>
+
 # LUCK: LUigi-based Compiling Kit 
 
 ## Overview:
