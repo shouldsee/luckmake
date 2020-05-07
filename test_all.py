@@ -1,10 +1,13 @@
 from path import Path
 from lsc.logged_shell_command import LoggedShellCommand as lsc
 import filecmp
+import os
 def test_ece264_example():
 	with Path('example-ece264-hw04.dir').realpath() as d:
 		fn = (d/ 'output2049').touch()
 		lsc(['luck clean'])
+		# print('[cwd]',os.getcwd())
+
 		assert not fn.isfile()
 		lsc(['luck testall'])
 		for idx in ['16','17','18','19']:

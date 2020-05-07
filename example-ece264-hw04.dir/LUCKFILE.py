@@ -53,7 +53,9 @@ class test4(LinkedTask):
 
 
 class testall(LinkedTask):
-	def requires(self):return [ script(), test1(),test2(),test3(), test4()]
+	def requires(self):return [ 
+	# script(), 
+	test1(),test2(),test3(), test4()]
 
 class clean(LinkedTask):
 	def run(self):
