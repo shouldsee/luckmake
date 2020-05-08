@@ -1,7 +1,8 @@
 #-*- coding: future_fstrings -*- 
 
 from .defer import (DelayedNameSpace, DNS, DNSUB)
-from .defer import (RuleNameSpace)
+from .defer import (RuleNameSpace,RNS)
+from .defer import  RuleNameSpace as RNS
 from .defer import (BaseRule, NoCacheRule)
 from .rule_stamp import (TimeSizeStampRule)
 # , RNS)

@@ -92,6 +92,7 @@ class RuleNameSpace(DNS):
 		return 
 
 
+
 class BaseRule(DelayedNameSpace):
 # class BaseRule():
 	_ddict_dont_call = True
