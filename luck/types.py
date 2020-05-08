@@ -2,7 +2,8 @@
 
 from .defer import (DelayedNameSpace, DNS, DNSUB)
 from .defer import (RuleNameSpace)
-from .defer import (Rule, NoCacheRule)
+from .defer import (BaseRule, NoCacheRule)
+from .rule_stamp import (TimeSizeStampRule)
 # , RNS)
 
 from .pattern import (AutoCmd, MakefilePattern)

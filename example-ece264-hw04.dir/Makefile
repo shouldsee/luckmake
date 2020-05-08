@@ -39,6 +39,6 @@ testall: test1 test2 test3 test4
 
 
 clean: # remove all machine generated files
-	rm -f hw04 *.o output??
+	rm -f hw04 *.o  *.ident_yaml output??
 
 
