@@ -1,51 +1,6 @@
 <a  href="https://travis-ci.com/shouldsee/luck"><img src="https://travis-ci.com/shouldsee/luck.svg?branch=master"><img></a>
 
-# LUCK: LUigi-based Compiling Kit for pdb-debuggable builds.
-
-## Overview:
-
-Makefile is traditional and is great. But makefile can be difficult to debug, interrupt. 
-In contrast, pdb module in python allows very easy high-level debugging as compared to gdb.
-Since my quick search did not reveal any obvious Python alternative to gnu-make, I decided
-to adapt the well-known pipeline manager [**luigi**](https://github.com/spotify/luigi) to 
-check and resolve the dependency.
-
-This is so far a personal project that helped me understood how luigi works, but if anyone
-find this useful, feel free to write documentation / extension modules and make issues/PR.
-
-### Alternatives and Refs
-
-- https://medium.com/@mattia512maldini/looking-for-a-makefile-alternative-6e7f795b5cad
-- https://alternativeto.net/software/gnu-make/
-- {name}: {stars}k, {comments}
-- go / python
-- go-task: 1.7k go (liked)
-- luigi: 13k, python (included, no DSL)
-- joblib: 2k, python  (persistent cache)
-- scons: 0.8k, python (DSL, high-level)
-- snakemake: 0.5k, python (similar, but use DSL)
-- galaxy: 0.7k python (use-xml)
-- waf: 0.078k, python
-- sake: 0.3k, python
-- redo: 1.4k, python (use-bash)
-- java / groovy 
-- gradle: 10.5k, groovy maybe? see bazel
-- maven: 2.1k, na,  xml-based
-- buck: 7.3k, java android-spec
-- c / cpp
-- cmake: na, cpp?
-- gnumake: na, no
-- premake: 1.6K, clang
-- makeme: 0.02k, clang
-- ninja build: 5.5k, c or cpp
-- other
-- ant: na, xml
-- rake: na, ruby, maybe
-- sbt: na, java/scala, maybe
-- not-compared
-- apache-airflow: too big
-
-
+# LUCK: the LUcky Compiling Kit for pdb-debuggable builds.
 
 ## install 
 
@@ -60,6 +15,48 @@ find this useful, feel free to write documentation / extension modules and make 
 pip install luck@https://github.com/shouldsee/luck/tarball/master
 ```
 
+[TBC] compile binaries
+
+## Documentation
+
+[TBC]
+
+## Overview:
+
+### Motivation
+
+Makefile is concise and robust, but can be hard to learn for non-experienced bash user, 
+due to its many unique operators. Since python is a much wider spread language than
+Makefile (need ref), porting Makefile syntax to Python would open up access to 
+make-powered reproducibility to these python-only users, without having to learn
+the syntax. 
+
+There are several dimensions to score a build system:
+
+1. learning cost: subjective and scenario-dependent
+  - Makefile:    easier for a bash user. less tutorial 
+  - LUCKFILE.py: no tutorial yet, only example available. easy for a python user
+2. coarseness: high-level or low-level
+  - Makefile:    dag level
+  - LUCKFILE.py: dag 
+3. interface:    cli? gui? web? diagnostic tools? easy to debug?
+  - Makefile:    many tools exist for static analysis. [gmd](https://www.cmcrossroads.com/article/dynamic-breakpoints-gnu-make-debugger) for [debugging](https://stackoverflow.com/a/26290571) (yet to try)
+  - LUCKFILE.py: simple cli only for now. pdb for debugging `import pdb;pdb.set_trace()`
+4. speed: for constructing dag and execution
+  - Makefile:    should be faster as is clang, multiprocessed
+  - LUCKFILE.py: single-process for now.
+5. persistence: whether result is saved to disk, and how easy to enter a corrupted state
+  - Makefile:    save mtime for persistence 
+  - LUCKFILE.py: use mtime+size or md5sum 
+6. portability: easy to install? backend for different platform?
+  - Makefile:    `sudo apt install make`
+  - LUCKFILE.py: `pip install luck@https://github.com/shouldsee/luck/tarball/master`0
+7. extensibility: how easy to write a plugin?
+  - Makefile:    possible embedded Scheme (.scm ) (need to learn LISP aside from Makefile)
+  - LUCKFILE.py: write python class/callable to inject dependency, same lang as LUCKFILE.py
+
+
+
 ## Example
 
 adapted from ECE264
@@ -68,16 +65,17 @@ while `make` looks for Makefile in current directory, `luck` looks for "LUCKFILE
 
 ```bash
 cd example-ece264-hw04.dir
-luck clean
-luck testall
+make clean
+make testall
+
+luck-build clean
+luck-build testall
 echo [FIN]
 ```
 
 Here is a side by side comparison of Makefile and LUCKFILE.py. 
-You would notice that LUCKFILE.py is significantly more verbose, but 
-there is definitely space for a more concise grammar. After all,
-writing python is not about saving FLOC but about saving documentation/communication.
-
+You would notice that LUCKFILE.py is significantly more verbose and have more quotes, but 
+there is definitely space for a more concise grammar. 
 
 [./example-ece264-hw04.dir/Makefile](./example-ece264-hw04.dir/Makefile)
 
@@ -100,8 +98,65 @@ test1: hw04
 
 ```
 
-
 [./example-ece264-hw04.dir/LUCKFILE.py](./example-ece264-hw04.dir/LUCKFILE.py)
+
+```python
+#-*- coding: future_fstrings -*- 
+from luck.types import *
+_ = '''
+
+namespace utility
+=======================
+RNS:    RuleNameSpace
+DNSUB:  DelayedNameSpaceSUBclass
+LSC:    LoggedShellCommand
+
+callable to execute during build time
+======================================
+pyfunc: 
+AutoCmd:
+MFP:    MakeFilePattern: 
+
+rule classes
+=========================
+BaseRule:
+TimeSizeStampRule:
+MD5StampRule:
+NoCacheRule:
+'''
+## create RuleNameSpace and set default
+ns = RNS.subclass('MainRNS')(ruleFactory=TimeSizeStampRule) 
+## create patterns namespace 
+patterns = DNSUB('PatternNS')
+
+WARNING = "-Wall -Wshadow --pedantic -Wno-unused-variable"
+ERROR = "-Wvla -Werror"
+TESTFALGS = "-DTEST_COUNTCHAR -DTEST_PRINTCOUNTS"
+
+GCC = f"gcc -std=c99 -g {WARNING} {ERROR} {TESTFALGS}"
+
+SRCS = "main.c filechar.c"
+OBJS = ' '.join([x[:-2]+'.o' for x in SRCS.split()]) ## pure python func!
+ns[OBJS] = (SRCS, AutoCmd(patterns))
+ns[SRCS] = (None,None, TimeSizeStampRule)
+
+patterns[0] = MakefilePattern(
+	'%.o','%.c', 
+	lambda x: LSC(f'{GCC} {TESTFALGS} -c {x.inputs[0]} -o {x.outputs[0]}'))
+
+ns['./hw04'] = (f'{OBJS}',
+	lambda c:LSC(f'''
+		{GCC} {TESTFALGS} {OBJS} -o {c.o[0]}
+		'''))
+### c.i, c.o instead of $< $@
+ns['test1'] = ('./hw04', lambda c:LSC(f'''
+	{c.i[0]} inputs/2016 > output16
+	diff output16 expected/expected16
+	echo [passed] test1
+	'''))
+```
+
+[./example-ece264-hw04.dir/v1.LUCKFILE.py](./example-ece264-hw04.dir/v1.LUCKFILE.py) *Older version*
 
 ```python
 from luck.types import ExternalFileTask, LinkedTask, TStampedLocalTarget, LoggedShellCommand, rstrip
@@ -150,3 +205,36 @@ great if we can write a parser in c/cpp/go to emulate a reduced version of pytho
 ### in-depth comparison
 
 [TBC]
+
+
+### Alternatives and Refs
+
+- https://medium.com/@mattia512maldini/looking-for-a-makefile-alternative-6e7f795b5cad
+- https://alternativeto.net/software/gnu-make/
+- {name}: {stars}k, {comments}
+- go / python
+- go-task: 1.7k go (liked)
+- luigi: 13k, python (included, no DSL)
+- joblib: 2k, python  (persistent cache)
+- scons: 0.8k, python (DSL, high-level)
+- snakemake: 0.5k, python (similar, but use DSL)
+- galaxy: 0.7k python (use-xml)
+- waf: 0.078k, python
+- sake: 0.3k, python
+- redo: 1.4k, python (use-bash)
+- java / groovy 
+- gradle: 10.5k, groovy maybe? see bazel
+- maven: 2.1k, na,  xml-based
+- buck: 7.3k, java android-spec
+- c / cpp
+- cmake: na, cpp?
+- gnumake: na, no
+- premake: 1.6K, clang
+- makeme: 0.02k, clang
+- ninja build: 5.5k, c or cpp
+- other
+- ant: na, xml
+- rake: na, ruby, maybe
+- sbt: na, java/scala, maybe
+- not-compared
+- apache-airflow: too big
