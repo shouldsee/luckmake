@@ -1,6 +1,6 @@
 <a  href="https://travis-ci.com/shouldsee/luck"><img src="https://travis-ci.com/shouldsee/luck.svg?branch=master"><img></a>
 
-# LUCK: LUigi-based Compiling Kit 
+# LUCK: LUigi-based Compiling Kit for pdb-debuggable builds.
 
 ## Overview:
 
@@ -20,8 +20,9 @@ find this useful, feel free to write documentation / extension modules and make 
 - {name}: {stars}k, {comments}
 - go / python
 - go-task: 1.7k go (liked)
-- scons: 0.8k, python (tried, gave-up)
 - luigi: 13k, python (included, no DSL)
+- joblib: 2k, python  (persistent cache)
+- scons: 0.8k, python (DSL, high-level)
 - snakemake: 0.5k, python (similar, but use DSL)
 - galaxy: 0.7k python (use-xml)
 - waf: 0.078k, python
@@ -41,6 +42,8 @@ find this useful, feel free to write documentation / extension modules and make 
 - ant: na, xml
 - rake: na, ruby, maybe
 - sbt: na, java/scala, maybe
+- not-compared
+- apache-airflow: too big
 
 
 
