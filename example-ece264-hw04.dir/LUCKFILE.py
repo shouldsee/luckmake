@@ -1,14 +1,15 @@
 #-*- coding: future_fstrings -*- 
 
 from luck.types import DNS,DNSUB,DelayedNameSpace
-from luck.types import Rule, NoCacheRule
-from luck.types import RuleNameSpace
+from luck.types import NoCacheRule, TimeSizeStampRule
+from luck.rule_stamp import MD5StampRule
 from luck.types import RuleNameSpace as RNS
 from luck.types import LSC
 from luck.types import MakefilePattern, AutoCmd
-from attrdict import AttrDict
-# class TStampRule
-ns = RNS.subclass('MainRNS')(ruleFactory=NoCacheRule)
+
+# ns = RNS.subclass('MainRNS')(ruleFactory=NoCacheRule)
+ns = RNS.subclass('MainRNS')(ruleFactory=TimeSizeStampRule)
+# ns = RNS.subclass('MainRNS')(ruleFactory=MD5StampRule)
 patterns = DNSUB('PatternNS')
 
 WARNING = "-Wall -Wshadow --pedantic -Wno-unused-variable"
@@ -20,6 +21,7 @@ GCC = f"gcc -std=c99 -g {WARNING} {ERROR} {TESTFALGS}"
 SRCS = "main.c filechar.c"
 OBJS = ' '.join([x[:-2]+'.o' for x in SRCS.split()])
 ns[OBJS] = (SRCS, AutoCmd(patterns))
+ns[SRCS] = (None,None, TimeSizeStampRule)
 
 patterns[0] = MakefilePattern(
 	'%.o','%.c', 
@@ -54,6 +56,16 @@ ns['./hw04'] = (f'{OBJS}',
 		{GCC} {TESTFALGS} {OBJS} -o {c.o[0]}
 		'''))
 
-ns[SRCS] = None
-# ns['test1'].build()
-ns['testall'].build()
+ns['clean'] = (None, 
+	lambda c: LSC('''
+		rm -f hw04 *.o *.ident_yaml output??
+		'''), NoCacheRule)
+
+if __name__ == '__main__':
+	ns['test1'].build()
+	ns['testall'].build()
+	from luck.cli import luck_main
+	luck_main(ns)
+
+
+# ns['clean'].build()

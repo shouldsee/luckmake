@@ -1,0 +1,8 @@
+- - __version__
+  - 0.0.2
+- - __class__.__name__
+  - TimeSizeStampRule
+- - to_ident
+  - - ./hw04
+    - 1588954534.4157293
+    - 13104

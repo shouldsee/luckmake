@@ -1,7 +1,7 @@
-luigi
+#luigi
 #luigi>=2.8.13
-pyyaml
 #pyyaml>=5.3.1
+pyyaml
 path.py
 lsc@https://github.com/shouldsee/lsc/tarball/0.0.1
 pytest

@@ -11,7 +11,7 @@ class DelayedNameSpace(AttrDict):
 		super().__setitem__(k,v)
 	def __getitem__(self,k):
 		debug  = 0
-		v = super().__getitem__(k)
+		v = self.get_raw(k)
 		if callable(v) and not getattr(v, '_ddict_dont_call', False):
 			_v = v()
 		else:
@@ -47,23 +47,67 @@ class DelayedNameSpace(AttrDict):
 			registry[name] = v
 		return v
 	def get_raw(self,k):
-		return super().get(k)
+		return super().__getitem__(k)
 DNS = DelayedNameSpace
 DNSUB = lambda *a:DelayedNameSpace.subclass(*a)()
 
+class RuleNameSpace(DNS):
+	def __init__(self,*a,**kw):
+	    super().__init__(*a,**kw)
+	    self.setdefault('ruleFactory', BaseRule)
 
-class Rule(DelayedNameSpace):
+	def copy(self):
+		res = type(self)(super().copy())
+		for k in res:
+			res.attach_rule(res[k])
+		return res
+	def attach_rule(self, rule):
+		'this is a one way attachment'
+		rule.namespace = self
+		# self.untouched()[rule.output] = True
+		super().__setitem__(rule.output, rule)
+
+	def add_rule(self, outputs, input, recipe, rule_class = None):
+		'''
+		Materialised Rules using a factory
+		'''
+		if input is None:
+			input = ''
+		if outputs is None:
+			assert 0
+		if recipe is None:
+			recipe = lambda c:None		
+		if rule_class is None:
+			rule_class = self.ruleFactory
+
+		for output in outputs.split():
+			rule = rule_class(output=output, input=input, recipe=recipe)
+			self.attach_rule(rule)
+			# rule = self._init_rule(output, input, recipe, rule_class)
+
+	def __setitem__(self, k, v):
+		if v is None:
+			v = (None,None,None)
+		self.add_rule(k, *v)
+		return 
+
+
+class BaseRule(DelayedNameSpace):
+# class BaseRule():
 	_ddict_dont_call = True
 	def __init__(self,*a,**kw):
 		super().__init__(*a,**kw)
 		self.setdefault('namespace',None)
+		self.setdefault('rebuilt', False)
+
 		self.setdefault('input',None)
 		self.setdefault('output',None)
 		self.setdefault('recipe',None)
+		# if self.recipe is not None:
+		self.get_raw("recipe")._ddict_dont_call = True
 
 	def __call__(self):
 		return self.build()
-
 
 	def inputs_mattered(self):
 		ns = self.get_raw('namespace')
@@ -75,16 +119,17 @@ class Rule(DelayedNameSpace):
 		return out
 
 	def build_inputs(self):
-		inputs = self.input.split()
+		# inputs = self.input.split()
 		ns = self.get_raw('namespace')
 		for input_mat in self.inputs_mattered():			
+			# print('[build_inputs]',input_mat.output, input_mat.check())
 			retcode = input_mat.build()
 		return 0
 
 	def check_inputs(self):
 		ret = True
 		for input_mat in self.inputs_mattered():
-			if not input.check():
+			if not input_mat.check():
 				ret = False
 				break
 		return ret
@@ -93,63 +138,31 @@ class Rule(DelayedNameSpace):
 		_ = '''
 		check whether this Rule needs update 
 		'''
-		return self.check_self() and self.check_inputs() 
+		return (not self['rebuilt']) and self.check_self() and self.check_inputs() 
 
 	def check_self(self):
 		raise NotImplementedError()
 
+	def build_after(self):
+		# print(f'[rebuilt]{self.output!r}')
+		self['rebuilt'] = True
+		return 0
+
 	def build(self):
 		self.res = None
-		if not self.check():		
+		if not self.check():
+			# self.build_before()
 			if self.build_inputs()!=0:
 				assert 0, f"Unable to build inputs for {self!r}"
 			recipe = self.get_raw('recipe')
 			self.res  = recipe( BuildRuleContext(o=self.output.split(), i=self.input.split()))
+
+			self.build_after()
+
 		else:
 			pass
 		return self
 
-class NoCacheRule(Rule):
+class NoCacheRule(BaseRule):
 	def check_self(self): return False
-# class Rule(Rule):
-# 	def check_self(self):
-# 		return False
-# RNS = Rule
-# NameSpace
 
-
-
-class RuleNameSpace(DNS):
-	def __init__(self,*a,**kw):
-	    super().__init__(*a,**kw)
-	    self.setdefault('ruleFactory', Rule)
-
-	def copy(self):
-		res = type(self)(super().copy())
-		for k in res:
-			res.attach_rule(res[k])
-		return res
-	def attach_rule(self, rule):
-		'this is a one way attachment'
-		rule.namespace = self
-		super().__setitem__(rule.output, rule)
-
-
-
-	def add_rule(self, outputs, input, recipe, rule_class = None):
-		'''
-		Materialised Rules using a factory
-		'''
-		if rule_class is None:
-			rule_class = self.ruleFactory
-
-		for output in outputs.split():
-			rule = rule_class(output=output, input=input, recipe=recipe or (lambda c:None))
-			self.attach_rule(rule)
-			# rule = self._init_rule(output, input, recipe, rule_class)
-
-	def __setitem__(self, k, v):
-		if v is None:
-			v = ('',lambda c:None)
-		self.add_rule(k, *v)
-		return 
