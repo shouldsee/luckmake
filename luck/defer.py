@@ -9,9 +9,17 @@ class DelayedNameSpace(AttrDict):
 		super().__init__(*a, **kw)
 	def __setitem__(self,k,v):
 		super().__setitem__(k,v)
+	def __getattr__(self,k ):
+		print(f'[getattr]{k!r}{self.__class__!r}')
+		return super().__getattr__(k)
+	def __getattribute__(self,k ):
+		print(f'[getattribute]{k!r}{type(self)!r}')
+		# print(f'[getattribute]{k!r}')
+		return super().__getattribute__(k)
 	def __getitem__(self,k):
 		debug  = 0
-		v = self.get_raw(k)
+		v = super().__getitem__(k)
+		# v = self.get_raw(k)
 		if callable(v) and not getattr(v, '_ddict_dont_call', False):
 			_v = v()
 		else:
@@ -59,11 +67,14 @@ class RuleNameSpace(DNS):
 	def copy(self):
 		res = type(self)(super().copy())
 		for k in res:
-			res.attach_rule(res[k])
+			if isinstance(res[k],BaseRule):
+				res.attach_rule(res[k])
 		return res
+
 	def attach_rule(self, rule):
 		'this is a one way attachment'
 		rule.namespace = self
+		print(f'[attaching]{type(self)!r}{type(rule).__name__}{type(rule)!r}')
 		# self.untouched()[rule.output] = True
 		super().__setitem__(rule.output, rule)
 
@@ -91,6 +102,7 @@ class RuleNameSpace(DNS):
 		self.add_rule(k, *v)
 		return 
 
+RNS = RuleNameSpace
 
 
 class BaseRule(DelayedNameSpace):
@@ -98,6 +110,7 @@ class BaseRule(DelayedNameSpace):
 	_ddict_dont_call = True
 	def __init__(self,*a,**kw):
 		super().__init__(*a,**kw)
+		# print(self.output)
 		self.setdefault('namespace',None)
 		self.setdefault('rebuilt', False)
 
