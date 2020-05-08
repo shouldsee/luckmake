@@ -15,6 +15,7 @@ if 1:
 			x = x[:-len(suf)]
 		return x
 
+
 # import pdb; pdb.set_trace()
 # from spiper.types import LoggedShellCommand
 
@@ -52,7 +53,9 @@ if 1:
 		return Path(input_ident_file)
 
 
-	class TStampedLocalTarget(luigi.LocalTarget):
+	class TStampedLocalTarget(luigi.LocalTarget, str):
+		def __str__(self):
+			return self.path
 		# def timestamp
 		def to_ident(self,):
 			stat = os_stat_safe(self.path)
@@ -120,7 +123,10 @@ if 1:
 			# return all( or [False]) and all([x.complete() for x in requires] or [False])
 			# map(lambda task:task.complete(), requires), False)
 
+		def run_body(self):
+			raise NotImplementedError(self.__class__)
 		def run(self):
+			self.run_body()
 			outputs = luigi.task.flatten(self.output())
 			[getattr(x,'ident_update',lambda x:None)() for x in outputs]
 			super().run()
@@ -130,8 +136,9 @@ if 1:
 	class ExternalFileTask(LinkedTask):
 		fn = luigi.Parameter()
 		def output(self): return TStampedLocalTarget(self.fn)
-		def run(self):
-			super().run(); 
+		def run_body(self):
+			return 0
+			# super().run(); 
 			if not self.complete(): 
 				# pdb.set_trace();
 				import pdb; pdb.set_trace()
