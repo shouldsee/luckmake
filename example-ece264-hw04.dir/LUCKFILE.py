@@ -1,69 +1,59 @@
-from luck.types import ExternalFileTask, LinkedTask, TStampedLocalTarget, LoggedShellCommand, rstrip
+#-*- coding: future_fstrings -*- 
 
+from luck.types import DNS,DNSUB,DelayedNameSpace
+from luck.types import Rule, NoCacheRule
+from luck.types import RuleNameSpace
+from luck.types import RuleNameSpace as RNS
+from luck.types import LSC
+from luck.types import MakefilePattern, AutoCmd
+from attrdict import AttrDict
+# class TStampRule
+ns = RNS.subclass('MainRNS')(ruleFactory=NoCacheRule)
+patterns = DNSUB('PatternNS')
 
 WARNING = "-Wall -Wshadow --pedantic -Wno-unused-variable"
 ERROR = "-Wvla -Werror"
 TESTFALGS = "-DTEST_COUNTCHAR -DTEST_PRINTCOUNTS"
 
-GCC = "gcc -std=c99 -g {WARNING} {ERROR} {TESTFALGS}".format(**locals())
+GCC = f"gcc -std=c99 -g {WARNING} {ERROR} {TESTFALGS}"
 
-SRCS = "main.c filechar.c".split()
-OBJS = [rstrip(x,'.c')+'.o' for x in SRCS]
+SRCS = "main.c filechar.c"
+OBJS = ' '.join([x[:-2]+'.o' for x in SRCS.split()])
+ns[OBJS] = (SRCS, AutoCmd(patterns))
 
+patterns[0] = MakefilePattern(
+	'%.o','%.c', 
+	lambda x: LSC(f'{GCC} {TESTFALGS} -c {x.inputs[0]} -o {x.outputs[0]}'))
 
+ns['test1'] = ('./hw04', lambda c:LSC(f'''
+	{c.i[0]} inputs/2016 > output16
+	diff output16 expected/expected16
+	echo [passed] test1
+	'''))
 
-
-class hw04(LinkedTask):
-	requires = lambda self: [ExternalFileTask('main.c'),ExternalFileTask('filechar.c')]
-	output   = lambda self: TStampedLocalTarget('hw04')
-	def run(self): 
-		LoggedShellCommand([GCC,   [x.path for x in self.input()], '-o', self.output().path]); 
-		super().run()
-
-
-class test1(LinkedTask):
-	requires = lambda self: [hw04()]
-	output = lambda self: TStampedLocalTarget('output2016.passed')
-	def run(self):
-		LoggedShellCommand(['./'+self.input()[0].path, 'inputs/2016 > output2016','&&','diff','expected/expected16','output2016'])		
-		super().run()
+ns['test2'] = ('./hw04', lambda c:LSC(f'''
+	{c.i[0]} inputs/2017 > output17
+	diff output17 expected/expected17
+	'''))
 
 
-class test2(LinkedTask):
-	requires = lambda self: [hw04()]
-	output = lambda self: TStampedLocalTarget('output2017.passed')
-	def run(self):
-		LoggedShellCommand(['./'+self.input()[0].path, 'inputs/2017 > output2017','&&','diff','expected/expected17','output2017'])		
-		super().run()
+ns['test3'] = ('./hw04', lambda c:LSC(f'''
+	{c.i[0]} inputs/2018 > output18
+	diff output18 expected/expected18
+	'''))
 
-class test3(LinkedTask):
-	requires = lambda self: [hw04()]
-	output = lambda self: TStampedLocalTarget('output2018.passed')
-	def run(self):
-		LoggedShellCommand(['./'+self.input()[0].path, 'inputs/2018 > output2018','&&','diff','expected/expected18','output2018'])		
-		super().run()
+ns['test4'] = ('./hw04', lambda c:LSC(f'''
+	{c.i[0]} inputs/2019 > output19
+	diff output19 expected/expected19
+	'''))
 
+ns['testall'] = ('test1 test2 test3 test4', None)
 
-class test4(LinkedTask):
-	requires = lambda self: [hw04()]
-	output = lambda self: TStampedLocalTarget('output2019.passed')
-	def run(self):
-		LoggedShellCommand(['./'+self.input()[0].path, 'inputs/2019 > output2019','&&','diff','expected/expected19','output2019'])		
-		super().run()
+ns['./hw04'] = (f'{OBJS}',
+	lambda c:LSC(f'''
+		{GCC} {TESTFALGS} {OBJS} -o {c.o[0]}
+		'''))
 
-
-class testall(LinkedTask):
-	def requires(self):return [ 
-	# script(), 
-	test1(),test2(),test3(), test4()]
-
-class clean(LinkedTask):
-	def run(self):
-		LoggedShellCommand('rm -f hw04 *.o output* *.ident_yaml'.split())
-		super().run()
-
-
-# class script(LinkedTask):
-# 	def output(self): return TStampedLocalTarget('MAKE.py')
-# 	def run(self):
-# 		super().run()
+ns[SRCS] = None
+# ns['test1'].build()
+ns['testall'].build()
