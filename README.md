@@ -34,31 +34,53 @@ the syntax.
 There are several dimensions to score a build system:
 
 1. learning cost: subjective and scenario-dependent
-  - Makefile:    easier for a bash user. less tutorial 
-  - LUCKFILE.py: no tutorial yet, only example available. easy for a python user
+    - Makefile:    easier for a bash user. less tutorial 
+    - LUCKFILE.py: no tutorial yet, only example available. easy for a python user
 2. coarseness: high-level or low-level
-  - Makefile:    dag level
-  - LUCKFILE.py: dag 
+    - Makefile:    dag level
+    - LUCKFILE.py: dag 
 3. interface:    cli? gui? web? diagnostic tools? easy to debug?
-  - Makefile:    many tools exist for static analysis. [gmd](https://www.cmcrossroads.com/article/dynamic-breakpoints-gnu-make-debugger) for [debugging](https://stackoverflow.com/a/26290571) (yet to try)
-  - LUCKFILE.py: simple cli only for now. pdb for debugging `import pdb;pdb.set_trace()`
+    - Makefile:    many tools exist for static analysis. [gmd](https://www.cmcrossroads.com/article/dynamic-breakpoints-gnu-make-debugger) for [debugging](https://stackoverflow.com/a/26290571) (yet to try)
+    - LUCKFILE.py: simple cli only for now. pdb for debugging `import pdb;pdb.set_trace()`
 4. speed: for constructing dag and execution
-  - Makefile:    should be faster as is clang, multiprocessed
-  - LUCKFILE.py: single-process for now.
+    - Makefile:    should be faster as is clang, multiprocessed
+    - LUCKFILE.py: single-process for now.
 5. persistence: whether result is saved to disk, and how easy to enter a corrupted state
-  - Makefile:    save mtime for persistence 
-  - LUCKFILE.py: use mtime+size or md5sum 
+    - Makefile:    save mtime for persistence 
+    - LUCKFILE.py: use mtime+size or md5sum 
 6. portability: easy to install? backend for different platform?
-  - Makefile:    `sudo apt install make`
-  - LUCKFILE.py: `pip install luck@https://github.com/shouldsee/luck/tarball/master`0
+    - Makefile:    `sudo apt install make`
+    - LUCKFILE.py: `pip install luck@https://github.com/shouldsee/luck/tarball/master`0
 7. extensibility: how easy to write a plugin?
-  - Makefile:    possible embedded Scheme (.scm ) (need to learn LISP aside from Makefile)
-  - LUCKFILE.py: write python class/callable to inject dependency, same lang as LUCKFILE.py
+    - Makefile:    possible embedded Scheme (.scm ) (need to learn LISP aside from Makefile)
+    - LUCKFILE.py: write python class/callable to inject dependency, same lang as LUCKFILE.py
 8. relative or absolute path:
-  - Makefile:    NA
-  - LUCKFILE.py: NA
+    - Makefile:    NA
+    - LUCKFILE.py: NA
 
+## Sciprting Syntax
 
+```
+
+namespace utility
+=======================
+RNS:    RuleNameSpace
+DNSUB:  DelayedNameSpaceSUBclass
+LSC:    LoggedShellCommand
+
+callable to execute during build time
+======================================
+pyfunc: 
+AutoCmd:
+MFP:    MakeFilePattern: 
+
+rule classes
+=========================
+BaseRule:
+TimeSizeStampRule:
+MD5StampRule:
+NoCacheRule:
+```
 
 ## Example
 
@@ -76,9 +98,19 @@ luck-build testall
 echo [FIN]
 ```
 
+### charcount
+
+```
+1860 example-ece264-hw04.dir/LUCKFILE.py
+2671 example-ece264-hw04.dir/v1.LUCKFILE.py
+ 895 example-ece264-hw04.dir/Makefile
+5426 total
+```
+
 Here is a side by side comparison of Makefile and LUCKFILE.py. 
 You would notice that LUCKFILE.py is significantly more verbose and have more quotes, but 
 there is definitely space for a more concise grammar. 
+
 
 [./example-ece264-hw04.dir/Makefile](./example-ece264-hw04.dir/Makefile)
 
@@ -106,27 +138,6 @@ test1: hw04
 ```python
 #-*- coding: future_fstrings -*- 
 from luck.types import *
-_ = '''
-
-namespace utility
-=======================
-RNS:    RuleNameSpace
-DNSUB:  DelayedNameSpaceSUBclass
-LSC:    LoggedShellCommand
-
-callable to execute during build time
-======================================
-pyfunc: 
-AutoCmd:
-MFP:    MakeFilePattern: 
-
-rule classes
-=========================
-BaseRule:
-TimeSizeStampRule:
-MD5StampRule:
-NoCacheRule:
-'''
 ## create RuleNameSpace and set default
 ns = RNS.subclass('MainRNS')(ruleFactory=TimeSizeStampRule) 
 ## create patterns namespace 
