@@ -54,6 +54,9 @@ There are several dimensions to score a build system:
 7. extensibility: how easy to write a plugin?
   - Makefile:    possible embedded Scheme (.scm ) (need to learn LISP aside from Makefile)
   - LUCKFILE.py: write python class/callable to inject dependency, same lang as LUCKFILE.py
+8. relative or absolute path:
+  - Makefile:    NA
+  - LUCKFILE.py: NA
 
 
 
@@ -154,6 +157,10 @@ ns['test1'] = ('./hw04', lambda c:LSC(f'''
 	diff output16 expected/expected16
 	echo [passed] test1
 	'''))
+
+if __name__ == '__main__':
+	from luck.cli import luck_main
+	luck_main(ns)
 ```
 
 [./example-ece264-hw04.dir/v1.LUCKFILE.py](./example-ece264-hw04.dir/v1.LUCKFILE.py) *Older version*

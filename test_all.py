@@ -3,37 +3,46 @@ from lsc.logged_shell_command import LoggedShellCommand as lsc
 import filecmp
 import os
 def test_ece264_example():
-	with Path('example-ece264-hw04.dir').realpath() as d:
-		fn = (d/ 'output2049').touch()
-		lsc(['luck clean'])
-		# print('[cwd]',os.getcwd())
-
-		assert not fn.isfile()
-		lsc(['luck testall'])
-		for idx in ['16','17','18','19']:
-			out = 'output20%s'%idx
-			exp = 'expected/expected%s'%idx
-			assert filecmp.cmp(out, exp),(out,exp)
-		lsc(['luck clean'])
-		from pprint import pprint
-		import sys
-		# sys.stderr.write(repr(d.listdir()))
-		out = sorted(Path('').glob('*'))
-		with open('/tmp/list','w') as f:
-			pprint(out, f)
-	
-		exp = [Path('LICENSE'),
-		 Path('LUCKFILE.py'),
-		 Path('Makefile'),
-		 Path('README.md'),
-		 Path('__pycache__'),
-		 Path('expected'),
-		 Path('filechar.c'),
-		 Path('inputs'),
-		 Path('main.c'),
-		 Path('out.txt')]
+	# assert 0,(os.getcwd())
+	with Path(__file__).realpath().dirname() as d:
+		with Path('example-ece264-hw04.dir').realpath() as d:
+			fn = (d/ 'main.o').touch()
+			lsc(['luck-build clean'])
+			# print('[cwd]',os.getcwd()
+			assert not fn.isfile()
+			lsc(['luck-build testall'])
+			for idx in ['16','17','18','19']:
+				out = 'output%s'%idx
+				exp = 'expected/expected%s'%idx
+				assert filecmp.cmp(out, exp),(out,exp)
+			lsc(['luck-build clean'])
+			from pprint import pprint
+			import sys
+			# sys.stderr.write(repr(d.listdir()))
+			out = sorted(Path('').glob('*'))
+			with open('/tmp/list','w') as f:
+				pprint(out, f)
 		
-		assert out==exp,pprint([out,exp])
+			exp = \
+[Path('LICENSE'),
+  Path('LUCKFILE.py'),
+  Path('Makefile'),
+  Path('README-example.py'),
+  Path('README.md'),
+  Path('__pycache__'),
+  Path('_luck'),
+  Path('expected'),
+  Path('filechar.c'),
+  Path('inputs'),
+  Path('luck'),
+  Path('main.c'),
+  Path('out.txt'),
+  Path('output2049'),
+  Path('v1.LUCKFILE.py'),
+  Path('v1E.LUCKFILE.py')]
+
+			
+			assert out==exp,pprint([out,exp])
 
 
 	# lsc(['bash ./example-ece264-hw04.sh'])

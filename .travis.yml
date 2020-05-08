@@ -16,6 +16,7 @@ install:
 script:
   - python -V
   - pip install .
+  - bash test.sh
   - pytest .
   # - python test.py --all
   # - ls -lhtr /deps/*
