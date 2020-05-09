@@ -4,7 +4,7 @@ cd example-ece264-hw04.dir
 make clean
 make testall
 
-luck-build clean
-luck-build testall
+luckbd clean
+luckbd testall
 # false
 echo [FIN]

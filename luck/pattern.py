@@ -1,4 +1,4 @@
-#-*- coding: future_fstrings -*- 
+
 from .header import AttrDict
 
 

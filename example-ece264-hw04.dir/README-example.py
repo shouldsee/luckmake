@@ -1,4 +1,4 @@
-#-*- coding: future_fstrings -*- 
+
 from luck.types import *
 _ = '''
 

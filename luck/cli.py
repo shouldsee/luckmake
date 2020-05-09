@@ -2,7 +2,15 @@
 
 import sys,os
 import argparse
+from luck.header import __version__
+def print_version():
+	if '--version' in sys.argv or '-V' in sys.argv:		
+	# if args.version == True:
+		print(__version__)
+		sys.exit(0)
+	return 0
 def luck_main(ns=None):
+	print_version()
 	parser,sub = get_parser()
 	args = parser.parse_args()
 	# import pdb; pdb.set_trace()
@@ -10,6 +18,7 @@ def luck_main(ns=None):
 		luck_build_main(args, ns)
 
 def luck_build_main(args=None, ns = None):
+	print_version()
 	if args is None:
 		build_parser = get_parser()[1]
 		build_parser.prog = build_parser.prog.rsplit(None,1)[0]
@@ -58,6 +67,9 @@ def get_parser():
 	build_parser.add_argument('--abs-target',help='the full url to the target',
 		required=False)
 	build_parser.add_argument('--pdb',help='run post-mortem pdb',
+	    default=False, action="store_true")
+	for p in [parser,build_parser]:
+		p.add_argument('-V','--version',help='print version',
 	    default=False, action="store_true")
 	return parser, build_parser
 

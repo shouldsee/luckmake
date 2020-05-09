@@ -1,4 +1,4 @@
-#-*- coding: future_fstrings -*- 
+
 from luck.shorts import RNS,DNS,ACMD,MFP,LSC
 from luck.types import TimeSizeStampRule as RULE
 from luck.types import NoCacheRule

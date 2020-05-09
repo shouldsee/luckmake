@@ -7,7 +7,7 @@ from distutils.core import setup
 import os,glob,sys
 config = dict(
 	name='luck',
-	version = '0.0.3',
+	version = '0.0.4',
         packages=['luck'],
 	include_package_data=True,
 	license='MIT',
@@ -25,8 +25,8 @@ config = dict(
 	],
     entry_points={
         "console_scripts": [
-            "luck=luck.cli:luck_main",
-            "luck-build=luck.cli:luck_build_main",
+            "pyluck=luck.cli:luck_main",
+            "pyluckbd=luck.luck_build_main:luck_build_main",
             ]},	
 
 )
