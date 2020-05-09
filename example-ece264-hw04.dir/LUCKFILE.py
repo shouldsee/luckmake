@@ -1,4 +1,3 @@
-#-*- coding: future_fstrings -*- 
 
 # from luck.types import RuleNameSpace as RNS
 # from luck.types import DelayedNameSpace as DNS
@@ -69,8 +68,8 @@ NoCacheRule.M(
 		rm -f hw04 *.o *.ident_yaml output??
 		'''),)
 
-for k,v in ns.items():
-	print(k,type(v))
+# for k,v in ns.items():
+# 	print(k,type(v))
 
 if __name__ == '__main__':
 	from luck.cli import luck_main

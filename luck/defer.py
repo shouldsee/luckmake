@@ -1,4 +1,4 @@
-#-*- coding: future_fstrings -*- 
+
 from .header import AttrDict, RuleNotDefined
 from .header import SetAttrDenied
 class BuildRuleContext(AttrDict):
@@ -21,12 +21,12 @@ class DelayedNameSpace(AttrDict):
 	def __setitem__(self,k,v):
 		super().__setitem__(k,v)
 	def __getattr__(self,k ):
-		print(f'[getattr]{k!r}{self.__class__!r}')
+		# if debug: print(f'[getattr]{k!r}{self.__class__!r}')
 		return super().__getattr__(k)
 	def __getattribute__(self,k ):
-		print(f'[getattribute]{k!r}{type(self)!r}')
-		# print(f'[getattribute]{k!r}')
+		# print(f'[getattribute]{k!r}{type(self)!r}')
 		return super().__getattribute__(k)
+		
 	def __getitem__(self,k):
 		v = super().__getitem__(k)
 		return dns_getitem(k, v)
@@ -77,7 +77,7 @@ class RuleNameSpace(DNS):
 	def attach_rule(self, rule):
 		'this is a one way attachment'
 		rule['namespace'] = self
-		print(f'[attaching]{type(self)!r}{type(rule).__name__}{type(rule)!r}')
+		# print(f'[attaching]{type(self)!r}{type(rule).__name__}{type(rule)!r}')
 		# self.untouched()[rule.output] = True
 		super().__setitem__(rule.output, rule)
 

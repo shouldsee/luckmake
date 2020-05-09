@@ -1,4 +1,4 @@
-#-*- coding: future_fstrings -*- 
+
 
 from .defer import (DelayedNameSpace, DNS, DNSUB)
 from .defer import (RuleNameSpace, RNS)

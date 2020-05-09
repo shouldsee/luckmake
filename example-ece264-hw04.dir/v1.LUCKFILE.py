@@ -1,4 +1,4 @@
-#-*- coding: future_fstrings -*- 
+
 from luck.types import ExternalFileTask, LinkedTask, TStampedLocalTarget, LoggedShellCommand, rstrip
 
 def expand_defer(x):

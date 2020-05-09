@@ -2,20 +2,36 @@
 
 # LUCK: the LUcky Compiling Kit for pdb-debuggable builds.
 
-## install 
+## Install 
 
-### Requires:
 
-- Python >= 3.5 
-- a modern version of pip
+### install binary
 
-### install source via pip 
+#### Requires
+
+- A linux machine compatible with the binary
+- import: need to manage `sys.path` manually. $PWD is already in sys.path
+
 
 ```bash
-pip install luck@https://github.com/shouldsee/luck/tarball/master
+curl -sL -o luck https://github.com/shouldsee/luck/releases/download/0.0.4/luck_0-0-4_Linux-4-19-118-0419118-generic-x86-64-with-Ubuntu-16-04-xenial && chmod +x luck
+curl -sL -o luckbd https://github.com/shouldsee/luck/releases/download/0.0.4/luck_0-0-4_Linux-4-19-118-0419118-generic-x86-64-with-Ubuntu-16-04-xenial && chmod +x luckbd
+./luck --help
+./luckbd --help
 ```
 
-[TBC] compile binaries
+### install python scripts
+
+#### Requires
+
+- Python >= 3.7
+- use `pyluck`, `pyluckbd` instead
+
+```bash
+python3.7 -m pip install luck@https://github.com/shouldsee/luck/tarball/master
+pyluck --help
+pyluckbd --help
+```
 
 ## Documentation [TBC]
 
@@ -61,7 +77,7 @@ There are several dimensions to score a build system:
 ### CLI help:
 
 ```
-usage: luck-build [-h] [--abs-target ABS_TARGET] [--pdb] target
+usage: luckbd [-h] [--abs-target ABS_TARGET] [--pdb] [-V] target
 
 positional arguments:
   target                the target within the namespace
@@ -71,6 +87,7 @@ optional arguments:
   --abs-target ABS_TARGET
                         the full url to the target
   --pdb                 run post-mortem pdb
+  -V, --version         print version
 ```
 
 ## Sciprting Syntax
@@ -127,8 +144,8 @@ cd example-ece264-hw04.dir
 make clean
 make testall
 
-luck-build clean
-luck-build testall
+luckbd clean
+luckbd testall
 echo [FIN]
 ```
 
@@ -173,7 +190,6 @@ test1: hw04
 
 
 ```python
-#-*- coding: future_fstrings -*- 
 from luck.shorts import RNS,DNS,ACMD,MFP,LSC
 from luck.types import TimeSizeStampRule as RULE
 from luck.types import NoCacheRule
@@ -223,7 +239,6 @@ if __name__ == '__main__':
 [./example-ece264-hw04.dir/LUCKFILE_syntax_A.py](./example-ece264-hw04.dir/LUCKFILE_syntax_A.py)
 
 ```python
-#-*- coding: future_fstrings -*- 
 from luck.types import *
 ## create RuleNameSpace and set default
 ns = RNS.subclass('MainRNS')(ruleFactory=TimeSizeStampRule) 
@@ -305,13 +320,19 @@ great if we can write a parser in c/cpp/go to emulate a reduced version of pytho
 - [sug,ada] dry run dependency graph
 - [doc] Add docs/
 - [doc] automate README.md generation.
+- 0.0.4
+    - provide "luck", "luckbd" in binary, built with pyinstaller
+    - provide "pyluck", "pyluckbd" for python3.7
+    - rename "luck-build" to "pyluckbd"
+    - stripped heading `# -*- coding: future_fstrings -*-`
+    - now requires python3.7 for f-strings
 - 0.0.3
     - added `luck-build --pdb`
     - added modifier syntax and `.M` methods
     - added `luck.shorts` for shortcuts, and remove all shortcuts from `luck.types`.
 - not required in new syntaxes since 0.0.2
 	- ~~[urg,urg] shall I use f-string?~~  now depends on `future-fstrings`  
-	and heading `#-*- coding: future_fstrings -*- `
+	and heading `# -*- coding: future_fstrings -*- `
     - ~~[sug,urg] get rid of `super().run()` for subclasses of LinkedTask~~
     - [sug] use "self.input().path" or "self.input()" ?
 

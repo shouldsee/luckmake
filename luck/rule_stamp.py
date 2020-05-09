@@ -1,4 +1,4 @@
-#-*- coding: future_fstrings -*- 
+
 
 from .header import Path, PACKAGE_NAME, __version__
 from .header import (_dumps,_loads,os_stat_safe)
