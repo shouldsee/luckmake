@@ -13,12 +13,23 @@
 - import: `sys.path` in `LUCKFILE.py` will be provided by the `luckbd` binary 
 and not the system python installation.
 
+#### from github release
+
 ```bash
 curl -sL -o luck https://github.com/shouldsee/luck/releases/download/0.0.4/luck && chmod +x luck
 curl -sL -o luckbd https://github.com/shouldsee/luck/releases/download/0.0.4/luckbd && chmod +x luckbd
 sudo ln -f luck luckbd -t /usr/local/bin
 ./luck --help
 ./luckbd --help
+```
+
+#### from github tarball (master or tag)
+
+```bash
+TAG=master
+curl -sL https://github.com/shouldsee/luck/archive/${TAG}.tar.gz -o luck-${TAG}.tar.gz
+tar -xvzf luck-${TAG}.tar.gz
+cd luck-${TAG}/ && make install PREFIX=$HOME/.local
 ```
 
 ### install python scripts

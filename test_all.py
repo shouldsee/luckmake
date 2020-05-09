@@ -14,15 +14,15 @@ def test_ece264_example():
 	with (Path(__file__).realpath().dirname()/'example-ece264-hw04.dir') as d:
 		# with Path('example-ece264-hw04.dir').realpath() as d:
 		fn = (d/ 'main.o').touch()
-		lsc(['luckbd clean'])
+		lsc(['pyluckbd clean'])
 		# print('[cwd]',os.getcwd()
 		assert not fn.isfile()
-		lsc(['luckbd testall'])
+		lsc(['pyluckbd testall'])
 		for idx in ['16','17','18','19']:
 			out = 'output%s'%idx
 			exp = 'expected/expected%s'%idx
 			assert filecmp.cmp(out, exp),(out,exp)
-		lsc(['luckbd clean'])
+		lsc(['pyluckbd clean'])
 		from pprint import pprint
 		import sys
 		# sys.stderr.write(repr(d.listdir()))
