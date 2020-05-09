@@ -34,8 +34,8 @@ def get_default_namespace(abs_target):
 		raise NotImplementedError
 	else:
 		sys.path.insert(0,'')
-		import LUCKFILE
-		return LUCKFILE.ns
+		mod = __import__('LUCKFILE')
+		return mod.ns
 
 
 # if __name__ == '__main__':
