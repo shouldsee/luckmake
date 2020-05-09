@@ -20,7 +20,7 @@ def get_exe_name(target,src):
 
 for target, src in [
   ('luck',      'luck/cli.py',), 
-  ('luckbd','luck/luck_build_main.py')]:
+  ('luckbd',    'luck/luck_build_main.py')]:
   exe_name = get_exe_name(target,src)
   a = Analysis([src],
                pathex=['/data/local/repos/luck'],
@@ -43,7 +43,6 @@ for target, src in [
                win_private_assemblies=False,
                cipher=block_cipher,
                noarchive=False,
-               #distpath='./bin',
                )
   pyz = PYZ(a.pure, a.zipped_data,
                cipher=block_cipher)

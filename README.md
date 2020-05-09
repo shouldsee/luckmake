@@ -10,12 +10,13 @@
 #### Requires
 
 - A linux machine compatible with the binary
-- import: need to manage `sys.path` manually. $PWD is already in sys.path
-
+- import: `sys.path` in `LUCKFILE.py` will be provided by the `luckbd` binary 
+and not the system python installation.
 
 ```bash
-curl -sL -o luck https://github.com/shouldsee/luck/releases/download/0.0.4/luck_0-0-4_Linux-4-19-118-0419118-generic-x86-64-with-Ubuntu-16-04-xenial && chmod +x luck
-curl -sL -o luckbd https://github.com/shouldsee/luck/releases/download/0.0.4/luck_0-0-4_Linux-4-19-118-0419118-generic-x86-64-with-Ubuntu-16-04-xenial && chmod +x luckbd
+curl -sL -o luck https://github.com/shouldsee/luck/releases/download/0.0.4/luck && chmod +x luck
+curl -sL -o luckbd https://github.com/shouldsee/luck/releases/download/0.0.4/luckbd && chmod +x luckbd
+sudo ln -f luck luckbd -t /usr/local/bin
 ./luck --help
 ./luckbd --help
 ```
@@ -45,32 +46,8 @@ Makefile (need ref), porting Makefile syntax to Python would open up access to
 make-powered reproducibility to these python-only users, without having to learn
 the syntax. 
 
-There are several dimensions to score a build system:
-
-1. learning cost: subjective and scenario-dependent
-    - Makefile:    easier for a bash user. less tutorial 
-    - LUCKFILE.py: no tutorial yet, only example available. easy for a python user
-2. coarseness: high-level or low-level
-    - Makefile:    dag level
-    - LUCKFILE.py: dag 
-3. interface:    cli? gui? web? diagnostic tools? easy to debug?
-    - Makefile:    many tools exist for static analysis. [gmd](https://www.cmcrossroads.com/article/dynamic-breakpoints-gnu-make-debugger) for [debugging](https://stackoverflow.com/a/26290571) (yet to try)
-    - LUCKFILE.py: simple cli only for now. pdb for debugging `import pdb;pdb.set_trace()`
-4. speed: for constructing dag and execution
-    - Makefile:    should be faster as is clang, multiprocessed
-    - LUCKFILE.py: single-process for now.
-5. persistence: whether result is saved to disk, and how easy to enter a corrupted state
-    - Makefile:    save mtime for persistence 
-    - LUCKFILE.py: use mtime+size or md5sum 
-6. portability: easy to install? backend for different platform?
-    - Makefile:    `sudo apt install make`
-    - LUCKFILE.py: `pip install luck@https://github.com/shouldsee/luck/tarball/master`0
-7. extensibility: how easy to write a plugin?
-    - Makefile:    possible embedded Scheme (.scm ) (need to learn LISP aside from Makefile)
-    - LUCKFILE.py: write python class/callable to inject dependency, same lang as LUCKFILE.py
-8. relative or absolute path:
-    - Makefile:    NA
-    - LUCKFILE.py: NA
+There are several dimensions to score a build system. A detailed comparison is attached
+further below
 
 ## Usage
 
@@ -311,6 +288,7 @@ class test1(LinkedTask):
 
 ## Improvements/Changelog:
 
+- [todo] fix tests for "luckbd" instead of "pyluckbd"
 - [port] Python is not the best language for writing a build system because of its poor portability.
 I am using python because it is more expressive than a static yaml/json file. It would be 
 great if we can write a parser in c/cpp/go to emulate a reduced version of python.
@@ -336,10 +314,32 @@ great if we can write a parser in c/cpp/go to emulate a reduced version of pytho
     - ~~[sug,urg] get rid of `super().run()` for subclasses of LinkedTask~~
     - [sug] use "self.input().path" or "self.input()" ?
 
-### in-depth comparison
+### Detailed comparison
 
-See Examples above. more detailed bullet points to be put here. [TBC]
-
+1. learning cost: subjective and scenario-dependent
+    - Makefile:    easier for a bash user. less tutorial 
+    - LUCKFILE.py: no tutorial yet, only example available. easy for a python user
+2. coarseness: high-level or low-level
+    - Makefile:    dag level
+    - LUCKFILE.py: dag 
+3. interface:    cli? gui? web? diagnostic tools? easy to debug?
+    - Makefile:    many tools exist for static analysis. [gmd](https://www.cmcrossroads.com/article/dynamic-breakpoints-gnu-make-debugger) for [debugging](https://stackoverflow.com/a/26290571) (yet to try)
+    - LUCKFILE.py: simple cli only for now. pdb for debugging `import pdb;pdb.set_trace()`
+4. speed: for constructing dag and execution
+    - Makefile:    should be faster as is clang, multiprocessed
+    - LUCKFILE.py: single-process for now.
+5. persistence: whether result is saved to disk, and how easy to enter a corrupted state
+    - Makefile:    save mtime for persistence 
+    - LUCKFILE.py: use mtime+size or md5sum 
+6. portability: easy to install? backend for different platform?
+    - Makefile:    `sudo apt install make`
+    - LUCKFILE.py: `pip install luck@https://github.com/shouldsee/luck/tarball/master`0
+7. extensibility: how easy to write a plugin?
+    - Makefile:    possible embedded Scheme (.scm ) (need to learn LISP aside from Makefile)
+    - LUCKFILE.py: write python class/callable to inject dependency, same lang as LUCKFILE.py
+8. relative or absolute path:
+    - Makefile:    NA
+    - LUCKFILE.py: NA
 
 ### Alternatives and Refs
 
