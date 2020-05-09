@@ -7,23 +7,28 @@ class MakefilePattern(object):
 	[TODO] Only support sinlge output target
 	'''
 
-	def __init__(self, output_ptn, input_ptn, func=None):
-		if func is None:
-			func = input_ptn
-			output_ptn, input_ptn = output_ptn.split(':')
+	def __init__(self, output_ptn, input_ptn, recipe=None):
+		# if recipe is None:
+		# 	recipe = input_ptn
+		# 	output_ptn, input_ptn = output_ptn.split(':')
+		if recipe is None: recipe = lambda c:None
 
-		# input_ptn.index('')
 		self.output_ptn = output_ptn.strip().split('%')
 		self.input_ptn_list  = [input_ptn.strip().split('%') for input_ptn in input_ptn.split()]
-		self.func       = func
+		self.recipe       = recipe
 		for x in self.input_ptn_list:
 			assert len(x)==2,(input_ptn)
 		# assert len(self.input_ptn)==2,input_ptn
 		assert len(self.output_ptn) == 2,output_ptn
+	@classmethod
+	def modify(cls, namespace, key, output_ptn, input_ptn, recipe=None):
+		namespace[key] = v =cls(output_ptn, input_ptn, recipe)	
+		return v
+	M = modify
 
 	def match(self, output, inputs):
 		'''
-		[TODO] use original gnu-make code for this function?
+		[TODO] use original gnu-make code for this recipetion?
 		'''
 		# inputs = 
 		# for input in inputs:
@@ -60,7 +65,8 @@ class MakefilePattern(object):
 	def __call__(self, *a,**kw):
 		return self.build(*a,**kw)
 	def build(self, outputs, inputs, rule_outputs, rule_inputs):
-		self.res = self.func(AttrDict(
+		self.res = self.recipe(AttrDict(
+			o=outputs, i=inputs,
 			outputs = outputs, inputs=inputs,
 			pattern_outputs=outputs,   pattern_inputs=inputs, 
 			rule_outputs=rule_outputs, rule_inputs=rule_inputs))

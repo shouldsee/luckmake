@@ -80,6 +80,25 @@ BaseRule:
 TimeSizeStampRule:
 MD5StampRule:
 NoCacheRule:
+
+
+generic methods
+================
+<klass>.M(namespace, key, *init_attrs):     
+	M for modify
+	============
+	instead of creating a new instance, assign it to a <namespace> under <key>.
+	
+	Paritularly, for `luck.defer.BaseRule`, the modify() would return a list of BaseRule() 
+	by iterating over `key.split()`.
+
+
+	Params
+	========
+	namespace:  a dict-like object
+	key:        the name to assign to wihtin <namespace>
+	init_attrs: passed to `klass(*init_attrs)`
+
 ```
 
 ## Example
@@ -101,16 +120,16 @@ echo [FIN]
 ### charcount
 
 ```
-1860 example-ece264-hw04.dir/LUCKFILE.py
+1990 example-ece264-hw04.dir/LUCKFILE.py
 2671 example-ece264-hw04.dir/v1.LUCKFILE.py
  895 example-ece264-hw04.dir/Makefile
-5426 total
 ```
 
-Here is a side by side comparison of Makefile and LUCKFILE.py. 
+Below is a side by side comparison of Makefile and LUCKFILE.py. 
 You would notice that LUCKFILE.py is significantly more verbose and have more quotes, but 
 there is definitely space for a more concise grammar. 
 
+### Makefile
 
 [./example-ece264-hw04.dir/Makefile](./example-ece264-hw04.dir/Makefile)
 
@@ -133,7 +152,63 @@ test1: hw04
 
 ```
 
-[./example-ece264-hw04.dir/LUCKFILE.py](./example-ece264-hw04.dir/LUCKFILE.py)
+### LUCKFILE.py syntax M: Use `modify()` statements
+
+[./example-ece264-hw04.dir/LUCKFILE_syntax_M.py](./example-ece264-hw04.dir/LUCKFILE_syntax_M.py)
+
+
+```python
+#-*- coding: future_fstrings -*- 
+from luck.types import RuleNameSpace as RNS
+from luck.types import DelayedNameSpace as DNS
+from luck.types import TimeSizeStampRule as RULE
+from luck.types import LSC
+from luck.types import AutoCmd as ACMD
+from luck.types import MakefilePattern as MFP
+
+ns = RNS.subclass('MainRNS')() 
+patterns = DNS.subclass('PatternNS')()
+
+WARNING = "-Wall -Wshadow --pedantic -Wno-unused-variable"
+ERROR = "-Wvla -Werror"
+TESTFALGS = "-DTEST_COUNTCHAR -DTEST_PRINTCOUNTS"
+
+GCC = f"gcc -std=c99 -g {WARNING} {ERROR} {TESTFALGS}"
+
+SRCS = "main.c filechar.c"
+OBJS = ' '.join([x[:-2]+'.o' for x in SRCS.split()]) ## pure python func!
+
+
+RULE.M(ns, OBJS, SRCS,  ACMD(patterns))
+RULE.M(
+	ns, SRCS, None,  None)
+
+
+MFP.M(patterns,
+	0, '%.o','%.c', 
+	lambda c: LSC(f'{GCC} {TESTFALGS} -c {c.i[0]} -o {c.o[0]}'))
+
+
+RULE.M(ns, './hw04', OBJS, lambda c:LSC(f'''
+	{GCC} {TESTFALGS} {OBJS} -o {c.o[0]}
+	'''))
+
+
+RULE.M(ns, 'test1',  './hw04',  lambda c:LSC(f'''
+	{c.i[0]} inputs/2016 > output16
+	diff output16 expected/expected16
+	echo [passed] test1
+	'''))
+
+
+if __name__ == '__main__':
+	from luck.cli import luck_main
+	luck_main(ns)
+```	
+
+### LUCKFILE.py syntax A: Use assign statements
+
+[./example-ece264-hw04.dir/LUCKFILE_syntax_A.py](./example-ece264-hw04.dir/LUCKFILE_syntax_A.py)
 
 ```python
 #-*- coding: future_fstrings -*- 
@@ -151,6 +226,7 @@ GCC = f"gcc -std=c99 -g {WARNING} {ERROR} {TESTFALGS}"
 
 SRCS = "main.c filechar.c"
 OBJS = ' '.join([x[:-2]+'.o' for x in SRCS.split()]) ## pure python func!
+
 ns[OBJS] = (SRCS, AutoCmd(patterns))
 ns[SRCS] = (None,None, TimeSizeStampRule)
 
@@ -206,23 +282,30 @@ class test1(LinkedTask):
 		super().run()
 ```
 
-## Improvements:
+## Improvements/Changelog:
 
+- [urg] add '--pdb' option
 - [urg,perf] multi-worker build.. preferably a portable implementation
-- [urg,urg] shall I use f-string?
-- [sug,urg] get rid of `super().run()` for subclasses of LinkedTask
 - [sug] adding utility function for gdb upon exception
-- [sug] use "self.input().path" or "self.input()" ?
 - [doc] Add docs/
 - [port] Python is not the best language for writing a build system because of its poor portability.
 I am using python because it is more expressive than a static yaml/json file. It would be 
 great if we can write a parser in c/cpp/go to emulate a reduced version of python.
 - [sug] profiling gprof
 - [sug,ada] dry run dependency graph
+- 0.0.3
+    - added `luck-build --pdb`
+    - added modifier syntax and `.M` methods
+    - added `luck.shorts` for shortcuts, and remove all shortcuts from `luck.types`.
+- not required in new syntaxes since 0.0.2
+	- ~~[urg,urg] shall I use f-string?~~  now depends on `future-fstrings`  
+	and heading `#-*- coding: future_fstrings -*- `
+    - ~~[sug,urg] get rid of `super().run()` for subclasses of LinkedTask~~
+    - [sug] use "self.input().path" or "self.input()" ?
 
 ### in-depth comparison
 
-[TBC]
+See Examples above. more detailed bullet points to be put here. [TBC]
 
 
 ### Alternatives and Refs
