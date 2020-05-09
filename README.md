@@ -17,9 +17,7 @@ pip install luck@https://github.com/shouldsee/luck/tarball/master
 
 [TBC] compile binaries
 
-## Documentation
-
-[TBC]
+## Documentation [TBC]
 
 ## Overview:
 
@@ -57,6 +55,23 @@ There are several dimensions to score a build system:
 8. relative or absolute path:
     - Makefile:    NA
     - LUCKFILE.py: NA
+
+## Usage
+
+### CLI help:
+
+```
+usage: luck-build [-h] [--abs-target ABS_TARGET] [--pdb] target
+
+positional arguments:
+  target                the target within the namespace
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --abs-target ABS_TARGET
+                        the full url to the target
+  --pdb                 run post-mortem pdb
+```
 
 ## Sciprting Syntax
 
@@ -159,12 +174,9 @@ test1: hw04
 
 ```python
 #-*- coding: future_fstrings -*- 
-from luck.types import RuleNameSpace as RNS
-from luck.types import DelayedNameSpace as DNS
+from luck.shorts import RNS,DNS,ACMD,MFP,LSC
 from luck.types import TimeSizeStampRule as RULE
-from luck.types import LSC
-from luck.types import AutoCmd as ACMD
-from luck.types import MakefilePattern as MFP
+from luck.types import NoCacheRule
 
 ns = RNS.subclass('MainRNS')() 
 patterns = DNS.subclass('PatternNS')()
@@ -284,15 +296,15 @@ class test1(LinkedTask):
 
 ## Improvements/Changelog:
 
-- [urg] add '--pdb' option
-- [urg,perf] multi-worker build.. preferably a portable implementation
-- [sug] adding utility function for gdb upon exception
-- [doc] Add docs/
 - [port] Python is not the best language for writing a build system because of its poor portability.
 I am using python because it is more expressive than a static yaml/json file. It would be 
 great if we can write a parser in c/cpp/go to emulate a reduced version of python.
+- [urg,perf] multi-worker build.. preferably a portable implementation
+- [sug] adding utility function for gdb upon exception
 - [sug] profiling gprof
 - [sug,ada] dry run dependency graph
+- [doc] Add docs/
+- [doc] automate README.md generation.
 - 0.0.3
     - added `luck-build --pdb`
     - added modifier syntax and `.M` methods

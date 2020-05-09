@@ -1,10 +1,7 @@
 #-*- coding: future_fstrings -*- 
-from luck.types import RuleNameSpace as RNS
-from luck.types import DelayedNameSpace as DNS
+from luck.shorts import RNS,DNS,ACMD,MFP,LSC
 from luck.types import TimeSizeStampRule as RULE
-from luck.types import LSC
-from luck.types import AutoCmd as ACMD
-from luck.types import MakefilePattern as MFP
+from luck.types import NoCacheRule
 
 ns = RNS.subclass('MainRNS')() 
 patterns = DNS.subclass('PatternNS')()
