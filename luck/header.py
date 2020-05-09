@@ -1,3 +1,4 @@
+import future_fstring
 from attrdict import AttrDict as _AttrDict
 __version__ = '0.0.3'
 PACKAGE_NAME = 'luck'
