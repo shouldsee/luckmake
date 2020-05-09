@@ -1,5 +1,3 @@
-#-*- coding: future_fstrings -*- 
-
 
 from luck.types import DNS,DNSUB,DelayedNameSpace
 # from luck.types import Rule
@@ -46,34 +44,3 @@ ns['config.h'] = ('', lambda c: LSC(f'''
 	}} > {c.o[0]}
 	'''))
 ns['kstring.c'] = None
-
-
-
-# ns['kstring.o'].build()
-
-
-	# assert isinstance(e)
-# (ns['kstring.o kstring.pico'].build())
-
-
-'''
-'''
-# print(d)
-
-# kstring.o kstring.pico: kstring.c config.h $(htslib_kstring_h)
-
-'''
-
-# And similarly for htslib.pc.tmp ("pkg-config template").  No dependency
-# on htslib.pc.in listed, as if that file is newer the usual way to regenerate
-# this target is via configure or config.status rather than this rule.
-htslib.pc.tmp:
-	sed -e '/^static_libs=/s/@static_LIBS@/$(htslib_default_libs)/;s#@[^-][^@]*@##g' htslib.pc.in > $@
-
-# Create a makefile fragment listing the libraries and LDFLAGS needed for
-# static linking.  This can be included by projects that want to build
-# and link against the htslib source tree instead of an installed library.
-htslib_static.mk: htslib.pc.tmp
-	sed -n '/^static_libs=/s/[^=]*=/HTSLIB_static_LIBS = /p;/^static_ldflags=/s/[^=]*=/HTSLIB_static_LDFLAGS = /p' $< > $@
-
-'''
