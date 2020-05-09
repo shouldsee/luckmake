@@ -10,7 +10,7 @@ install: all
 
 all: ./bin/luckbd ./bin/luck
 
-./bin/luckbd ./bin/luck:
+./bin/luckbd ./bin/luck: build.sh
 	bash build.sh
 
 

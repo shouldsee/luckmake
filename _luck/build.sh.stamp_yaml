@@ -1,0 +1,8 @@
+- - __version__
+  - 0.0.4
+- - __class__.__name__
+  - TimeSizeStampRule
+- - to_ident
+  - - build.sh
+    - 1589029227.1545446
+    - 190

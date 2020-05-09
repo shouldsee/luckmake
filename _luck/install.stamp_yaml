@@ -1,0 +1,8 @@
+- - __version__
+  - 0.0.4
+- - __class__.__name__
+  - TimeSizeStampRule
+- - to_ident
+  - - install
+    - 0
+    - 0

@@ -1,18 +1,8 @@
 
-# from luck.types import RuleNameSpace as RNS
-# from luck.types import DelayedNameSpace as DNS
-# from luck.types import LoggedShellCommand as LSC
-# from luck.types import AutoCmd as ACMD
-# from luck.types import MakefilePattern as MFP
 from luck.shorts import RNS,DNS,ACMD,MFP,LSC
 from luck.types import TimeSizeStampRule as RULE
 from luck.types import NoCacheRule
-
-
-
-
-# ns = RNS.subclass('MainRNS')(ruleFactory=NoCacheRule)
-
+#
 ns = RNS.subclass('MainRNS')()
 patterns = DNS.subclass('PatternNS')()
 
@@ -54,7 +44,6 @@ RULE.M(ns, 'test4', './hw04', lambda c:LSC(f'''
 	{c.i[0]} inputs/2019 > output19
 	diff output19 expected/expected19
 	'''))
-
 
 RULE.M(ns, 'testall', 'test1 test2 test3 test4')
 

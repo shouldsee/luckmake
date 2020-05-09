@@ -25,6 +25,8 @@ def luck_build_main(args=None, ns = None):
 		args = build_parser.parse_args()
 		# args = get_parser()[1].parse_args()
 		# build_parser
+	if args.directory is not None:
+		os.chdir(args.directory)
 	target  = args.target
 	use_pdb = args.pdb	
 	try:
@@ -64,6 +66,7 @@ def get_parser():
 
 	build_parser = subparsers.add_parser('build', help='build a target')
 	build_parser.add_argument('target', help='the target within the namespace')
+	build_parser.add_argument('-C', '--directory', help='Change to DIRECTORY before doing anything.',)
 	build_parser.add_argument('--abs-target',help='the full url to the target',
 		required=False)
 	build_parser.add_argument('--pdb',help='run post-mortem pdb',

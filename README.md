@@ -299,6 +299,7 @@ class test1(LinkedTask):
 
 ## Improvements/Changelog:
 
+- [todo] better LSC with stdout stderr with 
 - [todo] fix tests for "luckbd" instead of "pyluckbd"
 - [port] Python is not the best language for writing a build system because of its poor portability.
 I am using python because it is more expressive than a static yaml/json file. It would be 
