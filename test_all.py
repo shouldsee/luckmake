@@ -39,7 +39,8 @@ def test_ece264_example():
   Path('out.txt'),
   Path('output2049'),
   Path('v1.LUCKFILE.py'),
-  Path('v1E.LUCKFILE.py')]
+  # Path('v1E.LUCKFILE.py')
+  ]
 
 			
 			assert out==exp,pprint([out,exp])

@@ -11,7 +11,7 @@ def test_rule_not_defined_error(ns=ns):
 	ns.pop('kstring.c',None)
 
 	e = [None]
-	# (ns['kstring.o'].build())
+	# (ns['kstring.o'].build()) ### enable in debug
 	try:
 		(ns['kstring.o'].build())
 	except Exception as _e:

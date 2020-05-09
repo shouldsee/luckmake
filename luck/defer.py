@@ -1,9 +1,20 @@
 #-*- coding: future_fstrings -*- 
 from .header import AttrDict, RuleNotDefined
+from .header import SetAttrDenied
 class BuildRuleContext(AttrDict):
 	pass
 
+
+def dns_getitem(k, v,debug = 0):
+		if callable(v) and not getattr(v, '_ddict_dont_call', False):
+			_v = v()
+		else:
+			_v = v
+		if debug: print(k,_v)
+		return _v
+
 class DelayedNameSpace(AttrDict):
+	_ddict_dont_call = True
 	def __init__(self, *a, **kw):
 		self._allow_invalid_attributes = True
 		super().__init__(*a, **kw)
@@ -17,19 +28,9 @@ class DelayedNameSpace(AttrDict):
 		# print(f'[getattribute]{k!r}')
 		return super().__getattribute__(k)
 	def __getitem__(self,k):
-		debug  = 0
 		v = super().__getitem__(k)
-		# v = self.get_raw(k)
-		if callable(v) and not getattr(v, '_ddict_dont_call', False):
-			_v = v()
-		else:
-			_v = v
-		if debug: print(self,k,_v)
-		# if _v ==0:
-		# 	import pdb; pdb.set_trace()
-		return _v
-			# if debug: print(self,k,v)
-			# return v
+		return dns_getitem(k, v)
+
 	def copy(self):
 		return type(self)(super().copy())
 	def fix_within_context(self, context=None, copy=True):
@@ -56,6 +57,8 @@ class DelayedNameSpace(AttrDict):
 		return v
 	def get_raw(self,k):
 		return super().__getitem__(k)
+	raw = get_raw
+
 DNS = DelayedNameSpace
 DNSUB = lambda *a:DelayedNameSpace.subclass(*a)()
 
@@ -73,7 +76,7 @@ class RuleNameSpace(DNS):
 
 	def attach_rule(self, rule):
 		'this is a one way attachment'
-		rule.namespace = self
+		rule['namespace'] = self
 		print(f'[attaching]{type(self)!r}{type(rule).__name__}{type(rule)!r}')
 		# self.untouched()[rule.output] = True
 		super().__setitem__(rule.output, rule)
@@ -92,8 +95,8 @@ class RuleNameSpace(DNS):
 			rule_class = self.ruleFactory
 
 		for output in outputs.split():
-			rule = rule_class(output=output, input=input, recipe=recipe)
-			self.attach_rule(rule)
+			rule = rule_class(namespace=self, output=output, input=input, recipe=recipe)
+			# self.attach_rule(rule)
 			# rule = self._init_rule(output, input, recipe, rule_class)
 
 	def __setitem__(self, k, v):
@@ -105,26 +108,57 @@ class RuleNameSpace(DNS):
 RNS = RuleNameSpace
 
 
-class BaseRule(DelayedNameSpace):
+
+# class BaseRule(DelayedNameSpace):
+class BaseRule(object):
+	__doc__ = '''
+	__setattr__ only available fo private attribute. do not setattr!
+
+
+	'''
 # class BaseRule():
 	_ddict_dont_call = True
-	def __init__(self,*a,**kw):
-		super().__init__(*a,**kw)
-		# print(self.output)
-		self.setdefault('namespace',None)
-		self.setdefault('rebuilt', False)
+	_inited = False
+	def __init__(self, namespace, output=None, input=None, recipe=None, rebuilt=False):
+		# self._inited    = False
+		self._namespace = namespace
+		self._output    = output
+		self._input     = input
+		self._recipe    = recipe
+		self._recipe._ddict_dont_call = True
+		self._rebuilt   = rebuilt
 
-		self.setdefault('input',None)
-		self.setdefault('output',None)
-		self.setdefault('recipe',None)
-		# if self.recipe is not None:
-		self.get_raw("recipe")._ddict_dont_call = True
+
+		ns = namespace
+		assert isinstance(ns, RuleNameSpace), (f'{ns.__class__}')
+		ns.attach_rule(self)
+
+		self._inited    = True
+
+
+	def __getitem__(self,k):
+		v = self.__getattr__(k)
+		return v
+
+	def __getattr__(self,k):
+		v = getattr(self,'_%s'%k)
+		return dns_getitem(k, v)
+
+	def __setattr__(self,k,v, allowed = False):
+		if self._inited:
+			if not allowed:
+				raise SetAttrDenied(f'__setattr__({k!r}) disabled for {self.__class__!r} after initialisation. Use __setitem__ instead')
+		return super().__setattr__(k,v)
+
+	def __setitem__(self,k,v):
+		return self.__setattr__("_%s"%k,v, True)
+
 
 	def __call__(self):
 		return self.build()
 
 	def inputs_mattered(self):
-		ns = self.get_raw('namespace')
+		ns = self.namespace
 		out = []
 		for input in self.input.split():
 			if input not in ns.keys():
@@ -134,7 +168,7 @@ class BaseRule(DelayedNameSpace):
 
 	def build_inputs(self):
 		# inputs = self.input.split()
-		ns = self.get_raw('namespace')
+		# ns = self.namepsace
 		for input_mat in self.inputs_mattered():			
 			# print('[build_inputs]',input_mat.output, input_mat.check())
 			retcode = input_mat.build()
@@ -159,18 +193,17 @@ class BaseRule(DelayedNameSpace):
 
 	def build_after(self):
 		# print(f'[rebuilt]{self.output!r}')
+		# self.rebuilt = True
 		self['rebuilt'] = True
 		return 0
 
 	def build(self):
-		self.res = None
+		self['result'] = None
 		if not self.check():
 			# self.build_before()
 			if self.build_inputs()!=0:
 				assert 0, f"Unable to build inputs for {self!r}"
-			recipe = self.get_raw('recipe')
-			self.res  = recipe( BuildRuleContext(o=self.output.split(), i=self.input.split()))
-
+			self['result']  = self.recipe( BuildRuleContext(o=self.output.split(), i=self.input.split()))
 			self.build_after()
 
 		else:

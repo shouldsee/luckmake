@@ -5,11 +5,13 @@ from luck.types import NoCacheRule, TimeSizeStampRule
 from luck.rule_stamp import MD5StampRule
 from luck.types import RuleNameSpace as RNS
 from luck.types import LSC
-from luck.types import MakefilePattern, AutoCmd
+from luck.types import MakefilePattern as MFP
+from luck.types import AutoCmd as ACMD
 
 # ns = RNS.subclass('MainRNS')(ruleFactory=NoCacheRule)
+
+RULE = TimeSizeStampRule
 ns = RNS.subclass('MainRNS')(ruleFactory=TimeSizeStampRule)
-# ns = RNS.subclass('MainRNS')(ruleFactory=MD5StampRule)
 patterns = DNSUB('PatternNS')
 
 WARNING = "-Wall -Wshadow --pedantic -Wno-unused-variable"
@@ -20,12 +22,15 @@ GCC = f"gcc -std=c99 -g {WARNING} {ERROR} {TESTFALGS}"
 
 SRCS = "main.c filechar.c"
 OBJS = ' '.join([x[:-2]+'.o' for x in SRCS.split()])
-ns[OBJS] = (SRCS, AutoCmd(patterns))
+ns[OBJS] = (SRCS, ACMD(patterns))
 ns[SRCS] = (None,None, TimeSizeStampRule)
 
-patterns[0] = MakefilePattern(
+
+patterns[0] = MFP(
 	'%.o','%.c', 
 	lambda x: LSC(f'{GCC} {TESTFALGS} -c {x.inputs[0]} -o {x.outputs[0]}'))
+
+# RULE(ns, )
 
 ns['test1'] = ('./hw04', lambda c:LSC(f'''
 	{c.i[0]} inputs/2016 > output16

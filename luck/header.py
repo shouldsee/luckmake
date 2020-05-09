@@ -4,6 +4,9 @@ PACKAGE_NAME = 'luck'
 class RuleNotDefined(Exception):
 	pass
 
+class SetAttrDenied(Exception):
+	pass
+
 class AttrDict(_AttrDict):
 	_ddict_dont_call = True
 	# def __getitem__()
