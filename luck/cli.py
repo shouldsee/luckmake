@@ -2,7 +2,6 @@
 
 import sys,os
 import argparse
-
 def luck_main(ns=None):
 	parser,sub = get_parser()
 	args = parser.parse_args()
@@ -12,11 +11,22 @@ def luck_main(ns=None):
 
 def luck_build_main(args=None, ns = None):
 	if args is None:
-		args = get_parser()[1].parse_args()
+		build_parser = get_parser()[1]
+		build_parser.prog = build_parser.prog.rsplit(None,1)[0]
+		args = build_parser.parse_args()
+		# args = get_parser()[1].parse_args()
 		# build_parser
-	target = args.target
-	ns = ns or get_default_namespace(args.abs_target) 
-	ns[target].build()
+	target  = args.target
+	use_pdb = args.pdb	
+	try:
+		ns = ns or get_default_namespace(args.abs_target) 
+		ns[target].build()
+	except Exception as e:
+		if use_pdb:	
+			import traceback; traceback.print_exc()
+			import pdb; pdb.post_mortem()
+		else:
+			raise
 
 
 def get_default_namespace(abs_target):
@@ -47,7 +57,8 @@ def get_parser():
 	build_parser.add_argument('target', help='the target within the namespace')
 	build_parser.add_argument('--abs-target',help='the full url to the target',
 		required=False)
-
+	build_parser.add_argument('--pdb',help='run post-mortem pdb',
+	    default=False, action="store_true")
 	return parser, build_parser
 
 

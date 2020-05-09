@@ -1,8 +1,8 @@
 - - __version__
-  - 0.0.2
+  - 0.0.3
 - - __class__.__name__
   - TimeSizeStampRule
 - - to_ident
   - - main.o
-    - 1589001045.5365453
+    - 1589009788.976296
     - 6448

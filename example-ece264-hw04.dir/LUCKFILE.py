@@ -1,18 +1,21 @@
 #-*- coding: future_fstrings -*- 
 
-from luck.types import DNS,DNSUB,DelayedNameSpace
-from luck.types import NoCacheRule, TimeSizeStampRule
-from luck.rule_stamp import MD5StampRule
-from luck.types import RuleNameSpace as RNS
-from luck.types import LSC
-from luck.types import MakefilePattern as MFP
-from luck.types import AutoCmd as ACMD
+# from luck.types import RuleNameSpace as RNS
+# from luck.types import DelayedNameSpace as DNS
+# from luck.types import LoggedShellCommand as LSC
+# from luck.types import AutoCmd as ACMD
+# from luck.types import MakefilePattern as MFP
+from luck.shorts import RNS,DNS,ACMD,MFP,LSC
+from luck.types import TimeSizeStampRule as RULE
+from luck.types import NoCacheRule
+
+
+
 
 # ns = RNS.subclass('MainRNS')(ruleFactory=NoCacheRule)
 
-RULE = TimeSizeStampRule
-ns = RNS.subclass('MainRNS')(ruleFactory=TimeSizeStampRule)
-patterns = DNSUB('PatternNS')
+ns = RNS.subclass('MainRNS')()
+patterns = DNS.subclass('PatternNS')()
 
 WARNING = "-Wall -Wshadow --pedantic -Wno-unused-variable"
 ERROR = "-Wvla -Werror"
@@ -22,53 +25,54 @@ GCC = f"gcc -std=c99 -g {WARNING} {ERROR} {TESTFALGS}"
 
 SRCS = "main.c filechar.c"
 OBJS = ' '.join([x[:-2]+'.o' for x in SRCS.split()])
-ns[OBJS] = (SRCS, ACMD(patterns))
-ns[SRCS] = (None,None, TimeSizeStampRule)
 
 
-patterns[0] = MFP(
-	'%.o','%.c', 
-	lambda x: LSC(f'{GCC} {TESTFALGS} -c {x.inputs[0]} -o {x.outputs[0]}'))
+RULE.M(ns, OBJS, SRCS,  ACMD(patterns))
+RULE.M(ns, SRCS, None,  None)
 
-# RULE(ns, )
+MFP.M(patterns,
+	0, '%.o','%.c', 
+	lambda c: LSC(f'{GCC} {TESTFALGS} -c {c.i[0]} -o {c.o[0]}'))
 
-ns['test1'] = ('./hw04', lambda c:LSC(f'''
+
+RULE.M(ns, 'test1',  './hw04',  lambda c:LSC(f'''
 	{c.i[0]} inputs/2016 > output16
 	diff output16 expected/expected16
 	echo [passed] test1
 	'''))
 
-ns['test2'] = ('./hw04', lambda c:LSC(f'''
+RULE.M(ns, 'test2',  './hw04', lambda c:LSC(f'''
 	{c.i[0]} inputs/2017 > output17
 	diff output17 expected/expected17
 	'''))
 
-
-ns['test3'] = ('./hw04', lambda c:LSC(f'''
+RULE.M(ns, 'test3', './hw04', lambda c:LSC(f'''
 	{c.i[0]} inputs/2018 > output18
 	diff output18 expected/expected18
 	'''))
 
-ns['test4'] = ('./hw04', lambda c:LSC(f'''
+RULE.M(ns, 'test4', './hw04', lambda c:LSC(f'''
 	{c.i[0]} inputs/2019 > output19
 	diff output19 expected/expected19
 	'''))
 
-ns['testall'] = ('test1 test2 test3 test4', None)
 
-ns['./hw04'] = (f'{OBJS}',
-	lambda c:LSC(f'''
-		{GCC} {TESTFALGS} {OBJS} -o {c.o[0]}
-		'''))
+RULE.M(ns, 'testall', 'test1 test2 test3 test4')
 
-ns['clean'] = (None, 
-	lambda c: LSC('''
+RULE.M(ns, './hw04', OBJS, lambda c:LSC(f'''
+	{GCC} {TESTFALGS} {OBJS} -o {c.o[0]}
+	'''))
+
+NoCacheRule.M(
+	ns, 'clean', None, 
+	lambda c: LSC(f'''
 		rm -f hw04 *.o *.ident_yaml output??
-		'''), NoCacheRule)
+		'''),)
+
+for k,v in ns.items():
+	print(k,type(v))
 
 if __name__ == '__main__':
-	ns['test1'].build()
-	ns['testall'].build()
 	from luck.cli import luck_main
 	luck_main(ns)
 

@@ -1,8 +1,8 @@
 - - __version__
-  - 0.0.3
+  - 0.0.2
 - - __class__.__name__
   - TimeSizeStampRule
 - - to_ident
-  - - test4
+  - - clean
     - 0
     - 0

@@ -81,31 +81,42 @@ class RuleNameSpace(DNS):
 		# self.untouched()[rule.output] = True
 		super().__setitem__(rule.output, rule)
 
-	def add_rule(self, outputs, input, recipe, rule_class = None):
-		'''
-		Materialised Rules using a factory
-		'''
-		if input is None:
-			input = ''
-		if outputs is None:
-			assert 0
-		if recipe is None:
-			recipe = lambda c:None		
-		if rule_class is None:
-			rule_class = self.ruleFactory
-
-		for output in outputs.split():
-			rule = rule_class(namespace=self, output=output, input=input, recipe=recipe)
-			# self.attach_rule(rule)
-			# rule = self._init_rule(output, input, recipe, rule_class)
 
 	def __setitem__(self, k, v):
 		if v is None:
 			v = (None,None,None)
-		self.add_rule(k, *v)
+
+		rule_class = None 
+		if len(v)>=3: 
+			'v[3-1] is the rule_class'
+			rule_class = v[3-1]
+		if rule_class is None:
+			rule_class = self.ruleFactory
+
+		for output in k.split():
+			rule = rule_class(self, output, *v)
+
 		return 
 
+
+import functools
+def SetterFromRule(rule_class):
+	return rule_class.modify
+	# @functools.wraps(rule_class)
+	# def func(namespace, outputs, input=None, recipe=None,rebuilt=None):
+	# 	out = []
+	# 	for output in outputs.split():
+	# 		rule = rule_class(namespace, output, input, recipe, rebuilt)
+	# 		out.append(rule)
+	# 	return out
+	# return func
+
 RNS = RuleNameSpace
+
+
+
+def CommandFromRule(rule_class):
+	pass
 
 
 
@@ -116,10 +127,13 @@ class BaseRule(object):
 
 
 	'''
-# class BaseRule():
+
 	_ddict_dont_call = True
 	_inited = False
-	def __init__(self, namespace, output=None, input=None, recipe=None, rebuilt=False):
+	def __init__(self, namespace, output, input=None, recipe= None, rebuilt=None):
+		if input   is None: input  = ''
+		if recipe  is None: recipe = lambda c:None
+		if rebuilt is None: rebuilt = False
 		# self._inited    = False
 		self._namespace = namespace
 		self._output    = output
@@ -134,6 +148,15 @@ class BaseRule(object):
 		ns.attach_rule(self)
 
 		self._inited    = True
+	@classmethod
+	def modify(rule_class, namespace, outputs, input=None, recipe=None,rebuilt=None):
+		out = []
+		for output in outputs.split():
+			rule = rule_class(namespace, output, input, recipe, rebuilt)
+			out.append(rule)
+		return out
+	M = modify
+
 
 
 	def __getitem__(self,k):

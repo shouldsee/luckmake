@@ -25,9 +25,9 @@ LDFLAGS  = "-fvisibility=hidden"
 
 
 patterns = DNSUB('Patterns')
-patterns[0] =  MakefilePattern('%.o : %.c',   
+patterns[0] =  MakefilePattern('%.o', '%.c',   
 	lambda x: LSC(f'{CC} -I. -c {CFLAGS} {CPPFLAGS} -c -o {x.outputs[0]} {x.inputs[0]}'))
-patterns[1] = MakefilePattern( '%.pico : %.c', 
+patterns[1] = MakefilePattern( '%.pico', '%.c', 
 	lambda x: LSC(f'{CC} {CFLAGS} -I. {CPPFLAGS} {EXTRA_CFLAGS_PIC} -c -o {x.outputs[0]} {x.inputs[0]}'))
 
 
