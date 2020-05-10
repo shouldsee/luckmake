@@ -149,8 +149,8 @@ echo [FIN]
 ### charcount
 
 ```
-1990 example-ece264-hw04.dir/LUCKFILE.py
-2671 example-ece264-hw04.dir/v1.LUCKFILE.py
+1553 example-ece264-hw04.dir/LUCKFILE.py
+2638 example-ece264-hw04.dir/v1.LUCKFILE.py
  895 example-ece264-hw04.dir/Makefile
 ```
 

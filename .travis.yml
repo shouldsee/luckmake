@@ -19,9 +19,9 @@ install:
   - pip install .
 script:
   - set -e
-  - bash test.sh
+  #- make test.sh
   - pytest .
-  - bash build.sh
+  - make build -B
   - bin/luck --help
   - bin/luckbd --help
   # - python test.py --all

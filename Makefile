@@ -9,10 +9,13 @@ install: all
 	install -m 755 ./bin/luckbd $(DESTDIR)$(PREFIX)/bin/
 	install -m 755 ./bin/luck $(DESTDIR)$(PREFIX)/bin/
 
-all: ./bin/luckbd ./bin/luck
+all: build
+build: ./bin/luckbd ./bin/luck
+	:
 
-./bin/luckbd ./bin/luck: luck/** build.sh
-	bash build.sh --clean
+
+./bin/luckbd ./bin/luck: luck/**
+	python3.7 -m PyInstaller cli.spec --distpath ./bin --clean
 
 pybuild:
 	pip3 install . --user && pytest . && rm bin -rf
