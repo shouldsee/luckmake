@@ -1,6 +1,7 @@
 
-from .header import AttrDict, RuleNotDefined
-from .header import SetAttrDenied
+from .header import AttrDict, Path
+from .header import SetAttrDenied, RuleNotDefined
+
 class BuildRuleContext(AttrDict):
 	pass
 
@@ -26,7 +27,6 @@ class DelayedNameSpace(AttrDict):
 	def __getattribute__(self,k ):
 		# print(f'[getattribute]{k!r}{type(self)!r}')
 		return super().__getattribute__(k)
-		
 	def __getitem__(self,k):
 		v = super().__getitem__(k)
 		return dns_getitem(k, v)
@@ -74,12 +74,12 @@ class RuleNameSpace(DNS):
 				res.attach_rule(res[k])
 		return res
 
-	def attach_rule(self, rule):
+	def attach_rule(self, rule, output_name=None):
 		'this is a one way attachment'
 		rule['namespace'] = self
 		# print(f'[attaching]{type(self)!r}{type(rule).__name__}{type(rule)!r}')
 		# self.untouched()[rule.output] = True
-		super().__setitem__(rule.output, rule)
+		super().__setitem__(output_name or rule.output, rule)
 
 
 	def __setitem__(self, k, v):
@@ -127,37 +127,43 @@ class BaseRule(object):
 
 
 	'''
-
+	debug = 0
 	_ddict_dont_call = True
 	_inited = False
 	def __init__(self, namespace, output, input=None, recipe= None, rebuilt=None):
-		if input   is None: input  = ''
-		if recipe  is None: recipe = lambda c:None
+		if input   is None: input   = ''
+		if recipe  is None: recipe  = lambda c:None
 		if rebuilt is None: rebuilt = False
 		# self._inited    = False
 		self._namespace = namespace
 		self._output    = output
+		# self._output    = Path(output).realpath()
 		self._input     = input
 		self._recipe    = recipe
 		self._recipe._ddict_dont_call = True
 		self._rebuilt   = rebuilt
+		self._dirname   = Path('.').realpath()
 
-
-		ns = namespace
-		assert isinstance(ns, RuleNameSpace), (f'{ns.__class__}')
-		ns.attach_rule(self)
+		# for name in set([self.output] + self.output.split()):
+		for name in self.output.split():
+			# print(f'[BaseRule]{name!r}')
+			ns = namespace
+			assert isinstance(ns, RuleNameSpace), (f'{ns.__class__}')
+			ns.attach_rule(self, name)
 
 		self._inited    = True
 	@classmethod
 	def modify(rule_class, namespace, outputs, input=None, recipe=None,rebuilt=None):
+		output = outputs
+		rule = rule_class(namespace, output, input, recipe, rebuilt)
+		return rule
+
 		out = []
 		for output in outputs.split():
 			rule = rule_class(namespace, output, input, recipe, rebuilt)
 			out.append(rule)
 		return out
 	M = modify
-
-
 
 	def __getitem__(self,k):
 		v = self.__getattr__(k)
@@ -200,7 +206,8 @@ class BaseRule(object):
 	def check_inputs(self):
 		ret = True
 		for input_mat in self.inputs_mattered():
-			if not input_mat.check():
+			# if debug: print(f'[checking]{input_mat.output!r} for {self.output!r}')
+			if (input_mat.rebuilt) or (not input_mat.check()):
 				ret = False
 				break
 		return ret
@@ -209,7 +216,8 @@ class BaseRule(object):
 		_ = '''
 		check whether this Rule needs update 
 		'''
-		return (not self['rebuilt']) and self.check_self() and self.check_inputs() 
+
+		return self.check_self() and self.check_inputs() 
 
 	def check_self(self):
 		raise NotImplementedError()
@@ -220,16 +228,24 @@ class BaseRule(object):
 		self['rebuilt'] = True
 		return 0
 
-	def build(self):
+	def build(self, debug=0):
+		debug = debug or self.debug
+		header = '[BaseRule.build()]'
 		self['result'] = None
-		if not self.check():
+		if debug: print(
+			f'{header} {self.output!r}\t{self.input!r}\t{self.__class__.__name__!r} \n'
+			f'{header} check:{self.check():d} rebuilt:{self.rebuilt:d} check_self:{self.check_self():d}| check_inputs:{self.check_inputs():d}'
+			)
+		if (not self.rebuilt) and (not self.check()):
 			# self.build_before()
+			if debug: print(f'{header} building {self.output!r}')
 			if self.build_inputs()!=0:
 				assert 0, f"Unable to build inputs for {self!r}"
 			self['result']  = self.recipe( BuildRuleContext(o=self.output.split(), i=self.input.split()))
 			self.build_after()
 
 		else:
+			if debug: print(f'{header} skipping {self.output!r}')
 			pass
 		return self
 

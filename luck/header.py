@@ -1,7 +1,10 @@
 import future_fstrings
 from attrdict import AttrDict as _AttrDict
-__version__ = '0.0.4'
+from path import Path
+
+__version__ = '0.0.5'
 PACKAGE_NAME = 'luck'
+
 class RuleNotDefined(Exception):
 	pass
 

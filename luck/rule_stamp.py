@@ -5,7 +5,7 @@ from .header import (_dumps,_loads,os_stat_safe)
 from .defer import BaseRule
 from collections import OrderedDict
 
-def IdentFile(dir_layout, fn, suffix):
+def IdentFile(dir_layout, fn, suffix, debug=0):
 	fn = Path(fn)
 	if dir_layout == 'clean':
 		lst = [fn.dirname()+'/_%s/'%PACKAGE_NAME+ fn.basename(),suffix]
@@ -18,6 +18,7 @@ def IdentFile(dir_layout, fn, suffix):
 		assert 0,("dir_layout",dir_layout)
 		# input_ident_file = '{prefix}.{job_name}.{suffix}'.format(**locals())
 	input_ident_file = '.'.join(lst)
+	if debug: print(f'[IdentFile]{fn}')	
 	return Path(input_ident_file)
 
 
@@ -29,25 +30,30 @@ class StampRule(BaseRule):
 			return True
 		else:
 			return False
-	def build_after(self):
-		self.ident_update()
-		return super().build_after()
+	def build_after(self, debug=0):
+		# ident_path   = self.ident_path()
+		for output in self.output.split():
+			ident_path = IdentFile( self.layout, self.dirname / output, 'stamp_yaml')
+			ident_path.dirname().makedirs_p()
+			ident_struct = self.to_ident_call(output)
 
-	# @property
-	def ident_path(self):
-		ident_path = IdentFile(self.layout, Path(self.output).realpath(), 'stamp_yaml')
-		ident_path.dirname().makedirs_p()
-		return ident_path
+			with open( ident_path, 'wb') as f:
+				f.write(_dumps( ident_struct ).encode())
+		assert self.ident_same()
+		super().build_after()
+		if debug: print(f'[StampRule]{self.output!r} {self.ident_same()} {self.rebuilt}')
+		return 0
 
-	def load_ident(self,):
+
+	def load_ident(self, ident_path):
 		loaded = ''
-		if self.ident_path().exists():
-			with open( self.ident_path(),'r') as f:
+		if ident_path.exists():
+			with open( ident_path,'r') as f:
 				loaded = f.read()
 		return loaded
 
-	def to_ident_call(self):
-		to_ident = self.to_ident(self.output, self.input, self.recipe)
+	def to_ident_call(self, output ):
+		to_ident = self.to_ident(output, self.input, self.recipe)
 		ident = ([
 			# [f'__version__: {__version__}'],
 			('__version__',__version__),
@@ -58,16 +64,21 @@ class StampRule(BaseRule):
 		return ident
 
 	def ident_same(self):
-		ident = self.to_ident_call()
-		# self.to_ident(self.output, self.input, self.recipe) 
-		current = _dumps( ident)
-		loaded = self.load_ident()
-		return current == loaded
+		# ident_path   = self.ident_path()
+		ret = True
+		for output in self.output.split():
+			ident_path = IdentFile( self.layout, self.dirname / output, 'stamp_yaml')
+			ident_path.dirname().makedirs_p()
+			ident_struct = self.to_ident_call(output)
+			# self.to_ident(self.output, self.input, self.recipe) 
+			current = _dumps( ident_struct )
+			loaded  = self.load_ident( ident_path ) 
+			if current!=loaded:
+				ret = False
+				break
+		return ret
 
-	def ident_update(self):
-		with open(self.ident_path(), 'wb') as f:
-			f.write(_dumps(self.to_ident_call()).encode())
-		return 0
+
 
 
 

@@ -1,5 +1,6 @@
 ifeq ($(PREFIX),)
-    PREFIX := /usr/local
+#     PREFIX := /usr/local
+	PREFIX := $(HOME)/.local
 endif
 DESTDIR=
 
@@ -10,7 +11,8 @@ install: all
 
 all: ./bin/luckbd ./bin/luck
 
-./bin/luckbd ./bin/luck: build.sh
-	bash build.sh
+./bin/luckbd ./bin/luck: luck/** build.sh
+	bash build.sh --clean
 
-
+pybuild:
+	pip3 install . --user && pytest . && rm bin -rf

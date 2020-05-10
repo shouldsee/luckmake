@@ -1,8 +1,8 @@
 - - __version__
-  - 0.0.4
+  - 0.0.5
 - - __class__.__name__
   - TimeSizeStampRule
 - - to_ident
   - - filechar.o
-    - 1589028261.0732772
-    - 6872
+    - 1589083607.271606
+    - 6880

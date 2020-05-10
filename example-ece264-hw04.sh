@@ -10,5 +10,10 @@ time {
 luckbd clean
 luckbd testall
 } 1>/tmp/out
+
+time {
+pyluckbd clean
+pyluckbd testall
+} 1>/tmp/out
 # false
 echo [FIN]

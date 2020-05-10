@@ -23,3 +23,14 @@ def LoggedShellCommand(*a,**kw):
 		# ,*a)
 	return _LSC(*a,**kw)
 LSC = LoggedShellCommand
+
+
+# from os import system as LSC
+# import os
+# def LoggedShellCommand(cmd):
+# # def LSC(cmd):
+# 	ret = os.system(cmd)
+# 	if ret!=0:
+# 		raise Exception(f'Command returned nonzero output {ret}:\n{cmd}')
+# 	return ret
+# LSC = LoggedShellCommand

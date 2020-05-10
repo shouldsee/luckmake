@@ -65,7 +65,8 @@ for target, src in [
   from path import Path
   if platform.system().lower() in ['linux']:
     d = Path(exe.name).dirname()
-    Path(exe.name).basename().symlink(Path(d/target).unlink_p())
+    #Path(exe.name).basename().symlink(Path(d/target).unlink_p())
+    Path(exe.name).link(Path(d/target).unlink_p())
     print('[exe]%s'%exe.name)
 
 

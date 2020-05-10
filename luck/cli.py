@@ -30,6 +30,15 @@ def luck_build_main(args=None, ns = None):
 	target  = args.target
 	use_pdb = args.pdb	
 	try:
+		import luck.types
+		for x in (args.debug_class or '').split():
+			if ':' in x:
+				sp = x.split(':')
+				name, debug_val = sp[0], int(sp[1]) 
+			else:
+				name, debug_val = x    , 1
+			setattr( getattr(luck.types, name), 'debug', debug_val)
+
 		ns = ns or get_default_namespace(args.abs_target) 
 		ns[target].build()
 	except Exception as e:
@@ -71,27 +80,17 @@ def get_parser():
 		required=False)
 	build_parser.add_argument('--pdb',help='run post-mortem pdb',
 	    default=False, action="store_true")
+	build_parser.add_argument('--debug-class',help='DEBUG_CLASS format: <CLASS_NAME:str>:<DEBUG_LEVEL:int> possible values for CLASS_NAME:{{BaseRule}}.'
+		'set class.debug = DEBUG_LEVEL before execution\n'
+		'example --debug-class BaseRule:1',
+	    # default=False, 
+	    )
+
 	for p in [parser,build_parser]:
 		p.add_argument('-V','--version',help='print version',
 	    default=False, action="store_true")
 	return parser, build_parser
 
 
-	# # setup download
-	# download_parser = subparsers.add_parser('download', help='Download all tickets from specified service')
-	# download_parser.add_argument('-j', '--json', help='Specify a json cache')
-
-	# # setup export
-	# export_parser = subparsers.add_parser('export', help='Export all tickets to specified file')
-	# export_parser.add_argument('-o', '--output', help='Specify output file',
-	# 											 required=True)
-	# return parser
-	# args = parser.parse_args()
-
-	# # call the command with our args
-	# ret = getattr(sys.modules[__name__], 'main_{0}'.format(args.command))(args)
-	# sys.exit(ret)
-
-	# main()
 if __name__ == '__main__':
 	luck_main()

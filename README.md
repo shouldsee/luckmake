@@ -310,6 +310,12 @@ great if we can write a parser in c/cpp/go to emulate a reduced version of pytho
 - [sug,ada] dry run dependency graph
 - [doc] Add docs/
 - [doc] automate README.md generation.
+- 0.0.5
+    - 'fileA fileB' would share a ident_same() method [TBC] adapt the logic for AutoCmd() dispatching
+    - avoid recomputing the same rule that would output mutiple files
+    - rework `defer.BaseRule.{__init__,check,build}`
+    - rework `rule_stamp.StampRule.{ident_same,build_after}`
+    - added `--debug-class <CLASS_NAME>:<DEBUG_LEVEL>`
 - 0.0.4
     - provide "luck", "luckbd" in binary, built with pyinstaller
     - provide "pyluck", "pyluckbd" for python3.7
