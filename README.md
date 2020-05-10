@@ -4,7 +4,6 @@
 
 ## Install 
 
-
 ### install binary
 
 #### Requires
@@ -16,8 +15,9 @@ and not the system python installation.
 #### from github release
 
 ```bash
-curl -sL -o luck https://github.com/shouldsee/luck/releases/download/0.0.4/luck && chmod +x luck
-curl -sL -o luckbd https://github.com/shouldsee/luck/releases/download/0.0.4/luckbd && chmod +x luckbd
+TAG=0.0.5
+curl -sL -o luck https://github.com/shouldsee/luck/releases/download/${TAG}/luck && chmod +x luck
+curl -sL -o luckbd https://github.com/shouldsee/luck/releases/download/${TAG}/luckbd && chmod +x luckbd
 sudo ln -f luck luckbd -t /usr/local/bin
 ./luck --help
 ./luckbd --help
@@ -65,16 +65,25 @@ further below
 ### CLI help:
 
 ```
-usage: luckbd [-h] [--abs-target ABS_TARGET] [--pdb] [-V] target
+usage: luckbd [-h] [-C DIRECTORY] [--abs-target ABS_TARGET] [--pdb]
+              [--debug-class DEBUG_CLASS] [-V]
+              target
 
 positional arguments:
   target                the target within the namespace
 
 optional arguments:
   -h, --help            show this help message and exit
+  -C DIRECTORY, --directory DIRECTORY
+                        Change to DIRECTORY before doing anything.
   --abs-target ABS_TARGET
                         the full url to the target
   --pdb                 run post-mortem pdb
+  --debug-class DEBUG_CLASS
+                        DEBUG_CLASS format: <CLASS_NAME:str>:<DEBUG_LEVEL:int>
+                        possible values for CLASS_NAME:{{BaseRule}}.set
+                        class.debug = DEBUG_LEVEL before execution example
+                        --debug-class BaseRule:1
   -V, --version         print version
 ```
 
