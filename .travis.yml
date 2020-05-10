@@ -24,6 +24,7 @@ script:
   - make build -B
   - bin/luck --help
   - bin/luckbd --help
+  - bin/luckbd example-ece264-hw04.dir  
   # - python test.py --all
   # - ls -lhtr /deps/*
   # - tree /deps

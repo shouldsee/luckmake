@@ -3,6 +3,6 @@
 - - __class__.__name__
   - TimeSizeStampRule
 - - to_ident
-  - - ./hw04
-    - 1589088539.8141737
-    - 13104
+  - - example-ece264-hw04.dir
+    - 0
+    - 0

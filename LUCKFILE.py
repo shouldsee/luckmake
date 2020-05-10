@@ -18,7 +18,8 @@ RULE.M(ns, 'install','all',lambda c:LSC(f'''
 RULE.M(ns, 'all', 'build')
 RULE.M(ns, 'build','./bin/luckbd ./bin/luck')
 
-RULE.M(ns, './bin/luckbd ./bin/luck', 'build.sh', lambda c:LSC(f'''
+RULE.M(ns, 'luck/types.py')
+RULE.M(ns, './bin/luckbd ./bin/luck', 'luck/types.py', lambda c:LSC(f'''
 	python3.7 -m PyInstaller cli.spec --distpath ./bin --clean
 	'''))
 RULE.M(ns, 'build.sh')
@@ -28,29 +29,37 @@ RULE.M(ns, 'error',  '',lambda c:LSC('echo 1231243231 && false'))
 RULE.M(ns, 'pybuild','',lambda c:LSC('pip3 install . --user && pytest . && rm bin -rf'))
 
 
-NoCacheRule.M(ns, 'example-ece264-hw04.dir', '', lambda c: print(LSC('''
+RULE.M(ns,'example-ece264-hw04.dir',None)
+NoCacheRule.M(ns, 'time', 'example-ece264-hw04.dir', lambda c: print(LSC('''
 cd example-ece264-hw04.dir
+unset time
+alias time=/usr/bin/time
 
-time {
-make clean
-make testall
-} 1>/tmp/out
+exec 3<>/dev/null
+{
+	time {
+	make clean    
+	make testall  
+	} 1>&3 2>&3
 
-time {
-luckbd clean
-luckbd testall
-} 1>/tmp/out
+	time {
+	luckbd clean
+	luckbd testall
+	} 1>&3
 
-time {
-pyluckbd clean
-pyluckbd testall
-} 1>/tmp/out
-# false
-echo [FIN]
-	''')))
+
+	time {
+	pyluckbd clean
+	pyluckbd testall
+	} 1>&3 
+
+} 2>&1
+echo [finish]
+exit 0
+''')))
 
 NoCacheRule.M(ns, 'test.sh', '',lambda c:print(LSC('''
 cd example-ece264-hw04.dir/
-python3 README-example.py build ./hw04
+python3.7 README-example.py build ./hw04
 ''')))
 NoCacheRule.M(ns, 'count-line', '', lambda c:print(LSC('wc example-ece264-hw04.dir/{*E.py,Makefile} -c')))

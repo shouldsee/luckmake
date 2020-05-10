@@ -2,6 +2,46 @@
 
 # LUCK: the LUcky Compiling Kit for pdb-debuggable builds.
 
+## Overview:
+
+### Motivation
+
+Makefile is concise and robust, but can be hard to learn for non-experienced bash user, 
+due to its many unique operators. Since python is a much wider spread language than
+Makefile (need ref), porting Makefile syntax to Python would open up access to 
+make-powered reproducibility to these python-only users, without having to learn
+the syntax. 
+
+There are several dimensions to score a build system. A detailed comparison is attached
+further below
+
+### CLI Usage `luckbd`:
+
+```
+usage: luckbd [-h] [-C DIRECTORY] [--abs-target ABS_TARGET] [--pdb]
+              [--debug-class DEBUG_CLASS] [-V]
+              target
+
+positional arguments:
+  target                the target within the namespace
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -C DIRECTORY, --directory DIRECTORY
+                        Change to DIRECTORY before doing anything.
+  --abs-target ABS_TARGET
+                        [NotImplemented][TBC] the full url to the target
+  --pdb                 run post-mortem pdb
+  --debug-class DEBUG_CLASS
+                        DEBUG_CLASS format: <CLASS_NAME:str>:<DEBUG_LEVEL:int>
+                        possible values for CLASS_NAME:{{BaseRule}}.set
+                        class.debug = DEBUG_LEVEL before execution example
+                        --debug-class BaseRule:1
+  -V, --version         print version
+```
+
+### Documentation [TBC]
+
 ## Install 
 
 ### install binary
@@ -43,48 +83,6 @@ cd luck-${TAG}/ && make install PREFIX=$HOME/.local
 python3.7 -m pip install luck@https://github.com/shouldsee/luck/tarball/master
 pyluck --help
 pyluckbd --help
-```
-
-## Documentation [TBC]
-
-## Overview:
-
-### Motivation
-
-Makefile is concise and robust, but can be hard to learn for non-experienced bash user, 
-due to its many unique operators. Since python is a much wider spread language than
-Makefile (need ref), porting Makefile syntax to Python would open up access to 
-make-powered reproducibility to these python-only users, without having to learn
-the syntax. 
-
-There are several dimensions to score a build system. A detailed comparison is attached
-further below
-
-## Usage
-
-### CLI help:
-
-```
-usage: luckbd [-h] [-C DIRECTORY] [--abs-target ABS_TARGET] [--pdb]
-              [--debug-class DEBUG_CLASS] [-V]
-              target
-
-positional arguments:
-  target                the target within the namespace
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -C DIRECTORY, --directory DIRECTORY
-                        Change to DIRECTORY before doing anything.
-  --abs-target ABS_TARGET
-                        the full url to the target
-  --pdb                 run post-mortem pdb
-  --debug-class DEBUG_CLASS
-                        DEBUG_CLASS format: <CLASS_NAME:str>:<DEBUG_LEVEL:int>
-                        possible values for CLASS_NAME:{{BaseRule}}.set
-                        class.debug = DEBUG_LEVEL before execution example
-                        --debug-class BaseRule:1
-  -V, --version         print version
 ```
 
 ## Sciprting Syntax
@@ -171,6 +169,9 @@ TESTFALGS = -DTEST_COUNTCHAR -DTEST_PRINTCOUNTS
 
 SRCS = main.c filechar.c
 OBJS = $(SRCS:%.c=%.o)
+
+%.o : %.c
+	$(GCC) $(TESTFALGS) -c $*.c -o $@
 
 hw04: $(OBJS) 
 	$(GCC) $(TESTFALGS) $(OBJS) -o hw04
@@ -308,8 +309,19 @@ class test1(LinkedTask):
 
 ## Improvements/Changelog:
 
-- [todo] better LSC with stdout stderr with 
-- [todo] fix tests for "luckbd" instead of "pyluckbd"
+- [urgent] ~~NoCacheRule() and TimeStampRule()~~ 
+    <strike>- TSR would cache status for non-existing files. event for `TSR.M(ns, 'all', 'build')`. 
+    However this is only a symbloic inheritance, and the built-status of 
+    `build` should resolve to its upstream and not the pseudofile. 
+    - Current workaround is to use `NCR.M` instead of `TSR.M` for symbolic tasks, 
+    but `NCR` will always be rebuilt regarless of its upstream.
+    - Solution A: add a rule class to achieve this behaviour~~
+	</strike>
+	- Solution: Just add `-B --always-make` 
+- [todo] adding name-expansion for `<target>` and `<src>`. adding directory watcher `luck/*`, `luck/**`
+- [todo] rename "luckbd" to "luckmake"
+- [todo] better LSC with stdout stderr with `os.system` does not return stdout...
+- [todo] add tests for "luckbd" instead of "pyluckbd"
 - [port] Python is not the best language for writing a build system because of its poor portability.
 I am using python because it is more expressive than a static yaml/json file. It would be 
 great if we can write a parser in c/cpp/go to emulate a reduced version of python.
