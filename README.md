@@ -15,6 +15,21 @@ the syntax.
 There are several dimensions to score a build system. A detailed comparison is attached
 further below
 
+### Feature
+
+- Makefile-like syntax and laziness
+- Supports arbitrary python3.7 statements
+- Transparent source code with minimal presets defined as importable classes.
+- [TBC] Optional Static DAG specification instead of Runtime DAG construction
+- [TBC] integration with pytest?
+
+### Close-related alternatives:
+
+- SCons
+- luigi
+- gnu-make
+- spiper (predecessor)
+
 ### CLI Usage `luckbd`:
 
 ```
@@ -49,8 +64,6 @@ optional arguments:
 #### Requires
 
 - A linux machine compatible with the binary
-- import: `sys.path` in `LUCKFILE.py` will be provided by the `luckbd` binary 
-and not the system python installation.
 
 #### from github release
 
@@ -85,32 +98,57 @@ pyluck --help
 pyluckbd --help
 ```
 
-## Sciprting Syntax
+## Sciprting Syntax and Tips
 
-```
+Tips
+======
+
+importing module 
+=================
+
+- `sys.path` in `LUCKFILE.py` will be provided by the `luckbd` binary 
+and not the system python installation. If you want to `import numpy`, 
+best to place a sys.path.append("PATH_TO_NUMPY_PARENT_DIR")  before `import numpy`
+- get the PATH_TO_NUMPY_PARENT_DIR with `python3.7 -c "import numpy as mod; print(mod.__file__)"`
+- if the output is "/home/shouldsee/.local/lib/python3.7/site-packages/numpy/__init__.py", then you should
+`sys.append("/home/shouldsee/.local/lib/python3.7/site-packages/")`
+
+Cache a rule or not?
+======================
+- NoCachedRule (NCR) vs TimeSizeStampRule (TSSR): 
+- it's important to select NCR / TSSR carefully to avoid later confusion.
+- use NCR when the output cannot be cached. This is true for any command-like rule
+- use TSSR or other stamped rule when the output is one or more files. 
+
 
 namespace utility
 =======================
+```
 RNS:    RuleNameSpace
 DNSUB:  DelayedNameSpaceSUBclass
 LSC:    LoggedShellCommand
+```
 
 callable to execute during build time
 ======================================
+```
 pyfunc: 
 AutoCmd:
 MFP:    MakeFilePattern: 
+```
 
 rule classes
 =========================
+```
 BaseRule:
 TimeSizeStampRule:
 MD5StampRule:
 NoCacheRule:
-
+```
 
 generic methods
 ================
+```
 <klass>.M(namespace, key, *init_attrs):     
 	M for modify
 	============
@@ -130,19 +168,62 @@ generic methods
 
 ## Example
 
-adapted from ECE264
+### LUCKFILE.py for this project:
 
-while `make` looks for Makefile in current directory, `luck` looks for "LUCKFILE.py"
+You can even use luckbd to install it to your file-system. 
+Once changed into the project directory the `bin` directory is built, 
+use `bin/luckbd install` or `bin/luckbd build`.
 
-```bash
-cd example-ece264-hw04.dir
-make clean
-make testall
+```python
+PREFIX = '~/.local'
+DESTDIR= ""
 
-luckbd clean
-luckbd testall
-echo [FIN]
+from luck.shorts import RNS,DNS,LSC,TSSR
+from luck.types import NoCacheRule as NCR
+
+RULE=TSSR
+ns = RNS()
+
+
+### always use NCR for aliasing
+NCR.M(ns, 'all', 'build install')  
+### alias
+NCR.M(ns, 'build','./bin/luckbd ./bin/luck')
+
+### use LSC for bash command, f-string for string-completion
+NCR.M(ns, 'install','build',lambda c:LSC(f''' 
+	install -d {DESTDIR}{PREFIX}/bin/
+	install -m 755 ./bin/luckbd {DESTDIR}{PREFIX}/bin/
+	install -m 755 ./bin/luck {DESTDIR}{PREFIX}/bin/
+	'''))
+
+RULE.M(ns, './bin/luckbd ./bin/luck', 'luck/types.py', lambda c:LSC(f'''
+	python3.7 -m PyInstaller cli.spec --distpath ./bin --clean
+	### this command would produce ./bin/luckbd and ./bin/luck
+	'''))
+
+### specify external root nodes with RULE=TSSR. 
+RULE.M(ns, 'luck/types.py', None)
+RULE.M(ns, 'build.sh',None)
+
+
+### use NCR for commands that should always execute
+NCR.M(ns, 'error',  '',lambda c:LSC('echo 1231243231 && false'))
+NCR.M(ns, 'pybuild','',lambda c:LSC('python3.7 -m pip install . --user && pytest . && rm bin -rf'))
+
+TSSR.M(ns,'example-ece264-hw04.dir',None)
+
+NCR.M(ns, 'test.sh', '',lambda c:print(LSC('''
+cd example-ece264-hw04.dir/
+python3.7 README-example.py build ./hw04
+''')))
+NCR.M(ns, 'count-line', '', lambda c:print(LSC('wc example-ece264-hw04.dir/{*E.py,Makefile} -c')))
+NCR.M(ns, 'clean', '',lambda c:LSC('''
+	rm -rf bin/* build/*
+	'''))
 ```
+
+
 
 ### charcount
 
@@ -155,6 +236,20 @@ echo [FIN]
 Below is a side by side comparison of Makefile and LUCKFILE.py. 
 You would notice that LUCKFILE.py is significantly more verbose and have more quotes, but 
 there is definitely space for a more concise grammar. 
+
+Makefile is adapted from ECE264 2019 problems
+
+while `make` looks for Makefile in current directory, `luck` looks for "LUCKFILE.py"
+
+```bash
+cd example-ece264-hw04.dir
+make clean
+make testall
+
+luckbd clean
+luckbd testall
+echo [FIN]
+```
 
 ### Makefile
 
@@ -206,8 +301,7 @@ OBJS = ' '.join([x[:-2]+'.o' for x in SRCS.split()]) ## pure python func!
 
 
 RULE.M(ns, OBJS, SRCS,  ACMD(patterns))
-RULE.M(
-	ns, SRCS, None,  None)
+RULE.M(ns, SRCS, None,  None)
 
 
 MFP.M(patterns,
@@ -308,17 +402,12 @@ class test1(LinkedTask):
 ```
 
 ## Improvements/Changelog:
-
-- [urgent] ~~NoCacheRule() and TimeStampRule()~~ 
-    <strike>- TSR would cache status for non-existing files. event for `TSR.M(ns, 'all', 'build')`. 
-    However this is only a symbloic inheritance, and the built-status of 
-    `build` should resolve to its upstream and not the pseudofile. 
-    - Current workaround is to use `NCR.M` instead of `TSR.M` for symbolic tasks, 
-    but `NCR` will always be rebuilt regarless of its upstream.
-    - Solution A: add a rule class to achieve this behaviour~~
-	</strike>
-	- Solution: Just add `-B --always-make` 
-- [todo] adding name-expansion for `<target>` and `<src>`. adding directory watcher `luck/*`, `luck/**`
+- [cli] add runtime variable overriding `luckbd install PREFIX=blah` 
+- [cli] add `-B --always-make` 
+- [design] introduce hierarchical calls RULE.M(ns, output, input=RULE.M(ns, output, input)).
+This would allow easy specification of upstream.
+- [todo] enabling `luck/*` with glob
+- [todo] enabling `luck/**` to match all file in directory
 - [todo] rename "luckbd" to "luckmake"
 - [todo] better LSC with stdout stderr with `os.system` does not return stdout...
 - [todo] add tests for "luckbd" instead of "pyluckbd"
@@ -352,6 +441,14 @@ great if we can write a parser in c/cpp/go to emulate a reduced version of pytho
 	and heading `# -*- coding: future_fstrings -*- `
     - ~~[sug,urg] get rid of `super().run()` for subclasses of LinkedTask~~
     - [sug] use "self.input().path" or "self.input()" ?
+- ~~[urgent] NoCacheRule() and TimeStampRule()~~ 
+    <strike>- TSR would cache status for non-existing files. event for `TSR.M(ns, 'all', 'build')`. 
+    However this is only a symbloic inheritance, and the built-status of 
+    `build` should resolve to its upstream and not the pseudofile. 
+    - Current workaround is to use `NCR.M` instead of `TSR.M` for symbolic tasks, 
+    but `NCR` will always be rebuilt regarless of its upstream.
+    - Solution A: add a rule class to achieve this behaviour~~
+	</strike>    
 
 ### Detailed comparison
 

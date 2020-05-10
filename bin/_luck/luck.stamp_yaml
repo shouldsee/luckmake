@@ -1,0 +1,8 @@
+- - __version__
+  - 0.0.5
+- - __class__.__name__
+  - TimeSizeStampRule
+- - to_ident
+  - - ./bin/luck
+    - 1589094713.6914494
+    - 6102032
