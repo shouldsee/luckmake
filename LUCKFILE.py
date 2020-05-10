@@ -30,19 +30,26 @@ NCR.M(ns, 'install','build',lambda c:LSC(f'''
 	install -m 755 ./bin/luck {DESTDIR}{PREFIX}/bin/
 	'''))
 
-RULE.M(ns, './bin/luckbd ./bin/luck', 'luck/types.py', lambda c:LSC(f'''
+luck_src = 'luck/**.py'
+RULE.M(ns, luck_src)
+RULE.M(ns, 'foo', luck_src,lambda c:LSC('echo foo'))
+# RULE.M(ns,'luck/**')
+# NCR.M(ns, 'luck-src', 'luck/**')
+
+
+RULE.M(ns, './bin/luckbd ./bin/luck', luck_src, lambda c:LSC(f'''
 	python3.7 -m PyInstaller cli.spec --distpath ./bin --clean
 	### this command would produce ./bin/luckbd and ./bin/luck
 	'''))
 
 ### specify external root nodes with RULE=TSSR. 
 RULE.M(ns, 'luck/types.py', None)
-RULE.M(ns, 'build.sh',None)
+# RULE.M(ns, 'foo', 'luck/**', lambda c:print('foo'))
 
 
 ### use NCR for commands that should always execute
 NCR.M(ns, 'error',  '',lambda c:LSC('echo 1231243231 && false'))
-NCR.M(ns, 'pybuild','',lambda c:LSC('python3.7 -m pip install . --user && pytest . && rm bin -rf'))
+NCR.M(ns, 'pybuild',luck_src,lambda c:LSC('python3.7 -m pip install . --user && pytest . && rm bin -rf'))
 
 TSSR.M(ns,'example-ece264-hw04.dir',None)
 NCR.M(ns, 'time', 'example-ece264-hw04.dir', lambda c: print(LSC('''
@@ -73,7 +80,8 @@ echo [finish]
 exit 0
 ''')))
 
-NCR.M(ns, 'push', '', lambda c: print(LSC('''proxychains git push -f 2>&1''')))
+NCR.M(ns, 'push', '', lambda c: print(LSC('''proxychains git push 2>&1''')))
+NCR.M(ns, 'pushf', '', lambda c: print(LSC('''proxychains git push -f 2>&1''')))
 NCR.M(ns, 'test.sh', '',lambda c:print(LSC('''
 cd example-ece264-hw04.dir/
 python3.7 README-example.py build ./hw04
@@ -82,3 +90,4 @@ NCR.M(ns, 'count-line', '', lambda c:print(LSC('wc example-ece264-hw04.dir/{*E.p
 NCR.M(ns, 'clean', '',lambda c:LSC('''
 	rm -rf bin/* build/*
 	'''))
+'cat -n test/pointer/Makefile && make -C test/pointer/ result.bar'

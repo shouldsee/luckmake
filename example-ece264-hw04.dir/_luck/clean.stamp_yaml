@@ -1,8 +1,0 @@
-- - __version__
-  - 0.0.2
-- - __class__.__name__
-  - TimeSizeStampRule
-- - to_ident
-  - - clean
-    - 0
-    - 0

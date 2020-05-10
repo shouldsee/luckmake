@@ -1,0 +1,8 @@
+- - __version__
+  - 0.0.6
+- - __class__.__name__
+  - TimeSizeStampRule
+- - to_ident
+  - - luck/cli.py
+    - 1589101639.5950248
+    - 2837

@@ -402,12 +402,15 @@ class test1(LinkedTask):
 ```
 
 ## Improvements/Changelog:
-- [cli] add runtime variable overriding `luckbd install PREFIX=blah` 
+
+- [cli] add runtime variable '-e' overriding `luckbd install PREFIX=blah` 
 - [cli] add `-B --always-make` 
 - [design] introduce hierarchical calls RULE.M(ns, output, input=RULE.M(ns, output, input)).
 This would allow easy specification of upstream.
-- [todo] enabling `luck/*` with glob
-- [todo] enabling `luck/**` to match all file in directory
+- [todo] enabling `luck/*` with glob. 
+- [todo] enabling `luck/**` to match all file in directory.
+	- implemented in `str_expand()`
+	- excluding `_luck __pycache__` by 0.0.6 .  need to add [suffix matching, blacklist configuration] 
 - [todo] rename "luckbd" to "luckmake"
 - [todo] better LSC with stdout stderr with `os.system` does not return stdout...
 - [todo] add tests for "luckbd" instead of "pyluckbd"
@@ -420,6 +423,8 @@ great if we can write a parser in c/cpp/go to emulate a reduced version of pytho
 - [sug,ada] dry run dependency graph
 - [doc] Add docs/
 - [doc] automate README.md generation.
+- 0.0.6
+    - added glob matching for `luck/*.py`, `luck/**.py` at defer.str_expand()
 - 0.0.5
     - 'fileA fileB' would share a ident_same() method [TBC] adapt the logic for AutoCmd() dispatching
     - avoid recomputing the same rule that would output mutiple files

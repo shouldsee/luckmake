@@ -1,5 +1,6 @@
 
-from .header import AttrDict, Path
+from .header import PACKAGE_NAME, __version__
+from .header import AttrDict, Path, dir_listfiles
 from .header import SetAttrDenied, RuleNotDefined
 
 class BuildRuleContext(AttrDict):
@@ -102,25 +103,39 @@ class RuleNameSpace(DNS):
 import functools
 def SetterFromRule(rule_class):
 	return rule_class.modify
-	# @functools.wraps(rule_class)
-	# def func(namespace, outputs, input=None, recipe=None,rebuilt=None):
-	# 	out = []
-	# 	for output in outputs.split():
-	# 		rule = rule_class(namespace, output, input, recipe, rebuilt)
-	# 		out.append(rule)
-	# 	return out
-	# return func
 
 RNS = RuleNameSpace
-
-
 
 def CommandFromRule(rule_class):
 	pass
 
+import glob
 
+BLACKLIST = [ f'_{PACKAGE_NAME}', '__pycache__']
 
-# class BaseRule(DelayedNameSpace):
+def str_expand(input, debug=0, blacklist= BLACKLIST):
+	_ = '''
+	If input contains luck/* and luck/**, should get expanded into existing files and 
+	a pointer to non-existing files. The pointer should be resolved at build-time/dag creation time.
+	If ouput conatins luck/* and luck/**, do nothing because output should not contain pointer
+	'''
+	out = []
+	for x in input.split():
+		if '**' in x:
+			pre, suf = x.split('**')
+			res = dir_listfiles(pre)
+			res = [x for x in res if x.endswith(suf) and all((y not in x for y in blacklist))]
+			if debug: print(f'[**]{x}{res}')
+		elif '*' in x:
+			res = glob.glob(x)
+			if debug: print(f'[*]{x}{res}')	
+		else:
+			res = [x]
+			if debug: print(f'[*]{x}{res}')	
+		out.extend(res)
+	out = ' '.join(out)
+	return out 
+
 class BaseRule(object):
 	__doc__ = '''
 	__setattr__ only available fo private attribute. do not setattr!
@@ -136,13 +151,12 @@ class BaseRule(object):
 		if rebuilt is None: rebuilt = False
 		# self._inited    = False
 		self._namespace = namespace
-		self._output    = output
-		# self._output    = Path(output).realpath()
-		self._input     = input
+		self._dirname   = Path('.').realpath()
+		self._output    = str_expand(output)
+		self._input     = str_expand(input)
 		self._recipe    = recipe
 		self._recipe._ddict_dont_call = True
 		self._rebuilt   = rebuilt
-		self._dirname   = Path('.').realpath()
 
 		# for name in set([self.output] + self.output.split()):
 		for name in self.output.split():
@@ -150,8 +164,8 @@ class BaseRule(object):
 			ns = namespace
 			assert isinstance(ns, RuleNameSpace), (f'{ns.__class__}')
 			ns.attach_rule(self, name)
-
 		self._inited    = True
+		
 	@classmethod
 	def modify(rule_class, namespace, outputs, input=None, recipe=None,rebuilt=None):
 		output = outputs

@@ -2,7 +2,7 @@ import future_fstrings
 from attrdict import AttrDict as _AttrDict
 from path import Path
 
-__version__ = '0.0.5'
+__version__ = '0.0.6'
 PACKAGE_NAME = 'luck'
 
 class RuleNotDefined(Exception):
@@ -33,3 +33,12 @@ def os_stat_safe(fname):
 		return os.stat(fname)
 	else:
 		return _os_stat_result_null
+
+def dir_listfiles(dirName):
+	'''
+	REF: https://thispointer.com/python-how-to-get-list-of-files-in-directory-and-sub-directories/
+	'''
+	listOfFiles = list()
+	for (dirpath, dirnames, filenames) in os.walk(dirName):
+		listOfFiles += [os.path.join(dirpath, file) for file in filenames]
+	return listOfFiles
