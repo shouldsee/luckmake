@@ -1,17 +1,18 @@
 
 from .header import AttrDict
-
-
+from .header import get_frame
 class MakefilePattern(object):
 	'''
 	[TODO] Only support sinlge output target
 	'''
 
-	def __init__(self, output_ptn, input_ptn, recipe=None):
+	def __init__(self, output_ptn, input_ptn, recipe=None, frame=None):
 		# if recipe is None:
 		# 	recipe = input_ptn
 		# 	output_ptn, input_ptn = output_ptn.split(':')
-		if recipe is None: recipe = lambda c:None
+		from luck.shell  import FstringShellCommand
+		if recipe       is None: recipe  = lambda c:None
+		if type(recipe) is  str: recipe  = FstringShellCommand(recipe, get_frame(frame));
 
 		self.output_ptn = output_ptn.strip().split('%')
 		self.input_ptn_list  = [input_ptn.strip().split('%') for input_ptn in input_ptn.split()]

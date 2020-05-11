@@ -15,6 +15,13 @@ class AttrDict(_AttrDict):
 	_ddict_dont_call = True
 	# def __getitem__()
 # del AttrDict.__call__
+
+import inspect
+def get_frame(frame):
+	if frame is None:
+		frame = inspect.currentframe().f_back.f_back ####parent of caller by default
+	return frame
+
 import yaml
 import os, sys
 from path import Path

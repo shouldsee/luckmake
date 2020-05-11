@@ -2,6 +2,7 @@
 from .header import PACKAGE_NAME, __version__
 from .header import AttrDict, Path, dir_listfiles
 from .header import SetAttrDenied, RuleNotDefined
+from .shell  import FstringShellCommand, get_frame
 
 class BuildRuleContext(AttrDict):
 	pass
@@ -145,10 +146,12 @@ class BaseRule(object):
 	debug = 0
 	_ddict_dont_call = True
 	_inited = False
-	def __init__(self, namespace, output, input=None, recipe= None, rebuilt=None):
-		if input   is None: input   = ''
-		if recipe  is None: recipe  = lambda c:None
-		if rebuilt is None: rebuilt = False
+	def __init__(self, namespace, output, input=None, recipe= None, rebuilt=None, frame=None):
+		if input        is None: input   = ''
+		from luck.shell  import FstringShellCommand
+		if recipe       is None: recipe  = lambda c:None
+		if type(recipe) is  str: recipe  = FstringShellCommand(recipe, get_frame(frame));
+		if rebuilt      is None: rebuilt = False
 		# self._inited    = False
 		self._namespace = namespace
 		self._dirname   = Path('.').realpath()
@@ -167,16 +170,16 @@ class BaseRule(object):
 		self._inited    = True
 		
 	@classmethod
-	def modify(rule_class, namespace, outputs, input=None, recipe=None,rebuilt=None):
+	def modify(rule_class, namespace, outputs, input=None, recipe=None,rebuilt=None,frame=None):
 		output = outputs
-		rule = rule_class(namespace, output, input, recipe, rebuilt)
+		rule = rule_class(namespace, output, input, recipe, rebuilt, get_frame(frame))
 		return rule
 
-		out = []
-		for output in outputs.split():
-			rule = rule_class(namespace, output, input, recipe, rebuilt)
-			out.append(rule)
-		return out
+		# out = []
+		# for output in outputs.split():
+		# 	rule = rule_class(namespace, output, input, recipe, rebuilt)
+		# 	out.append(rule)
+		# return out
 	M = modify
 
 	def __getitem__(self,k):

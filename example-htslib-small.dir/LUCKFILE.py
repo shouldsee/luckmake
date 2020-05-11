@@ -5,7 +5,7 @@ from luck.types import DNS,DNSUB,DelayedNameSpace
 # from luck.types import Rule
 from luck.types import RuleNameSpace
 from luck.types import RuleNameSpace as RNS
-from luck.types import LSC
+from luck.types import LoggedShellCommand as LSC
 from luck.types import MakefilePattern, AutoCmd
 from luck.types import NoCacheRule
 from attrdict import AttrDict
