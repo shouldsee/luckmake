@@ -59,13 +59,8 @@ optional arguments:
 
 ## Install 
 
-### install binary
-
-#### Requires
-
-- A linux machine compatible with the binary
-
-#### from github release
+<!--
+#### from github release (luckmake)
 
 ```bash
 TAG=0.0.6
@@ -75,27 +70,99 @@ sudo ln -f luck luckmake -t /usr/local/bin
 ./luck --help
 ./luckmake --help
 ```
+-->
 
-#### from github tarball (master or tag)
+
+### install binary from github tarball (luckmake)
+
+- requires A linux machine compatible with the binary
 
 ```bash
-TAG=master
+TAG=0.0.6
+# TAG=master  # for development branch
 curl -sL https://github.com/shouldsee/luck/archive/${TAG}.tar.gz -o luck-${TAG}.tar.gz
 tar -xvzf luck-${TAG}.tar.gz
-cd luck-${TAG}/ && make install PREFIX=$HOME/.local
+cd luck-${TAG}/
+install -m 755 bin/luck* $HOME/.local/bin
 ```
 
-### install python scripts
+### install python scripts (pyluckmake)
 
-#### Requires
-
-- Python >= 3.7
-- use `pyluck`, `pyluckmake` instead
+- requires Python >= 3.7
 
 ```bash
-python3.7 -m pip install luck@https://github.com/shouldsee/luck/tarball/master
-pyluck --help
-pyluckmake --help
+python3.7 -m pip install luck@https://github.com/shouldsee/luck/tarball/master && pyluckmake --help
+```
+
+
+
+## Example
+
+### LUCKFILE.py for this project:
+
+You can even use luckmake to install it to your file-system. 
+Once changed into the project directory the `bin` directory is built, 
+use `bin/luckmake install` or `bin/luckmake build`.
+
+```python
+PREFIX = '~/.local'
+DESTDIR= ""
+
+from luck.shorts import RNS,DNS,LSC,TSSR
+from luck.types import NoCacheRule as NCR
+
+RULE=TSSR
+ns = RNS()
+
+
+### always use NCR for aliasing
+NCR.MWF(ns, 'all', 'build install')  
+### alias
+NCR.MWF(ns, 'build','./bin/luckmake ./bin/luck')
+
+### use LSC for bash command, f-string for string-completion
+NCR.MWF(ns, 'install','build',
+	''' 
+	install -d {DESTDIR}{PREFIX}/bin/
+	install -m 755 ./bin/luckmake {DESTDIR}{PREFIX}/bin/
+	install -m 755 ./bin/luck {DESTDIR}{PREFIX}/bin/
+	''')
+
+RULE.MWF(ns, './bin/luckmake ./bin/luck', 'luck/types.py', 
+	'''
+	python3.7 -m PyInstaller cli.spec --distpath ./bin --clean
+	### this command would produce ./bin/luckmake and ./bin/luck
+	''')
+
+### specify external root nodes with RULE=TSSR. 
+RULE.MWF(ns, 'luck/types.py', None)
+RULE.MWF(ns, 'build.sh',None)
+
+
+### use NCR for commands that should always execute
+NCR.MWF(ns, 'error',  '', 'echo 1231243231 && false')
+NCR.MWF(ns, 'pybuild','', 'python3.7 -m pip install . --user && pytest . && rm bin -rf')
+
+TSSR.MWF(ns,'example-ece264-hw04.dir',None)
+
+NCR.MWF(ns, 'test.sh', '', '''
+cd example-ece264-hw04.dir/
+python3.7 README-example.py build ./hw04
+''')
+NCR.MWF(ns, 'count-line', '', 'wc example-ece264-hw04.dir/{*E.py,Makefile} -c')
+NCR.MWF(ns, 'clean', '','''
+	rm -rf bin/* build/*
+	''')
+```
+
+
+
+### charcount
+
+```
+1553 example-ece264-hw04.dir/LUCKFILE.py
+2638 example-ece264-hw04.dir/v1.LUCKFILE.py
+ 895 example-ece264-hw04.dir/Makefile
 ```
 
 ## Sciprting Syntax and Tips
@@ -176,73 +243,6 @@ generic methods
 
 ```
 
-## Example
-
-### LUCKFILE.py for this project:
-
-You can even use luckmake to install it to your file-system. 
-Once changed into the project directory the `bin` directory is built, 
-use `bin/luckmake install` or `bin/luckmake build`.
-
-```python
-PREFIX = '~/.local'
-DESTDIR= ""
-
-from luck.shorts import RNS,DNS,LSC,TSSR
-from luck.types import NoCacheRule as NCR
-
-RULE=TSSR
-ns = RNS()
-
-
-### always use NCR for aliasing
-NCR.M(ns, 'all', 'build install')  
-### alias
-NCR.M(ns, 'build','./bin/luckmake ./bin/luck')
-
-### use LSC for bash command, f-string for string-completion
-NCR.M(ns, 'install','build',lambda c:LSC(f''' 
-	install -d {DESTDIR}{PREFIX}/bin/
-	install -m 755 ./bin/luckmake {DESTDIR}{PREFIX}/bin/
-	install -m 755 ./bin/luck {DESTDIR}{PREFIX}/bin/
-	'''))
-
-RULE.M(ns, './bin/luckmake ./bin/luck', 'luck/types.py', lambda c:LSC(f'''
-	python3.7 -m PyInstaller cli.spec --distpath ./bin --clean
-	### this command would produce ./bin/luckmake and ./bin/luck
-	'''))
-
-### specify external root nodes with RULE=TSSR. 
-RULE.M(ns, 'luck/types.py', None)
-RULE.M(ns, 'build.sh',None)
-
-
-### use NCR for commands that should always execute
-NCR.M(ns, 'error',  '',lambda c:LSC('echo 1231243231 && false'))
-NCR.M(ns, 'pybuild','',lambda c:LSC('python3.7 -m pip install . --user && pytest . && rm bin -rf'))
-
-TSSR.M(ns,'example-ece264-hw04.dir',None)
-
-NCR.M(ns, 'test.sh', '',lambda c:print(LSC('''
-cd example-ece264-hw04.dir/
-python3.7 README-example.py build ./hw04
-''')))
-NCR.M(ns, 'count-line', '', lambda c:print(LSC('wc example-ece264-hw04.dir/{*E.py,Makefile} -c')))
-NCR.M(ns, 'clean', '',lambda c:LSC('''
-	rm -rf bin/* build/*
-	'''))
-```
-
-
-
-### charcount
-
-```
-1553 example-ece264-hw04.dir/LUCKFILE.py
-2638 example-ece264-hw04.dir/v1.LUCKFILE.py
- 895 example-ece264-hw04.dir/Makefile
-```
-
 Below is a side by side comparison of Makefile and LUCKFILE.py. 
 You would notice that LUCKFILE.py is significantly more verbose and have more quotes, but 
 there is definitely space for a more concise grammar. 
@@ -260,6 +260,8 @@ luckmake clean
 luckmake testall
 echo [FIN]
 ```
+
+## More examples
 
 ### Makefile
 
@@ -437,6 +439,10 @@ great if we can write a parser in c/cpp/go to emulate a reduced version of pytho
     - [added] glob matching for `luck/*.py`, `luck/**.py` at defer.str_expand()
     - [added] FstringShellCommand() with {BaseRule,MakefilePattern}.modifyWithFrame() MWF() for shorthand
     This is to provide auto type casting from `str` to `lambda` within the calling context
+    - [added] FstringShellCommand() with {BaseRule,MakefilePattern}.modifyWithFrame() MWF() for shorthand
+    This is to provide auto type casting from `str` to `lambda` within the calling context
+        - delaying f-string expression is notoriously difficult. see [SO#42497625](https://stackoverflow.com/questions/42497625/how-to-postpone-defer-the-evaluation-of-f-strings). Current workaround passes 
+        frame pointer in `klass.MWF(*args,frame)`, but an additional string prefix like `lf(c,*args)"echo {args[0]}"` is desirable for debuggable build.    
 	- [done] enabling `luck/*` with glob. 
 	- [done] enabling `luck/**` to match all file in directory.
 		- implemented in `str_expand()`

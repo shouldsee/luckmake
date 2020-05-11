@@ -83,7 +83,7 @@ exit 0
 '''))
 
 
-NCR.MWF(ns, 'push', '', '''proxychains git push -f 2>&1''')
+NCR.MWF(ns, 'pushf', '', '''proxychains git push -f 2>&1''')
 NCR.MWF(ns, 'test.sh', '', 
 '''
 cd example-ece264-hw04.dir/

@@ -1,0 +1,8 @@
+- - __version__
+  - 0.0.6
+- - __class__.__name__
+  - TimeSizeStampRule
+- - to_ident
+  - - ./bin/luckmake
+    - 1589184836.1201916
+    - 6104744

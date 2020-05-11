@@ -1,0 +1,8 @@
+- - __version__
+  - 0.0.6
+- - __class__.__name__
+  - TimeSizeStampRule
+- - to_ident
+  - - luck/show_call_scope.py
+    - 1589183069.1587462
+    - 365
