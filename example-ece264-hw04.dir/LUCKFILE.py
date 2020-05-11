@@ -21,11 +21,10 @@ RULE.M(ns, SRCS, None,  None)
 
 MFP.M(patterns,
 	0, '%.o','%.c', 
-	lambda c: LSC('''
+	FBASH('''
 		{GCC} {TESTFALGS} -c {c.i[0]} -o {c.o[0]}
 		''')
 	)
-
 	# lambda c: LSC(f'{GCC} {TESTFALGS} -c {c.i[0]} -o {c.o[0]}'))
 
 

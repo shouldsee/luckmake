@@ -401,7 +401,8 @@ class test1(LinkedTask):
 		super().run()
 ```
 
-## Improvements/Changelog:
+## Improvements:
+
 
 - [cli] add runtime variable '-e' overriding `luckbd install PREFIX=blah` 
 - [cli] add `-B --always-make` 
@@ -423,6 +424,9 @@ great if we can write a parser in c/cpp/go to emulate a reduced version of pytho
 - [sug,ada] dry run dependency graph
 - [doc] Add docs/
 - [doc] automate README.md generation.
+
+## Changelog:
+
 - 0.0.6
     - added glob matching for `luck/*.py`, `luck/**.py` at defer.str_expand()
 - 0.0.5
