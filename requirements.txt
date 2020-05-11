@@ -5,5 +5,5 @@ pyyaml
 path.py
 lsc@https://github.com/shouldsee/lsc/tarball/0.0.1
 pytest
-future-fstrings
+future-fstrings[rewrite]
 attrdict
