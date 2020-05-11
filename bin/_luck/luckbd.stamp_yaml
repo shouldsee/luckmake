@@ -1,0 +1,8 @@
+- - __version__
+  - 0.0.6
+- - __class__.__name__
+  - TimeSizeStampRule
+- - to_ident
+  - - ./bin/luckbd
+    - 1589182606.1050508
+    - 6108184

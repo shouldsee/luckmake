@@ -146,11 +146,9 @@ class BaseRule(object):
 	debug = 0
 	_ddict_dont_call = True
 	_inited = False
-	def __init__(self, namespace, output, input=None, recipe= None, rebuilt=None, frame=None):
+	def __init__(self, namespace, output, input=None, recipe= None, rebuilt=None, ):
 		if input        is None: input   = ''
-		from luck.shell  import FstringShellCommand
 		if recipe       is None: recipe  = lambda c:None
-		if type(recipe) is  str: recipe  = FstringShellCommand(recipe, get_frame(frame));
 		if rebuilt      is None: rebuilt = False
 		# self._inited    = False
 		self._namespace = namespace
@@ -170,16 +168,17 @@ class BaseRule(object):
 		self._inited    = True
 		
 	@classmethod
-	def modify(rule_class, namespace, outputs, input=None, recipe=None,rebuilt=None,frame=None):
-		output = outputs
-		rule = rule_class(namespace, output, input, recipe, rebuilt, get_frame(frame))
-		return rule
+	def modifyWithFrame(rule_class, namespace, outputs, input=None, recipe=None,rebuilt=None,frame=None):
+		from luck.shell  import FstringShellCommand, get_frame
+		if type(recipe) is str:  recipe  = FstringShellCommand(recipe,get_frame(frame));		
+		return rule_class.modify(namespace, outputs, input, recipe, rebuilt)
+	MWF = modifyWithFrame
 
-		# out = []
-		# for output in outputs.split():
-		# 	rule = rule_class(namespace, output, input, recipe, rebuilt)
-		# 	out.append(rule)
-		# return out
+	@classmethod
+	def modify(rule_class, namespace, outputs, input=None, recipe=None,rebuilt=None):
+		output = outputs
+		rule = rule_class(namespace, output, input, recipe, rebuilt)
+		return rule
 	M = modify
 
 	def __getitem__(self,k):

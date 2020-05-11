@@ -2,8 +2,9 @@
 PREFIX = '~/.local'
 DESTDIR= ""
 
-from luck.shorts import RNS,DNS,LSC,TSSR
+from luck.shorts import RNS,DNS,LSC,TSSR, DC
 from luck.types import NoCacheRule as NCR
+
 
 RULE=TSSR
 ns = RNS()
@@ -24,35 +25,36 @@ _ = '''
 - use TSSR or other stamped rule when the output is one or more files. 
 '''
 ### use LSC for bash command, f-string for string-completion
-NCR.M(ns, 'install','build',lambda c:LSC(f''' 
+NCR.MWF(ns, 'install','build',
+	''' 
 	install -d {DESTDIR}{PREFIX}/bin/
 	install -m 755 ./bin/luckbd {DESTDIR}{PREFIX}/bin/
 	install -m 755 ./bin/luck {DESTDIR}{PREFIX}/bin/
-	'''))
+	''')
 
-luck_src = 'luck/**.py'
-RULE.M(ns, luck_src)
-RULE.M(ns, 'foo', luck_src,lambda c:LSC('echo foo'))
-# RULE.M(ns,'luck/**')
-# NCR.M(ns, 'luck-src', 'luck/**')
+luck_src = 'luck/**'
+RULE.MWF(ns, luck_src)
+RULE.MWF(ns, 'foo', luck_src, 'echo foo')
 
 
-RULE.M(ns, './bin/luckbd ./bin/luck', luck_src, lambda c:LSC(f'''
+RULE.MWF(ns, './bin/luckbd ./bin/luck', luck_src, 
+	'''
 	python3.7 -m PyInstaller cli.spec --distpath ./bin --clean
 	### this command would produce ./bin/luckbd and ./bin/luck
-	'''))
+	''')
 
 ### specify external root nodes with RULE=TSSR. 
-RULE.M(ns, 'luck/types.py', None)
+RULE.MWF(ns, 'luck/types.py', None)
 # RULE.M(ns, 'foo', 'luck/**', lambda c:print('foo'))
 
 
 ### use NCR for commands that should always execute
-NCR.M(ns, 'error',  '',lambda c:LSC('echo 1231243231 && false'))
-NCR.M(ns, 'pybuild',luck_src,lambda c:LSC('python3.7 -m pip install . --user && pytest . && rm bin -rf'))
+NCR.MWF(ns, 'error',  '', 'echo 1231243231 && false')
+NCR.MWF(ns, 'pybuild',luck_src, 'python3.7 -m pip install . --user && pytest . && rm bin -rf')
 
-TSSR.M(ns,'example-ece264-hw04.dir',None)
-NCR.M(ns, 'time', 'example-ece264-hw04.dir', lambda c: print(LSC('''
+TSSR.MWF(ns,'example-ece264-hw04.dir',None)
+NCR.MWF(ns, 'time', 'example-ece264-hw04.dir', 
+DC('''
 cd example-ece264-hw04.dir
 unset time
 alias time=/usr/bin/time
@@ -78,16 +80,18 @@ exec 3<>/dev/null
 } 2>&1
 echo [finish]
 exit 0
-''')))
+'''))
 
-NCR.M(ns, 'push', '', lambda c: print(LSC('''proxychains git push 2>&1''')))
-NCR.M(ns, 'pushf', '', lambda c: print(LSC('''proxychains git push -f 2>&1''')))
-NCR.M(ns, 'test.sh', '',lambda c:print(LSC('''
+
+NCR.MWF(ns, 'push', '', '''proxychains git push -f 2>&1''')
+NCR.MWF(ns, 'test.sh', '', 
+'''
 cd example-ece264-hw04.dir/
 python3.7 README-example.py build ./hw04
-''')))
-NCR.M(ns, 'count-line', '', lambda c:print(LSC('wc example-ece264-hw04.dir/{*E.py,Makefile} -c')))
-NCR.M(ns, 'clean', '',lambda c:LSC('''
+''')
+NCR.MWF(ns, 'count-line', '', 'wc example-ece264-hw04.dir/{*E.py,Makefile} -c')
+NCR.MWF(ns, 'clean', '','''
 	rm -rf bin/* build/*
-	'''))
+	''')
+
 'cat -n test/pointer/Makefile && make -C test/pointer/ result.bar'

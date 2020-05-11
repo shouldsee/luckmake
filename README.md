@@ -429,6 +429,8 @@ great if we can write a parser in c/cpp/go to emulate a reduced version of pytho
 
 - 0.0.6
     - added glob matching for `luck/*.py`, `luck/**.py` at defer.str_expand()
+    - added FstringShellCommand() with {BaseRule,MakefilePattern}.modifyWithFrame() MWF() for shorthand
+    This is to provide auto type casting from `str` to `lambda` within the calling context
 - 0.0.5
     - 'fileA fileB' would share a ident_same() method [TBC] adapt the logic for AutoCmd() dispatching
     - avoid recomputing the same rule that would output mutiple files
