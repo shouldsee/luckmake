@@ -30,10 +30,10 @@ further below
 - gnu-make
 - spiper (predecessor)
 
-### CLI Usage `luckbd`:
+### CLI Usage `luckmake`:
 
 ```
-usage: luckbd [-h] [-C DIRECTORY] [--abs-target ABS_TARGET] [--pdb]
+usage: luckmake [-h] [-C DIRECTORY] [--abs-target ABS_TARGET] [--pdb]
               [--debug-class DEBUG_CLASS] [-V]
               target
 
@@ -68,12 +68,12 @@ optional arguments:
 #### from github release
 
 ```bash
-TAG=0.0.5
+TAG=0.0.6
 curl -sL -o luck https://github.com/shouldsee/luck/releases/download/${TAG}/luck && chmod +x luck
-curl -sL -o luckbd https://github.com/shouldsee/luck/releases/download/${TAG}/luckbd && chmod +x luckbd
-sudo ln -f luck luckbd -t /usr/local/bin
+curl -sL -o luckmake https://github.com/shouldsee/luck/releases/download/${TAG}/luckmake && chmod +x luckmake
+sudo ln -f luck luckmake -t /usr/local/bin
 ./luck --help
-./luckbd --help
+./luckmake --help
 ```
 
 #### from github tarball (master or tag)
@@ -90,12 +90,12 @@ cd luck-${TAG}/ && make install PREFIX=$HOME/.local
 #### Requires
 
 - Python >= 3.7
-- use `pyluck`, `pyluckbd` instead
+- use `pyluck`, `pyluckmake` instead
 
 ```bash
 python3.7 -m pip install luck@https://github.com/shouldsee/luck/tarball/master
 pyluck --help
-pyluckbd --help
+pyluckmake --help
 ```
 
 ## Sciprting Syntax and Tips
@@ -106,7 +106,7 @@ Tips
 importing module 
 =================
 
-- `sys.path` in `LUCKFILE.py` will be provided by the `luckbd` binary 
+- `sys.path` in `LUCKFILE.py` will be provided by the `luckmake` binary 
 and not the system python installation. If you want to `import numpy`, 
 best to place a sys.path.append("PATH_TO_NUMPY_PARENT_DIR")  before `import numpy`
 - get the PATH_TO_NUMPY_PARENT_DIR with `python3.7 -c "import numpy as mod; print(mod.__file__)"`
@@ -164,15 +164,25 @@ generic methods
 	key:        the name to assign to wihtin <namespace>
 	init_attrs: passed to `klass(*init_attrs)`
 
+<klass>.MWF(namespace, key, *init_attrs, frame):
+	MWF for modify with frame
+	==========================
+	This class method is used for automatically casting a recipe in init_attrs
+	into a suitable lambda expression with fstring using FstringShellCommand(),
+	so that you do not have to type 
+	`RULE.M(ns, 'foo', None, lambda c:LSC(f'echo {GCC}')` 
+	all the time, and just type instead
+	`RULE.MWF(ns, 'foo', None, 'echo {GCC}')`
+
 ```
 
 ## Example
 
 ### LUCKFILE.py for this project:
 
-You can even use luckbd to install it to your file-system. 
+You can even use luckmake to install it to your file-system. 
 Once changed into the project directory the `bin` directory is built, 
-use `bin/luckbd install` or `bin/luckbd build`.
+use `bin/luckmake install` or `bin/luckmake build`.
 
 ```python
 PREFIX = '~/.local'
@@ -188,18 +198,18 @@ ns = RNS()
 ### always use NCR for aliasing
 NCR.M(ns, 'all', 'build install')  
 ### alias
-NCR.M(ns, 'build','./bin/luckbd ./bin/luck')
+NCR.M(ns, 'build','./bin/luckmake ./bin/luck')
 
 ### use LSC for bash command, f-string for string-completion
 NCR.M(ns, 'install','build',lambda c:LSC(f''' 
 	install -d {DESTDIR}{PREFIX}/bin/
-	install -m 755 ./bin/luckbd {DESTDIR}{PREFIX}/bin/
+	install -m 755 ./bin/luckmake {DESTDIR}{PREFIX}/bin/
 	install -m 755 ./bin/luck {DESTDIR}{PREFIX}/bin/
 	'''))
 
-RULE.M(ns, './bin/luckbd ./bin/luck', 'luck/types.py', lambda c:LSC(f'''
+RULE.M(ns, './bin/luckmake ./bin/luck', 'luck/types.py', lambda c:LSC(f'''
 	python3.7 -m PyInstaller cli.spec --distpath ./bin --clean
-	### this command would produce ./bin/luckbd and ./bin/luck
+	### this command would produce ./bin/luckmake and ./bin/luck
 	'''))
 
 ### specify external root nodes with RULE=TSSR. 
@@ -246,8 +256,8 @@ cd example-ece264-hw04.dir
 make clean
 make testall
 
-luckbd clean
-luckbd testall
+luckmake clean
+luckmake testall
 echo [FIN]
 ```
 
@@ -404,31 +414,33 @@ class test1(LinkedTask):
 ## Improvements:
 
 
-- [cli] add runtime variable '-e' overriding `luckbd install PREFIX=blah` 
+- [cli] add runtime variable '-e' overriding `luckmake install PREFIX=blah` 
 - [cli] add `-B --always-make` 
 - [design] introduce hierarchical calls RULE.M(ns, output, input=RULE.M(ns, output, input)).
 This would allow easy specification of upstream.
-- [todo] enabling `luck/*` with glob. 
-- [todo] enabling `luck/**` to match all file in directory.
-	- implemented in `str_expand()`
-	- excluding `_luck __pycache__` by 0.0.6 .  need to add [suffix matching, blacklist configuration] 
-- [todo] rename "luckbd" to "luckmake"
 - [todo] better LSC with stdout stderr with `os.system` does not return stdout...
-- [todo] add tests for "luckbd" instead of "pyluckbd"
-- [port] Python is not the best language for writing a build system because of its poor portability.
-I am using python because it is more expressive than a static yaml/json file. It would be 
-great if we can write a parser in c/cpp/go to emulate a reduced version of python.
+- [todo] add tests for "luckmake" instead of "pyluckmake"
 - [urg,perf] multi-worker build.. preferably a portable implementation
 - [sug] adding utility function for gdb upon exception
 - [sug] profiling gprof
 - [sug,ada] dry run dependency graph
 - [doc] Add docs/
 - [doc] automate README.md generation.
+- [port] Python is not the best language for writing a build system because of its poor portability.
+I am using python because it is more expressive than a static yaml/json file. It would be 
+great if we can write a parser in c/cpp/go to emulate a reduced version of python.
 
 ## Changelog:
 
 - 0.0.6
-    - added glob matching for `luck/*.py`, `luck/**.py` at defer.str_expand()
+	- [done] rename "luckbd" to "luckmake"
+    - [added] glob matching for `luck/*.py`, `luck/**.py` at defer.str_expand()
+    - [added] FstringShellCommand() with {BaseRule,MakefilePattern}.modifyWithFrame() MWF() for shorthand
+    This is to provide auto type casting from `str` to `lambda` within the calling context
+	- [done] enabling `luck/*` with glob. 
+	- [done] enabling `luck/**` to match all file in directory.
+		- implemented in `str_expand()`
+		- excluding `_luck __pycache__` by 0.0.6 .  need to add [suffix matching, blacklist configuration] 
 - 0.0.5
     - 'fileA fileB' would share a ident_same() method [TBC] adapt the logic for AutoCmd() dispatching
     - avoid recomputing the same rule that would output mutiple files
@@ -437,7 +449,7 @@ great if we can write a parser in c/cpp/go to emulate a reduced version of pytho
     - added `--debug-class <CLASS_NAME>:<DEBUG_LEVEL>`
 - 0.0.4
     - provide "luck", "luckbd" in binary, built with pyinstaller
-    - provide "pyluck", "pyluckbd" for python3.7
+    - provide "pyluck", "pyluck" for python3.7
     - rename "luck-build" to "pyluckbd"
     - stripped heading `# -*- coding: future_fstrings -*-`
     - now requires python3.7 for f-strings

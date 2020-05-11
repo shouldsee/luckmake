@@ -6,13 +6,11 @@ class MakefilePattern(object):
 	[TODO] Only support sinlge output target
 	'''
 
-	def __init__(self, output_ptn, input_ptn, recipe=None, frame=None):
+	def __init__(self, output_ptn, input_ptn, recipe=None):
 		# if recipe is None:
 		# 	recipe = input_ptn
 		# 	output_ptn, input_ptn = output_ptn.split(':')
-		from luck.shell  import FstringShellCommand
 		if recipe       is None: recipe  = lambda c:None
-		if type(recipe) is  str: recipe  = FstringShellCommand(recipe, get_frame(frame));
 
 		self.output_ptn = output_ptn.strip().split('%')
 		self.input_ptn_list  = [input_ptn.strip().split('%') for input_ptn in input_ptn.split()]
@@ -22,8 +20,15 @@ class MakefilePattern(object):
 		# assert len(self.input_ptn)==2,input_ptn
 		assert len(self.output_ptn) == 2,output_ptn
 	@classmethod
+	def modifyWithFrame(cls, namespace, key, output_ptn, input_ptn, recipe=None,frame = None):
+		from luck.shell  import FstringShellCommand, get_frame
+		if type(recipe) is str:  recipe  = FstringShellCommand(recipe,get_frame(frame));	
+		return cls.modify( namespace, key, output_ptn, input_ptn, recipe)
+	MWF=modifyWithFrame
+
+	@classmethod
 	def modify(cls, namespace, key, output_ptn, input_ptn, recipe=None):
-		namespace[key] = v =cls(output_ptn, input_ptn, recipe)	
+		namespace[key] = v =cls(output_ptn, input_ptn, recipe)
 		return v
 	M = modify
 

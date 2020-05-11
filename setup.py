@@ -26,7 +26,7 @@ config = dict(
     entry_points={
         "console_scripts": [
             "pyluck=luck.cli:luck_main",
-            "pyluckbd=luck.luck_build_main:luck_build_main",
+            "pyluckmake=luck.luck_build_main:luck_build_main",
             ]},	
 
 )

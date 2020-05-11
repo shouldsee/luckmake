@@ -20,7 +20,7 @@ def get_exe_name(target,src):
 
 for target, src in [
   ('luck',      'luck/cli.py',), 
-  ('luckbd',    'luck/luck_build_main.py')]:
+  ('luckmake',    'luck/luck_build_main.py')]:
   exe_name = get_exe_name(target,src)
   a = Analysis([src],
                pathex=['/data/local/repos/luck'],
