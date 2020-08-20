@@ -89,10 +89,10 @@ sudo install -m 755 luck luckmake /usr/local/bin
 
 ```bash
 TAG=0.0.8
-# TAG=master  # for development branch
-curl -sL https://github.com/shouldsee/luck/archive/${TAG}.tar.gz -o luck-${TAG}.tar.gz
-tar -xvzf luck-${TAG}.tar.gz
-cd luck-${TAG}/
+TAG=master  # for development branch
+curl -sL https://github.com/shouldsee/luckmake/archive/${TAG}.tar.gz -o luckmake-${TAG}.tar.gz
+tar -xvzf luckmake-${TAG}.tar.gz
+cd luckmake-${TAG}/
 sudo install -m 755 bin/luck* /usr/local/bin
 ```
 
@@ -101,7 +101,7 @@ sudo install -m 755 bin/luck* /usr/local/bin
 - requires Python >= 3.7
 
 ```bash
-python3.7 -m pip install luck@https://github.com/shouldsee/luck/tarball/master && pyluckmake --help
+python3.7 -m pip install luck@https://github.com/shouldsee/luckmake/tarball/master && pyluckmake --help
 ```
 
 
