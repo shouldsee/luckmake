@@ -74,17 +74,26 @@ sudo ln -f luck luckmake -t /usr/local/bin
 -->
 
 
-### install binary from github tarball (luckmake)
+### install binary from github release (example for 0.0.8)
+
+```bash
+TAG=0.0.8
+wget https://github.com/shouldsee/luckmake/releases/download/${TAG}/luck
+wget https://github.com/shouldsee/luckmake/releases/download/${TAG}/luckmake
+sudo install -m 755 luck luckmake /usr/local/bin
+```
+
+### install binary from github tarball
 
 - requires A linux machine compatible with the binary
 
 ```bash
-TAG=0.0.6
+TAG=0.0.8
 # TAG=master  # for development branch
 curl -sL https://github.com/shouldsee/luck/archive/${TAG}.tar.gz -o luck-${TAG}.tar.gz
 tar -xvzf luck-${TAG}.tar.gz
 cd luck-${TAG}/
-install -m 755 bin/luck* $HOME/.local/bin
+sudo install -m 755 bin/luck* /usr/local/bin
 ```
 
 ### install python scripts (pyluckmake)

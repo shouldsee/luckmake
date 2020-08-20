@@ -1,6 +1,9 @@
 #luigi
 #luigi>=2.8.13
 #pyyaml>=5.3.1
+
+## required for PyInstaller binary
+#setuptools<45.0.0
 pyyaml
 path.py
 lsc@https://github.com/shouldsee/lsc/tarball/0.0.1
