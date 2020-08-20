@@ -1,0 +1,8 @@
+- - __version__
+  - 0.0.8
+- - __class__.__name__
+  - TimeSizeStampRule
+- - to_ident
+  - - luck/graph.py
+    - 1597931402.1179588
+    - 2882

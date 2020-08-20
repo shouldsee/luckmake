@@ -3,7 +3,7 @@ from .header import PACKAGE_NAME, __version__
 from .header import AttrDict, Path, dir_listfiles
 from .header import SetAttrDenied, RuleNotDefined
 from .shell  import FstringShellCommand, get_frame
-
+import inspect
 class BuildRuleContext(AttrDict):
 	pass
 
@@ -52,10 +52,14 @@ class DelayedNameSpace(AttrDict):
 
 		# for k in 
 	@classmethod
-	def subclass(cls, name, registry=None, attrs={}):
+	def subclass(cls, name, registry=None, attrs={}, ruleFactory=None, module_file = None):
 		v = type( name, (cls,), attrs)
 		if registry is not None:
 			registry[name] = v
+		if ruleFactory is not None:
+			v._ruleFactory = ruleFactory
+		if module_file is not None:
+			v._module_file = module_file
 		return v
 	def get_raw(self,k):
 		return super().__getitem__(k)
@@ -65,11 +69,20 @@ DNS = DelayedNameSpace
 DNSUB = lambda *a:DelayedNameSpace.subclass(*a)()
 
 class RuleNameSpace(DNS):
-	def __init__(self,*a,**kw):
-	    super().__init__(*a,**kw)
-	    self.setdefault('ruleFactory', BaseRule)
+	_ruleFactory = None
+	_module_file = None
+	def __init__(self, *a,**kw):
+		# import inspect
+		pframe = inspect.currentframe().f_back
+		if self._module_file is None:
+			self._module_file = pframe.f_locals['__file__']
+		# import pdb; pdb.set_trace()
+		super().__init__(*a,**kw)
+		# self.setdefault('ruleFactory', BaseRule)
 
 	def copy(self):
+		raise NotImplementedError
+		
 		res = type(self)(super().copy())
 		for k in res:
 			if isinstance(res[k],BaseRule):
@@ -93,12 +106,16 @@ class RuleNameSpace(DNS):
 			'v[3-1] is the rule_class'
 			rule_class = v[3-1]
 		if rule_class is None:
-			rule_class = self.ruleFactory
+			# raise NotImplementedError
+			rule_class = BaseRule if self._ruleFactory is None else self._ruleFactory
 
 		for output in k.split():
 			rule = rule_class(self, output, *v)
 
 		return 
+class TestRuleNameSpace(RuleNameSpace):
+	_module_file = "__test__"
+
 
 
 import functools
@@ -112,7 +129,7 @@ def CommandFromRule(rule_class):
 
 import glob
 
-BLACKLIST = [ f'_{PACKAGE_NAME}', '__pycache__']
+BLACKLIST = [ f'_{PACKAGE_NAME}', '__pycache__', '_luck']
 
 def str_expand(input, debug=0, blacklist= BLACKLIST):
 	_ = '''
@@ -129,6 +146,7 @@ def str_expand(input, debug=0, blacklist= BLACKLIST):
 			if debug: print(f'[**]{x}{res}')
 		elif '*' in x:
 			res = glob.glob(x)
+			res = [x for x in res if all((y not in x for y in blacklist))]
 			if debug: print(f'[*]{x}{res}')	
 		else:
 			res = [x]
@@ -198,7 +216,6 @@ class BaseRule(object):
 	def __setitem__(self,k,v):
 		return self.__setattr__("_%s"%k,v, True)
 
-
 	def __call__(self):
 		return self.build()
 
@@ -232,7 +249,6 @@ class BaseRule(object):
 		_ = '''
 		check whether this Rule needs update 
 		'''
-
 		return self.check_self() and self.check_inputs() 
 
 	def check_self(self):

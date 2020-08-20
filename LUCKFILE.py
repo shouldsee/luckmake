@@ -37,7 +37,8 @@ RULE.MWF(ns, luck_src)
 RULE.MWF(ns, 'foo', luck_src, 'echo foo')
 
 
-RULE.MWF(ns, './bin/luckmake ./bin/luck', luck_src, 
+RULE.MWF(ns,'cli.spec')
+RULE.MWF(ns, './bin/luckmake ./bin/luck',  f'{luck_src} cli.spec', 
 	'''
 	python3.7 -m PyInstaller cli.spec --distpath ./bin --clean
 	### this command would produce ./bin/luckmake and ./bin/luck

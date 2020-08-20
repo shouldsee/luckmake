@@ -415,7 +415,7 @@ class test1(LinkedTask):
 
 ## Improvements:
 
-
+- [design] How to build in a different directory? 
 - [cli] add runtime variable '-e' overriding `luckmake install PREFIX=blah` 
 - [cli] add `-B --always-make` 
 - [design] introduce hierarchical calls RULE.M(ns, output, input=RULE.M(ns, output, input)).
@@ -434,11 +434,15 @@ great if we can write a parser in c/cpp/go to emulate a reduced version of pytho
 
 ## Changelog:
 
+- 0.0.8
+	- [added] `luck graph` to plot dependency graph
+	- [dep] "graphviz" as a dependency for `luck-graph`
+	- [change] refactor subcommanding in `luck/cli.py`
+	- [added] `luck.defer.RuleNameSpace._module_file`
+	- [change] `luck.shell.LoggedShellCommand` to use `subprocess.run` instead `subprocess.call`
 - 0.0.6
 	- [done] rename "luckbd" to "luckmake"
     - [added] glob matching for `luck/*.py`, `luck/**.py` at defer.str_expand()
-    - [added] FstringShellCommand() with {BaseRule,MakefilePattern}.modifyWithFrame() MWF() for shorthand
-    This is to provide auto type casting from `str` to `lambda` within the calling context
     - [added] FstringShellCommand() with {BaseRule,MakefilePattern}.modifyWithFrame() MWF() for shorthand
     This is to provide auto type casting from `str` to `lambda` within the calling context
         - delaying f-string expression is notoriously difficult. see [SO#42497625](https://stackoverflow.com/questions/42497625/how-to-postpone-defer-the-evaluation-of-f-strings). Current workaround passes 
@@ -535,3 +539,7 @@ great if we can write a parser in c/cpp/go to emulate a reduced version of pytho
 - sbt: na, java/scala, maybe
 - not-compared
 - apache-airflow: too big
+
+## Example Dependency Graph
+
+![dag-graph](./LUCKFILE.py.dot.svg)

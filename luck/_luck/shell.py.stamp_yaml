@@ -1,8 +1,8 @@
 - - __version__
-  - 0.0.6
+  - 0.0.8
 - - __class__.__name__
   - TimeSizeStampRule
 - - to_ident
   - - luck/shell.py
-    - 1589183069.1627464
-    - 2079
+    - 1597820714.023074
+    - 2718

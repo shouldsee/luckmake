@@ -1,5 +1,7 @@
 from .header import get_frame
 from lsc.logged_shell_command import LoggedShellCommand as _LSC
+import os, subprocess
+import sys
 def LoggedShellCommand(*a,**kw):
 	if isinstance(a[0],str):
 		a = ([a[0]],) + a[1:]
@@ -8,7 +10,33 @@ def LoggedShellCommand(*a,**kw):
 	print(f" ".join(a[0]))
 		# ,*a)
 	return _LSC(*a,**kw)
+
+def LoggedShellCommand(*a,**kw):
+	verbose = kw.get('verbose',1)
+	def log(*a,**kw):
+		if verbose > 0:
+			print(*a,**kw)
+	if isinstance(a[0],str):
+		a = ([a[0]],) + a[1:]
+
+	cmd = " ".join(a[0])
+	log('[LSC,cmd]',end='')
+	log(cmd)
+	log('[LSC,bstart]')
+	cp = subprocess.run(cmd, shell=True, executable="bash",capture_output=True)
+	ret = cp.returncode
+	# ret = os.system(cmd)
+	log('[LSC,bend]')
+		# ')returned %d'%ret)
+	log('[LSC,bend]returned %d'%ret)
+	if ret != 0:
+		err = f"[command] below returned {ret:d}:\n {cmd!s}\n"
+		sys.stderr.write(err); sys.exit(ret)
+		# raise RuntimeError(err)
+	return cp.stdout
+
 LSC = LoggedShellCommand
+
 
 
 

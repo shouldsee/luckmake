@@ -7,7 +7,7 @@ from distutils.core import setup
 import os,glob,sys
 config = dict(
 	name='luck',
-	version = '0.0.6',
+	version = '0.0.8',
     packages=['luck'],
 	include_package_data=True,
 	license='MIT',

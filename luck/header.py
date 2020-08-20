@@ -1,9 +1,14 @@
 import future_fstrings
 from attrdict import AttrDict as _AttrDict
 from path import Path
+import graphviz
 
-__version__ = '0.0.6'
+__version__ = '0.0.8'
 PACKAGE_NAME = 'luck'
+
+def require_version(required_version):
+	assert required_version>__version__, f"required a higher verion {required_version} than runtime {__version__}"
+
 
 class RuleNotDefined(Exception):
 	pass

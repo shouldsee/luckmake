@@ -7,3 +7,5 @@ lsc@https://github.com/shouldsee/lsc/tarball/0.0.1
 pytest
 future-fstrings[rewrite]
 attrdict
+jinja2
+graphviz

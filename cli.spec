@@ -8,6 +8,10 @@ import sys
 sys.path.insert(0,'')
 from luck.header import __version__
 
+options = [ ('u', None, 'OPTION'), 
+#('W ignore', None, 'OPTION') 
+]
+
 def get_exe_name(target,src):
   san = lambda x:x.replace('_','-').replace('.','-')
   exe_name = '_'.join([
@@ -20,7 +24,8 @@ def get_exe_name(target,src):
 
 for target, src in [
   ('luck',      'luck/cli.py',), 
-  ('luckmake',    'luck/luck_build_main.py')]:
+  ('luckmake',    'luck/luck_build_main.py')
+  ]:
   exe_name = get_exe_name(target,src)
   a = Analysis([src],
                pathex=['/data/local/repos/luck'],
@@ -34,7 +39,11 @@ for target, src in [
                 'luck.defer',
                 'luck.pattern',
                 'luck.rule_stamp',
+#                'luck.graph',
                 'future_fstrings',
+                ### jinja2 for templating
+                'jinja2',
+                'pkg_resources.py2_warn'
                 ],
                hookspath=[],
                runtime_hooks=[],
@@ -52,7 +61,7 @@ for target, src in [
             a.binaries,
             a.zipfiles,
             a.datas,
-            [],
+            options = options,
             name=exe_name,
             debug=False,
             bootloader_ignore_signals=False,

@@ -1,8 +1,8 @@
 - - __version__
-  - 0.0.6
+  - 0.0.8
 - - __class__.__name__
   - TimeSizeStampRule
 - - to_ident
   - - luck/pattern.py
-    - 1589183069.1627464
+    - 1592274261.608575
     - 3440

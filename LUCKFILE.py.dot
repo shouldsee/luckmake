@@ -1,0 +1,5575 @@
+strict digraph G {
+	rankdir=RL
+	all [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="all">
+              <FONT COLOR="black"><U>all</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">NoCacheRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	build -> all
+	install -> all
+	build [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="build">
+              <FONT COLOR="blue"><U>build</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">NoCacheRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"bin/luckmake" -> build
+	"bin/luck" -> build
+	install [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="install">
+              <FONT COLOR="black"><U>install</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">NoCacheRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	build -> install
+	"luck/luck_build.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build.py">
+              <FONT COLOR="blue"><U>luck/luck_build.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">33</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shorts.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shorts.py">
+              <FONT COLOR="blue"><U>luck/shorts.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">437</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/graph.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/graph.py">
+              <FONT COLOR="blue"><U>luck/graph.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2882</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/__init__.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/__init__.py">
+              <FONT COLOR="blue"><U>luck/__init__.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/header.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/header.py">
+              <FONT COLOR="blue"><U>luck/header.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">1177</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/types.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/types.py">
+              <FONT COLOR="blue"><U>luck/types.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">386</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/cli.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/cli.py">
+              <FONT COLOR="blue"><U>luck/cli.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">6413</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/is_pydict_ordered.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/is_pydict_ordered.py">
+              <FONT COLOR="blue"><U>luck/is_pydict_ordered.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">240</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/show_call_scope.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/show_call_scope.py">
+              <FONT COLOR="blue"><U>luck/show_call_scope.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">365</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/_types_v1.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/_types_v1.py">
+              <FONT COLOR="blue"><U>luck/_types_v1.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3657</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build_main.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build_main.py">
+              <FONT COLOR="blue"><U>luck/luck_build_main.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">93</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shell.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shell.py">
+              <FONT COLOR="blue"><U>luck/shell.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2718</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/pattern.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/pattern.py">
+              <FONT COLOR="blue"><U>luck/pattern.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3440</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/defer.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/defer.py">
+              <FONT COLOR="blue"><U>luck/defer.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">7566</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/rule_stamp.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/rule_stamp.py">
+              <FONT COLOR="blue"><U>luck/rule_stamp.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3043</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build.py">
+              <FONT COLOR="blue"><U>luck/luck_build.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">33</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shorts.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shorts.py">
+              <FONT COLOR="blue"><U>luck/shorts.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">437</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/graph.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/graph.py">
+              <FONT COLOR="blue"><U>luck/graph.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2882</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/__init__.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/__init__.py">
+              <FONT COLOR="blue"><U>luck/__init__.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/header.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/header.py">
+              <FONT COLOR="blue"><U>luck/header.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">1177</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/types.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/types.py">
+              <FONT COLOR="blue"><U>luck/types.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">386</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/cli.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/cli.py">
+              <FONT COLOR="blue"><U>luck/cli.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">6413</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/is_pydict_ordered.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/is_pydict_ordered.py">
+              <FONT COLOR="blue"><U>luck/is_pydict_ordered.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">240</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/show_call_scope.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/show_call_scope.py">
+              <FONT COLOR="blue"><U>luck/show_call_scope.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">365</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/_types_v1.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/_types_v1.py">
+              <FONT COLOR="blue"><U>luck/_types_v1.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3657</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build_main.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build_main.py">
+              <FONT COLOR="blue"><U>luck/luck_build_main.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">93</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shell.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shell.py">
+              <FONT COLOR="blue"><U>luck/shell.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2718</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/pattern.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/pattern.py">
+              <FONT COLOR="blue"><U>luck/pattern.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3440</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/defer.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/defer.py">
+              <FONT COLOR="blue"><U>luck/defer.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">7566</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/rule_stamp.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/rule_stamp.py">
+              <FONT COLOR="blue"><U>luck/rule_stamp.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3043</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build.py">
+              <FONT COLOR="blue"><U>luck/luck_build.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">33</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shorts.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shorts.py">
+              <FONT COLOR="blue"><U>luck/shorts.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">437</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/graph.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/graph.py">
+              <FONT COLOR="blue"><U>luck/graph.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2882</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/__init__.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/__init__.py">
+              <FONT COLOR="blue"><U>luck/__init__.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/header.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/header.py">
+              <FONT COLOR="blue"><U>luck/header.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">1177</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/types.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/types.py">
+              <FONT COLOR="blue"><U>luck/types.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">386</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/cli.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/cli.py">
+              <FONT COLOR="blue"><U>luck/cli.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">6413</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/is_pydict_ordered.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/is_pydict_ordered.py">
+              <FONT COLOR="blue"><U>luck/is_pydict_ordered.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">240</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/show_call_scope.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/show_call_scope.py">
+              <FONT COLOR="blue"><U>luck/show_call_scope.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">365</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/_types_v1.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/_types_v1.py">
+              <FONT COLOR="blue"><U>luck/_types_v1.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3657</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build_main.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build_main.py">
+              <FONT COLOR="blue"><U>luck/luck_build_main.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">93</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shell.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shell.py">
+              <FONT COLOR="blue"><U>luck/shell.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2718</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/pattern.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/pattern.py">
+              <FONT COLOR="blue"><U>luck/pattern.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3440</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/defer.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/defer.py">
+              <FONT COLOR="blue"><U>luck/defer.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">7566</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/rule_stamp.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/rule_stamp.py">
+              <FONT COLOR="blue"><U>luck/rule_stamp.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3043</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build.py">
+              <FONT COLOR="blue"><U>luck/luck_build.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">33</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shorts.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shorts.py">
+              <FONT COLOR="blue"><U>luck/shorts.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">437</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/graph.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/graph.py">
+              <FONT COLOR="blue"><U>luck/graph.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2882</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/__init__.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/__init__.py">
+              <FONT COLOR="blue"><U>luck/__init__.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/header.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/header.py">
+              <FONT COLOR="blue"><U>luck/header.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">1177</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/types.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/types.py">
+              <FONT COLOR="blue"><U>luck/types.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">386</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/cli.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/cli.py">
+              <FONT COLOR="blue"><U>luck/cli.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">6413</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/is_pydict_ordered.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/is_pydict_ordered.py">
+              <FONT COLOR="blue"><U>luck/is_pydict_ordered.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">240</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/show_call_scope.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/show_call_scope.py">
+              <FONT COLOR="blue"><U>luck/show_call_scope.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">365</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/_types_v1.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/_types_v1.py">
+              <FONT COLOR="blue"><U>luck/_types_v1.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3657</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build_main.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build_main.py">
+              <FONT COLOR="blue"><U>luck/luck_build_main.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">93</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shell.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shell.py">
+              <FONT COLOR="blue"><U>luck/shell.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2718</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/pattern.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/pattern.py">
+              <FONT COLOR="blue"><U>luck/pattern.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3440</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/defer.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/defer.py">
+              <FONT COLOR="blue"><U>luck/defer.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">7566</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/rule_stamp.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/rule_stamp.py">
+              <FONT COLOR="blue"><U>luck/rule_stamp.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3043</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build.py">
+              <FONT COLOR="blue"><U>luck/luck_build.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">33</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shorts.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shorts.py">
+              <FONT COLOR="blue"><U>luck/shorts.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">437</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/graph.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/graph.py">
+              <FONT COLOR="blue"><U>luck/graph.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2882</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/__init__.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/__init__.py">
+              <FONT COLOR="blue"><U>luck/__init__.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/header.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/header.py">
+              <FONT COLOR="blue"><U>luck/header.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">1177</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/types.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/types.py">
+              <FONT COLOR="blue"><U>luck/types.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">386</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/cli.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/cli.py">
+              <FONT COLOR="blue"><U>luck/cli.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">6413</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/is_pydict_ordered.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/is_pydict_ordered.py">
+              <FONT COLOR="blue"><U>luck/is_pydict_ordered.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">240</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/show_call_scope.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/show_call_scope.py">
+              <FONT COLOR="blue"><U>luck/show_call_scope.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">365</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/_types_v1.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/_types_v1.py">
+              <FONT COLOR="blue"><U>luck/_types_v1.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3657</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build_main.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build_main.py">
+              <FONT COLOR="blue"><U>luck/luck_build_main.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">93</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shell.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shell.py">
+              <FONT COLOR="blue"><U>luck/shell.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2718</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/pattern.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/pattern.py">
+              <FONT COLOR="blue"><U>luck/pattern.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3440</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/defer.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/defer.py">
+              <FONT COLOR="blue"><U>luck/defer.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">7566</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/rule_stamp.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/rule_stamp.py">
+              <FONT COLOR="blue"><U>luck/rule_stamp.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3043</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/types.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/types.py">
+              <FONT COLOR="blue"><U>luck/types.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">386</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build.py">
+              <FONT COLOR="blue"><U>luck/luck_build.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">33</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shorts.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shorts.py">
+              <FONT COLOR="blue"><U>luck/shorts.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">437</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/graph.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/graph.py">
+              <FONT COLOR="blue"><U>luck/graph.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2882</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/__init__.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/__init__.py">
+              <FONT COLOR="blue"><U>luck/__init__.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/header.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/header.py">
+              <FONT COLOR="blue"><U>luck/header.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">1177</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/types.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/types.py">
+              <FONT COLOR="blue"><U>luck/types.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">386</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/cli.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/cli.py">
+              <FONT COLOR="blue"><U>luck/cli.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">6413</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/is_pydict_ordered.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/is_pydict_ordered.py">
+              <FONT COLOR="blue"><U>luck/is_pydict_ordered.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">240</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/show_call_scope.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/show_call_scope.py">
+              <FONT COLOR="blue"><U>luck/show_call_scope.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">365</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/_types_v1.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/_types_v1.py">
+              <FONT COLOR="blue"><U>luck/_types_v1.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3657</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build_main.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build_main.py">
+              <FONT COLOR="blue"><U>luck/luck_build_main.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">93</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shell.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shell.py">
+              <FONT COLOR="blue"><U>luck/shell.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2718</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/pattern.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/pattern.py">
+              <FONT COLOR="blue"><U>luck/pattern.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3440</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/defer.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/defer.py">
+              <FONT COLOR="blue"><U>luck/defer.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">7566</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/rule_stamp.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/rule_stamp.py">
+              <FONT COLOR="blue"><U>luck/rule_stamp.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3043</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build.py">
+              <FONT COLOR="blue"><U>luck/luck_build.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">33</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shorts.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shorts.py">
+              <FONT COLOR="blue"><U>luck/shorts.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">437</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/graph.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/graph.py">
+              <FONT COLOR="blue"><U>luck/graph.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2882</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/__init__.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/__init__.py">
+              <FONT COLOR="blue"><U>luck/__init__.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/header.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/header.py">
+              <FONT COLOR="blue"><U>luck/header.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">1177</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/types.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/types.py">
+              <FONT COLOR="blue"><U>luck/types.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">386</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/cli.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/cli.py">
+              <FONT COLOR="blue"><U>luck/cli.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">6413</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/is_pydict_ordered.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/is_pydict_ordered.py">
+              <FONT COLOR="blue"><U>luck/is_pydict_ordered.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">240</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/show_call_scope.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/show_call_scope.py">
+              <FONT COLOR="blue"><U>luck/show_call_scope.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">365</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/_types_v1.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/_types_v1.py">
+              <FONT COLOR="blue"><U>luck/_types_v1.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3657</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build_main.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build_main.py">
+              <FONT COLOR="blue"><U>luck/luck_build_main.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">93</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shell.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shell.py">
+              <FONT COLOR="blue"><U>luck/shell.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2718</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/pattern.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/pattern.py">
+              <FONT COLOR="blue"><U>luck/pattern.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3440</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/defer.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/defer.py">
+              <FONT COLOR="blue"><U>luck/defer.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">7566</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/rule_stamp.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/rule_stamp.py">
+              <FONT COLOR="blue"><U>luck/rule_stamp.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3043</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build.py">
+              <FONT COLOR="blue"><U>luck/luck_build.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">33</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shorts.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shorts.py">
+              <FONT COLOR="blue"><U>luck/shorts.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">437</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/graph.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/graph.py">
+              <FONT COLOR="blue"><U>luck/graph.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2882</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/__init__.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/__init__.py">
+              <FONT COLOR="blue"><U>luck/__init__.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/header.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/header.py">
+              <FONT COLOR="blue"><U>luck/header.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">1177</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/types.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/types.py">
+              <FONT COLOR="blue"><U>luck/types.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">386</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/cli.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/cli.py">
+              <FONT COLOR="blue"><U>luck/cli.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">6413</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/is_pydict_ordered.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/is_pydict_ordered.py">
+              <FONT COLOR="blue"><U>luck/is_pydict_ordered.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">240</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/show_call_scope.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/show_call_scope.py">
+              <FONT COLOR="blue"><U>luck/show_call_scope.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">365</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/_types_v1.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/_types_v1.py">
+              <FONT COLOR="blue"><U>luck/_types_v1.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3657</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build_main.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build_main.py">
+              <FONT COLOR="blue"><U>luck/luck_build_main.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">93</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shell.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shell.py">
+              <FONT COLOR="blue"><U>luck/shell.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2718</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/pattern.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/pattern.py">
+              <FONT COLOR="blue"><U>luck/pattern.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3440</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/defer.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/defer.py">
+              <FONT COLOR="blue"><U>luck/defer.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">7566</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/rule_stamp.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/rule_stamp.py">
+              <FONT COLOR="blue"><U>luck/rule_stamp.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3043</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build.py">
+              <FONT COLOR="blue"><U>luck/luck_build.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">33</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shorts.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shorts.py">
+              <FONT COLOR="blue"><U>luck/shorts.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">437</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/graph.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/graph.py">
+              <FONT COLOR="blue"><U>luck/graph.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2882</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/__init__.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/__init__.py">
+              <FONT COLOR="blue"><U>luck/__init__.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/header.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/header.py">
+              <FONT COLOR="blue"><U>luck/header.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">1177</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/types.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/types.py">
+              <FONT COLOR="blue"><U>luck/types.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">386</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/cli.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/cli.py">
+              <FONT COLOR="blue"><U>luck/cli.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">6413</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/is_pydict_ordered.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/is_pydict_ordered.py">
+              <FONT COLOR="blue"><U>luck/is_pydict_ordered.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">240</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/show_call_scope.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/show_call_scope.py">
+              <FONT COLOR="blue"><U>luck/show_call_scope.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">365</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/_types_v1.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/_types_v1.py">
+              <FONT COLOR="blue"><U>luck/_types_v1.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3657</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build_main.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build_main.py">
+              <FONT COLOR="blue"><U>luck/luck_build_main.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">93</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shell.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shell.py">
+              <FONT COLOR="blue"><U>luck/shell.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2718</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/pattern.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/pattern.py">
+              <FONT COLOR="blue"><U>luck/pattern.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3440</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/defer.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/defer.py">
+              <FONT COLOR="blue"><U>luck/defer.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">7566</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/rule_stamp.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/rule_stamp.py">
+              <FONT COLOR="blue"><U>luck/rule_stamp.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3043</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build.py">
+              <FONT COLOR="blue"><U>luck/luck_build.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">33</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shorts.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shorts.py">
+              <FONT COLOR="blue"><U>luck/shorts.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">437</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/graph.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/graph.py">
+              <FONT COLOR="blue"><U>luck/graph.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2882</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/__init__.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/__init__.py">
+              <FONT COLOR="blue"><U>luck/__init__.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/header.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/header.py">
+              <FONT COLOR="blue"><U>luck/header.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">1177</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/types.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/types.py">
+              <FONT COLOR="blue"><U>luck/types.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">386</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/cli.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/cli.py">
+              <FONT COLOR="blue"><U>luck/cli.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">6413</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/is_pydict_ordered.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/is_pydict_ordered.py">
+              <FONT COLOR="blue"><U>luck/is_pydict_ordered.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">240</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/show_call_scope.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/show_call_scope.py">
+              <FONT COLOR="blue"><U>luck/show_call_scope.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">365</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/_types_v1.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/_types_v1.py">
+              <FONT COLOR="blue"><U>luck/_types_v1.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3657</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build_main.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build_main.py">
+              <FONT COLOR="blue"><U>luck/luck_build_main.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">93</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shell.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shell.py">
+              <FONT COLOR="blue"><U>luck/shell.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2718</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/pattern.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/pattern.py">
+              <FONT COLOR="blue"><U>luck/pattern.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3440</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/defer.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/defer.py">
+              <FONT COLOR="blue"><U>luck/defer.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">7566</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/rule_stamp.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/rule_stamp.py">
+              <FONT COLOR="blue"><U>luck/rule_stamp.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3043</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build.py">
+              <FONT COLOR="blue"><U>luck/luck_build.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">33</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shorts.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shorts.py">
+              <FONT COLOR="blue"><U>luck/shorts.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">437</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/graph.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/graph.py">
+              <FONT COLOR="blue"><U>luck/graph.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2882</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/__init__.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/__init__.py">
+              <FONT COLOR="blue"><U>luck/__init__.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/header.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/header.py">
+              <FONT COLOR="blue"><U>luck/header.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">1177</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/types.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/types.py">
+              <FONT COLOR="blue"><U>luck/types.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">386</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/cli.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/cli.py">
+              <FONT COLOR="blue"><U>luck/cli.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">6413</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/is_pydict_ordered.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/is_pydict_ordered.py">
+              <FONT COLOR="blue"><U>luck/is_pydict_ordered.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">240</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/show_call_scope.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/show_call_scope.py">
+              <FONT COLOR="blue"><U>luck/show_call_scope.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">365</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/_types_v1.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/_types_v1.py">
+              <FONT COLOR="blue"><U>luck/_types_v1.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3657</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build_main.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build_main.py">
+              <FONT COLOR="blue"><U>luck/luck_build_main.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">93</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shell.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shell.py">
+              <FONT COLOR="blue"><U>luck/shell.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2718</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/pattern.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/pattern.py">
+              <FONT COLOR="blue"><U>luck/pattern.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3440</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/defer.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/defer.py">
+              <FONT COLOR="blue"><U>luck/defer.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">7566</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/rule_stamp.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/rule_stamp.py">
+              <FONT COLOR="blue"><U>luck/rule_stamp.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3043</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build.py">
+              <FONT COLOR="blue"><U>luck/luck_build.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">33</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shorts.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shorts.py">
+              <FONT COLOR="blue"><U>luck/shorts.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">437</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/graph.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/graph.py">
+              <FONT COLOR="blue"><U>luck/graph.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2882</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/__init__.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/__init__.py">
+              <FONT COLOR="blue"><U>luck/__init__.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/header.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/header.py">
+              <FONT COLOR="blue"><U>luck/header.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">1177</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/types.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/types.py">
+              <FONT COLOR="blue"><U>luck/types.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">386</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/cli.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/cli.py">
+              <FONT COLOR="blue"><U>luck/cli.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">6413</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/is_pydict_ordered.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/is_pydict_ordered.py">
+              <FONT COLOR="blue"><U>luck/is_pydict_ordered.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">240</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/show_call_scope.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/show_call_scope.py">
+              <FONT COLOR="blue"><U>luck/show_call_scope.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">365</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/_types_v1.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/_types_v1.py">
+              <FONT COLOR="blue"><U>luck/_types_v1.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3657</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build_main.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build_main.py">
+              <FONT COLOR="blue"><U>luck/luck_build_main.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">93</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shell.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shell.py">
+              <FONT COLOR="blue"><U>luck/shell.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2718</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/pattern.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/pattern.py">
+              <FONT COLOR="blue"><U>luck/pattern.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3440</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/defer.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/defer.py">
+              <FONT COLOR="blue"><U>luck/defer.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">7566</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/rule_stamp.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/rule_stamp.py">
+              <FONT COLOR="blue"><U>luck/rule_stamp.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3043</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build.py">
+              <FONT COLOR="blue"><U>luck/luck_build.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">33</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shorts.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shorts.py">
+              <FONT COLOR="blue"><U>luck/shorts.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">437</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/graph.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/graph.py">
+              <FONT COLOR="blue"><U>luck/graph.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2882</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/__init__.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/__init__.py">
+              <FONT COLOR="blue"><U>luck/__init__.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/header.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/header.py">
+              <FONT COLOR="blue"><U>luck/header.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">1177</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/types.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/types.py">
+              <FONT COLOR="blue"><U>luck/types.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">386</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/cli.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/cli.py">
+              <FONT COLOR="blue"><U>luck/cli.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">6413</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/is_pydict_ordered.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/is_pydict_ordered.py">
+              <FONT COLOR="blue"><U>luck/is_pydict_ordered.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">240</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/show_call_scope.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/show_call_scope.py">
+              <FONT COLOR="blue"><U>luck/show_call_scope.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">365</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/_types_v1.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/_types_v1.py">
+              <FONT COLOR="blue"><U>luck/_types_v1.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3657</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build_main.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build_main.py">
+              <FONT COLOR="blue"><U>luck/luck_build_main.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">93</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shell.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shell.py">
+              <FONT COLOR="blue"><U>luck/shell.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2718</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/pattern.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/pattern.py">
+              <FONT COLOR="blue"><U>luck/pattern.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3440</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/defer.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/defer.py">
+              <FONT COLOR="blue"><U>luck/defer.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">7566</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/rule_stamp.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/rule_stamp.py">
+              <FONT COLOR="blue"><U>luck/rule_stamp.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3043</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build.py">
+              <FONT COLOR="blue"><U>luck/luck_build.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">33</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shorts.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shorts.py">
+              <FONT COLOR="blue"><U>luck/shorts.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">437</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/graph.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/graph.py">
+              <FONT COLOR="blue"><U>luck/graph.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2882</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/__init__.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/__init__.py">
+              <FONT COLOR="blue"><U>luck/__init__.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/header.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/header.py">
+              <FONT COLOR="blue"><U>luck/header.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">1177</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/types.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/types.py">
+              <FONT COLOR="blue"><U>luck/types.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">386</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/cli.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/cli.py">
+              <FONT COLOR="blue"><U>luck/cli.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">6413</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/is_pydict_ordered.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/is_pydict_ordered.py">
+              <FONT COLOR="blue"><U>luck/is_pydict_ordered.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">240</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/show_call_scope.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/show_call_scope.py">
+              <FONT COLOR="blue"><U>luck/show_call_scope.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">365</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/_types_v1.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/_types_v1.py">
+              <FONT COLOR="blue"><U>luck/_types_v1.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3657</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build_main.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/luck_build_main.py">
+              <FONT COLOR="blue"><U>luck/luck_build_main.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">93</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/shell.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/shell.py">
+              <FONT COLOR="blue"><U>luck/shell.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2718</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/pattern.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/pattern.py">
+              <FONT COLOR="blue"><U>luck/pattern.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3440</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/defer.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/defer.py">
+              <FONT COLOR="blue"><U>luck/defer.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">7566</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/rule_stamp.py" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="luck/rule_stamp.py">
+              <FONT COLOR="blue"><U>luck/rule_stamp.py</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">3043</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	foo [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="foo">
+              <FONT COLOR="black"><U>foo</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build.py" -> foo
+	"luck/shorts.py" -> foo
+	"luck/graph.py" -> foo
+	"luck/__init__.py" -> foo
+	"luck/header.py" -> foo
+	"luck/types.py" -> foo
+	"luck/cli.py" -> foo
+	"luck/is_pydict_ordered.py" -> foo
+	"luck/show_call_scope.py" -> foo
+	"luck/_types_v1.py" -> foo
+	"luck/luck_build_main.py" -> foo
+	"luck/shell.py" -> foo
+	"luck/pattern.py" -> foo
+	"luck/defer.py" -> foo
+	"luck/rule_stamp.py" -> foo
+	"cli.spec" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="cli.spec">
+              <FONT COLOR="blue"><U>cli.spec</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">2093</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"bin/luckmake" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="bin/luckmake">
+              <FONT COLOR="blue"><U>bin/luckmake</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">9825384</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build.py" -> "bin/luckmake"
+	"luck/shorts.py" -> "bin/luckmake"
+	"luck/graph.py" -> "bin/luckmake"
+	"luck/__init__.py" -> "bin/luckmake"
+	"luck/header.py" -> "bin/luckmake"
+	"luck/types.py" -> "bin/luckmake"
+	"luck/cli.py" -> "bin/luckmake"
+	"luck/is_pydict_ordered.py" -> "bin/luckmake"
+	"luck/show_call_scope.py" -> "bin/luckmake"
+	"luck/_types_v1.py" -> "bin/luckmake"
+	"luck/luck_build_main.py" -> "bin/luckmake"
+	"luck/shell.py" -> "bin/luckmake"
+	"luck/pattern.py" -> "bin/luckmake"
+	"luck/defer.py" -> "bin/luckmake"
+	"luck/rule_stamp.py" -> "bin/luckmake"
+	"cli.spec" -> "bin/luckmake"
+	"bin/luck" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="bin/luck">
+              <FONT COLOR="blue"><U>bin/luck</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">9824864</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build.py" -> "bin/luck"
+	"luck/shorts.py" -> "bin/luck"
+	"luck/graph.py" -> "bin/luck"
+	"luck/__init__.py" -> "bin/luck"
+	"luck/header.py" -> "bin/luck"
+	"luck/types.py" -> "bin/luck"
+	"luck/cli.py" -> "bin/luck"
+	"luck/is_pydict_ordered.py" -> "bin/luck"
+	"luck/show_call_scope.py" -> "bin/luck"
+	"luck/_types_v1.py" -> "bin/luck"
+	"luck/luck_build_main.py" -> "bin/luck"
+	"luck/shell.py" -> "bin/luck"
+	"luck/pattern.py" -> "bin/luck"
+	"luck/defer.py" -> "bin/luck"
+	"luck/rule_stamp.py" -> "bin/luck"
+	"cli.spec" -> "bin/luck"
+	"bin/luckmake" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="bin/luckmake">
+              <FONT COLOR="blue"><U>bin/luckmake</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">9825384</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build.py" -> "bin/luckmake"
+	"luck/shorts.py" -> "bin/luckmake"
+	"luck/graph.py" -> "bin/luckmake"
+	"luck/__init__.py" -> "bin/luckmake"
+	"luck/header.py" -> "bin/luckmake"
+	"luck/types.py" -> "bin/luckmake"
+	"luck/cli.py" -> "bin/luckmake"
+	"luck/is_pydict_ordered.py" -> "bin/luckmake"
+	"luck/show_call_scope.py" -> "bin/luckmake"
+	"luck/_types_v1.py" -> "bin/luckmake"
+	"luck/luck_build_main.py" -> "bin/luckmake"
+	"luck/shell.py" -> "bin/luckmake"
+	"luck/pattern.py" -> "bin/luckmake"
+	"luck/defer.py" -> "bin/luckmake"
+	"luck/rule_stamp.py" -> "bin/luckmake"
+	"cli.spec" -> "bin/luckmake"
+	"bin/luck" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="bin/luck">
+              <FONT COLOR="blue"><U>bin/luck</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">9824864</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build.py" -> "bin/luck"
+	"luck/shorts.py" -> "bin/luck"
+	"luck/graph.py" -> "bin/luck"
+	"luck/__init__.py" -> "bin/luck"
+	"luck/header.py" -> "bin/luck"
+	"luck/types.py" -> "bin/luck"
+	"luck/cli.py" -> "bin/luck"
+	"luck/is_pydict_ordered.py" -> "bin/luck"
+	"luck/show_call_scope.py" -> "bin/luck"
+	"luck/_types_v1.py" -> "bin/luck"
+	"luck/luck_build_main.py" -> "bin/luck"
+	"luck/shell.py" -> "bin/luck"
+	"luck/pattern.py" -> "bin/luck"
+	"luck/defer.py" -> "bin/luck"
+	"luck/rule_stamp.py" -> "bin/luck"
+	"cli.spec" -> "bin/luck"
+	error [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="error">
+              <FONT COLOR="black"><U>error</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">NoCacheRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	pybuild [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="pybuild">
+              <FONT COLOR="black"><U>pybuild</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">NoCacheRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"luck/luck_build.py" -> pybuild
+	"luck/shorts.py" -> pybuild
+	"luck/graph.py" -> pybuild
+	"luck/__init__.py" -> pybuild
+	"luck/header.py" -> pybuild
+	"luck/types.py" -> pybuild
+	"luck/cli.py" -> pybuild
+	"luck/is_pydict_ordered.py" -> pybuild
+	"luck/show_call_scope.py" -> pybuild
+	"luck/_types_v1.py" -> pybuild
+	"luck/luck_build_main.py" -> pybuild
+	"luck/shell.py" -> pybuild
+	"luck/pattern.py" -> pybuild
+	"luck/defer.py" -> pybuild
+	"luck/rule_stamp.py" -> pybuild
+	"example-ece264-hw04.dir" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="example-ece264-hw04.dir">
+              <FONT COLOR="blue"><U>example-ece264-hw04.dir</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">TimeSizeStampRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	time [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="time">
+              <FONT COLOR="black"><U>time</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">NoCacheRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"example-ece264-hw04.dir" -> time
+	pushf [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="pushf">
+              <FONT COLOR="black"><U>pushf</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">NoCacheRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"test.sh" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="test.sh">
+              <FONT COLOR="black"><U>test.sh</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">NoCacheRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	"count-line" [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="count-line">
+              <FONT COLOR="black"><U>count-line</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">NoCacheRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+	clean [label=<       
+        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+         
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filename </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white" HREF="clean">
+              <FONT COLOR="black"><U>clean</U></FONT></TD> 
+          </TR>
+
+
+
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> filesize </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">0</TD>
+          </TR>
+
+          <TR>
+            <TD ALIGN="LEFT" BGCOLOR="lightblue"> ruletype </TD>
+            <TD ALIGN="LEFT" BGCOLOR="white">NoCacheRule</TD>
+          </TR>
+
+        </TABLE>
+    > shape=plaintext]
+}

@@ -31,7 +31,7 @@ patterns[1] = MakefilePattern( '%.pico', '%.c',
 	lambda x: LSC(f'{CC} {CFLAGS} -I. {CPPFLAGS} {EXTRA_CFLAGS_PIC} -c -o {x.outputs[0]} {x.inputs[0]}'))
 
 
-ns = RNS.subclass('MainRuleNameSpace')(ruleFactory=NoCacheRule)
+ns = RNS.subclass('MainRuleNameSpace', ruleFactory=NoCacheRule)()
 'kstring.o kstring.pico: kstring.c config.h $(htslib_kstring_h)'
 
 ns['kstring.o kstring.pico'] = (f'kstring.c config.h',  AutoCmd(patterns))

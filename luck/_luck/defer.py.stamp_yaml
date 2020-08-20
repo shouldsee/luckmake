@@ -1,8 +1,8 @@
 - - __version__
-  - 0.0.6
+  - 0.0.8
 - - __class__.__name__
   - TimeSizeStampRule
 - - to_ident
   - - luck/defer.py
-    - 1589183069.1667466
-    - 7310
+    - 1597935401.8723722
+    - 7947
