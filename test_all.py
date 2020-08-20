@@ -59,9 +59,10 @@ def test_ece264_example():
 
 
 def test_defer_rulenamespace_setitem():
-	from luck.defer import RuleNameSpace as RNS
+	from luck.shorts import RNS, TRNS
 	from luck.types import NoCacheRule
-	ns = RNS()
+	ns = TRNS()
+	# ns = RNS.subclass(module_file="__test__")()
 	ns['clean'] = (None, 
 		lambda c: LSC('''
 			rm -f hw04 *.o *.ident_yaml output??

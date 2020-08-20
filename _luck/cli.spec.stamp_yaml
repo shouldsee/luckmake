@@ -1,8 +1,8 @@
 - - __version__
-  - 0.0.7
+  - 0.0.8
 - - __class__.__name__
   - TimeSizeStampRule
 - - to_ident
-  - - example-ece264-hw04.dir
-    - 0
-    - 0
+  - - cli.spec
+    - 1597928305.0742283
+    - 2093

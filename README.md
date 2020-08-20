@@ -20,6 +20,7 @@ further below
 - Makefile-like syntax and laziness
 - Supports arbitrary python3.7 statements
 - Transparent source code with minimal presets defined as importable classes.
+- Simple DAG plotting `luck graph`
 - [TBC] Optional Static DAG specification instead of Runtime DAG construction
 - [TBC] integration with pytest?
 
